@@ -4,6 +4,8 @@ This repo contains all of the configuration and documentation of my homelab.
 
 I began working on this 2023-12-25.
 
+Most of the homelab work is documented on my [YouTube channel](https://www.youtube.com/channel/UCDAck-gFPTrgTx_qp59-bQA)
+
 ## Tooling
 
 * k3s
@@ -35,6 +37,15 @@ By using k3s I'm commiting to a certain way of configuring the cluster and a set
 At this point it is more important to me to keep things light and fun, and to learn more about deploying and managing a cluster, not necessarily the privisioning of the clusters.
 
 # Log
+
+
+# 2023-12-26
+
+* installed prometheus stack
+* tried out Flux in Azure
+* made decision to use Flux on homelab
+* studied Flux and learned how it works
+
 
 ## 2023-12-25
 
