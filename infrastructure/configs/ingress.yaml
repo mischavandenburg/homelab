@@ -1,19 +1,19 @@
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: grafana-ingress
-  namespace: monitoring
-
-spec:
-  rules:
-    - host: "grafana.homelab.nl"
-      http:
-        paths:
-          - path: "/"
-            pathType: Prefix
-            backend:
-              service:
-                name: prometheus-stack-grafana
-                port:
-                  number: 80
+# ---
+# apiVersion: networking.k8s.io/v1
+# kind: Ingress
+# metadata:
+#   name: grafana-ingress
+#   namespace: monitoring
+#
+# spec:
+#   rules:
+#     - host: "grafana.homelab.nl"
+#       http:
+#         paths:
+#           - path: "/"
+#             pathType: Prefix
+#             backend:
+#               service:
+#                 name: prometheus-stack-grafana
+#                 port:
+#                   number: 80

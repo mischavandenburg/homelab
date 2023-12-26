@@ -30,11 +30,10 @@ spec:
         name: kube-prometheus-stack
         namespace: monitoring
       interval: 12h
-  # values:
-  # not adding values for now, these are example nginx values
-  #   controller:
-  #     service:
-  #       type: "NodePort"
-  #   admissionWebhooks:
-  #     enabled: false
-
+  values:
+    grafana:
+      ingress:
+        enabled: true
+        ingressClassName: traefik
+        hosts:
+          - grafana.homelab.nl
