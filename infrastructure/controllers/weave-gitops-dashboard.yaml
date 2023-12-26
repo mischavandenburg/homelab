@@ -57,7 +57,6 @@ spec:
     ingress:
       enabled: true
       className: traefik
-      hosts:
-        - weave.homelab.nl
+      hosts: weave.homelab.nl
     metrics:
       enabled: true
