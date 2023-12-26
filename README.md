@@ -24,7 +24,7 @@ Most of the homelab work is documented on my [YouTube channel](https://www.youtu
 
 * [] Use UFW on all servers
 * [] Look into prometheus data source basic auth
-* [] 
+* [] look into Flagger
 * [] 
 * [] 
 
