@@ -21,10 +21,18 @@ I began working on this 2023-12-25.
 ## TODO
 
 * [] Use UFW on all servers
+* [] Look into prometheus data source basic auth
 * [] 
 * [] 
 * [] 
-* [] 
+
+## Decisions
+
+### Using k3s
+
+By using k3s I'm commiting to a certain way of configuring the cluster and a set of resources that come with it. In my day job I mostly use Azure Kubernetes Service, so I am fine with not deepening my knowledge of running on-prem Kubernetes at this point in my journey. There is so much more involved with provisioning clusters with kubeadm which will slow me down to get up and running with my homelab.
+
+At this point it is more important to me to keep things light and fun, and to learn more about deploying and managing a cluster, not necessarily the privisioning of the clusters.
 
 # Log
 
