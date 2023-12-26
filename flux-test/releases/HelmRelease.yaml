@@ -10,4 +10,4 @@ spec:
   releaseName: static-quote
   chart:
     spec:
-      chart: ./helm
+      chart: ./flux-test/helm
