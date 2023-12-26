@@ -54,3 +54,10 @@ spec:
       create: true
       passwordHash: $2a$10$Fs82dgIPOUG21rM.1w6TN.kgBSJ4aNEKGLaVbnJ5VZ66sahN1PuiK
       username: admin
+    ingress:
+      enabled: true
+      className: traefik
+      hosts:
+        - weave.homelab.nl
+    metrics:
+      enabled: true
