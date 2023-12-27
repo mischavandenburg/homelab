@@ -58,7 +58,7 @@ spec:
       enabled: true
       className: traefik
       hosts:
-        - host: weave.homelab.nl
+        - host: weave.jotunheim-it.nl
           paths:
             - path: /
               pathType: ImplementationSpecific
