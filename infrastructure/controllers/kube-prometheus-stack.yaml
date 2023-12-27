@@ -36,7 +36,7 @@ spec:
         enabled: true
         ingressClassName: traefik
         hosts:
-          - grafana.homelab.nl
+          - grafana.mischavandenburg.nl
       persistence:
         enabled: true
         type: pvc
