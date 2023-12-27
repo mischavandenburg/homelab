@@ -8,7 +8,13 @@ Most of the homelab work is documented on my [YouTube channel](https://www.youtu
 
 ## Tooling
 
-* k3s
+* Ubuntu server
+* k3s for creating the clusters
+* flux
+
+## Hardware
+
+* control plane: old laptop with 4gb of memory
 
 ## Goals
 
@@ -25,7 +31,7 @@ Most of the homelab work is documented on my [YouTube channel](https://www.youtu
 * [] Use UFW on all servers
 * [] Look into prometheus data source basic auth
 * [] look into Flagger
-* [] 
+* [] deploy cert manager and add tls to grafana and weave ui
 * [] 
 
 ## Decisions
@@ -36,15 +42,29 @@ By using k3s I'm commiting to a certain way of configuring the cluster and a set
 
 At this point it is more important to me to keep things light and fun, and to learn more about deploying and managing a cluster, not necessarily the privisioning of the clusters.
 
-# Log
+### Repo Structure
 
+Decided to fully commit to Flux and their practices.
+
+Set up the repo according to this guide:
+
+https://fluxcd.io/flux/guides/repository-structure/
+
+And following this example:
+
+https://github.com/fluxcd/flux2-kustomize-helm-example
+
+# Log
 
 # 2023-12-26
 
 * installed prometheus stack
 * tried out Flux in Azure
-* made decision to use Flux on homelab
+* committed to using Flux on homelab
 * studied Flux and learned how it works
+* commited to using Flux way of structuring repo
+* configured Weave UI to access Flux
+* configured Grafana and Weave with ingress so they are available on fake local domains: weave. and grafana.homelab.nl
 
 
 ## 2023-12-25
@@ -53,5 +73,3 @@ At this point it is more important to me to keep things light and fun, and to le
 * set up k3s on controlplane
 * added k3s documentation
 * set up repo and added documentation of earlier install
-
-
