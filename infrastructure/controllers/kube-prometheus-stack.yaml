@@ -37,3 +37,10 @@ spec:
         ingressClassName: traefik
         hosts:
           - grafana.homelab.nl
+      persistence:
+        enabled: true
+        type: pvc
+        storageClassName: default
+        accessModes:
+          - ReadWriteOnce
+        size: 4Gi
