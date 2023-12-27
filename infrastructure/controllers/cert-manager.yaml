@@ -18,7 +18,7 @@ kind: HelmRelease
 metadata:
   name: cert-manager
   namespace: cert-manager
-  spec:
+spec:
   interval: 30m
   chart:
     spec:
