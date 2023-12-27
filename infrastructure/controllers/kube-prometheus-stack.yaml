@@ -35,14 +35,14 @@ spec:
       ingress:
         enabled: true
         ingressClassName: traefik
-        annotations:
-          cert-manager.io/cluster-issuer: "letsencrypt-staging"
-        tls:
-          - hosts:
-              - grafana.mischavandenburg.nl
-            secretName: grafana-ingress
+        # annotations:
+        #   cert-manager.io/cluster-issuer: "letsencrypt-staging"
+        # tls:
+        #   - hosts:
+        #       - grafana.mischavandenburg.net
+        #     secretName: grafana-ingress
         hosts:
-          - grafana.mischavandenburg.nl
+          - grafana.mischavandenburg.net
       persistence:
         enabled: true
         type: pvc
