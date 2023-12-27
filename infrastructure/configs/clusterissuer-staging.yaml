@@ -13,6 +13,10 @@ spec:
       name: letsencrypt-staging
     # Enable the HTTP-01 challenge provider
     solvers:
-      - http01:
+      - dns01:
+          cloudflare:
+            apiTokenSecretRef:
+              name: cloudflare-api-token-secret
+              key: api-token
           ingress:
             ingressClassName: traefik
