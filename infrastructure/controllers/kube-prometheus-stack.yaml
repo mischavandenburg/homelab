@@ -30,10 +30,10 @@ spec:
         name: kube-prometheus-stack
         namespace: monitoring
       interval: 12h
-values:
-  grafana:
-    ingress:
-      enabled: true
-      ingressClassName: traefik
-      hosts:
-        - grafana.homelab.nl
+  values:
+    grafana:
+      ingress:
+        enabled: true
+        ingressClassName: traefik
+        hosts:
+          - grafana.homelab.nl
