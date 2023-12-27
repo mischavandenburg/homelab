@@ -3,4 +3,4 @@ kind: Kustomization
 resources:
   - kube-prometheus-stack.yaml
   - weave-gitops-dashboard.yaml
-  - cert-manager.yaml
+  # - cert-manager.yaml
