@@ -40,7 +40,7 @@ spec:
       persistence:
         enabled: true
         type: pvc
-        storageClassName: default
+        storageClassName: local-path
         accessModes:
           - ReadWriteOnce
         size: 4Gi
