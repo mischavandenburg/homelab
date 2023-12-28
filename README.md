@@ -16,7 +16,13 @@ Most of the homelab work is documented on my [YouTube channel](https://www.youtu
 
 * control plane: old laptop with 4gb of memory
 
-## Goals
+## Current Goals
+
+* add more hardware
+* start running a few applications
+* look into exposing an app using a cloudflared tunnel
+
+## Achieved Goals
 
 * Run Prometheus and Grafana stack
 * Have Grafana dashboard available with a URL
