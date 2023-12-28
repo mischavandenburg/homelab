@@ -4,4 +4,4 @@ resources:
   - kube-prometheus-stack.yaml
   - weave-gitops-dashboard.yaml
   - cert-manager.yaml
-  # - csi-secrets-store-provider-azure.yaml
+  - csi-secrets-store-provider-azure.yaml
