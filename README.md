@@ -18,8 +18,10 @@ Most of the homelab work is documented on my [YouTube channel](https://www.youtu
 
 ## Current Goals
 
+* set up a vault solution for secrets
 * add more hardware
 * start running a few applications
+* set up loki
 * look into exposing an app using a cloudflared tunnel
 
 ## Achieved Goals
@@ -32,12 +34,20 @@ Most of the homelab work is documented on my [YouTube channel](https://www.youtu
 * Everything should be deployed using GitOps
   * Try out Flux
 
+## Long Term Goals
+
+* set up security solution to scan cluster and adopt best security practices
+
 ## TODO
 
 * [] Use UFW on all servers
 * [] Look into prometheus data source basic auth
 * [] look into Flagger
-* [] deploy cert manager and add tls to grafana and weave ui
+* [] set up loki
+* [] look into Falco
+* [] 
+* [] 
+* [] 
 * [] 
 
 ## Decisions
