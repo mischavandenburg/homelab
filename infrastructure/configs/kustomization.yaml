@@ -4,3 +4,4 @@ resources:
   - loadbalancer.yaml
   - clusterissuer-staging.yaml
   - clusterissuer-prod.yaml
+  - azure-kv-secrets.yaml
