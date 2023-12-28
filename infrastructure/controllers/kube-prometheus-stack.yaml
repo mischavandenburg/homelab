@@ -40,7 +40,7 @@ spec:
         tls:
           - hosts:
               - grafana.mischavandenburg.net
-            secretName: grafana-ingress
+            secretName: grafana-ingress-prod
         hosts:
           - grafana.mischavandenburg.net
       persistence:
