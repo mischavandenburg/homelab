@@ -57,8 +57,14 @@ spec:
     ingress:
       enabled: true
       className: traefik
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-staging
+      tls:
+        - hosts:
+            - weave.mischavandenburg.net
+          secretName: weave-ingress-staging
       hosts:
-        - host: weave.mischavandenburg.nl
+        - host: weave.mischavandenburg.net
           paths:
             - path: /
               pathType: ImplementationSpecific
