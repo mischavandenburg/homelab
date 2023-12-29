@@ -16,6 +16,8 @@ spec:
         namespace: monitoring
       interval: 12h
   values:
+    cluster:
+      name: homelab
     externalServices:
       prometheus:
         basicAuth:
