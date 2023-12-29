@@ -18,6 +18,8 @@ spec:
   values:
     cluster:
       name: homelab
+    logs:
+      enabled: false
     externalServices:
       prometheus:
         host: http://192.168.2.16:9090
