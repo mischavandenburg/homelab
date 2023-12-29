@@ -21,5 +21,6 @@ spec:
     externalServices:
       prometheus:
         basicAuth:
+          host: http://192.168.2.16:9090
           username: promdata
           password: promdata
