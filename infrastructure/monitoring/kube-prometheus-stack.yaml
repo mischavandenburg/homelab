@@ -31,21 +31,4 @@ spec:
       interval: 12h
   values:
     grafana:
-      ingress:
-        enabled: true
-        ingressClassName: traefik
-        annotations:
-          cert-manager.io/cluster-issuer: letsencrypt-prod
-        tls:
-          - hosts:
-              - grafana.mischavandenburg.net
-            secretName: grafana-ingress-prod
-        hosts:
-          - grafana.mischavandenburg.net
-      persistence:
-        enabled: true
-        type: pvc
-        storageClassName: local-path
-        accessModes:
-          - ReadWriteOnce
-        size: 4Gi
+      enabled: false
