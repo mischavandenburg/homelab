@@ -16,8 +16,8 @@ spec:
         namespace: monitoring
       interval: 12h
   values:
-  externalServices:
-    prometheus:
-      basicAuth:
-        username: promdata
-        password: promdata
+    externalServices:
+      prometheus:
+        basicAuth:
+          username: promdata
+          password: promdata
