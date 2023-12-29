@@ -34,5 +34,6 @@ spec:
       enabled: false
     prometheus-node-exporter:
       enabled: false
-    service:
-      type: LoadBalancer
+    server:
+      service:
+        type: LoadBalancer
