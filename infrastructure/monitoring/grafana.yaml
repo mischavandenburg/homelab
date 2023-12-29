@@ -37,15 +37,15 @@ spec:
           secretName: grafana-ingress-prod
       hosts:
         - grafana.mischavandenburg.net
-      persistence:
+    persistence:
+      enabled: true
+      type: pvc
+      storageClassName: local-path
+      accessModes:
+        - ReadWriteOnce
+      size: 4Gi
+    sidecar:
+      datasources:
         enabled: true
-        type: pvc
-        storageClassName: local-path
-        accessModes:
-          - ReadWriteOnce
-        size: 4Gi
-      sidecar:
-        datasources:
-          enabled: true
-          label: grafana_datasource
-          labelValue: "1"
+        label: grafana_datasource
+        labelValue: "1"
