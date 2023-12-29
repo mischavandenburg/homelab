@@ -24,7 +24,7 @@ spec:
       enabled: false
     externalServices:
       prometheus:
-        host: http://192.168.2.16:9090
-        basicAuth:
-          username: promdata
-          password: promdata
+        host: prometheus-prometheus-pushgateway.monitoring.svc.cluster.local:9091
+        # basicAuth:
+        #   username: promdata
+        #   password: promdata
