@@ -8,6 +8,23 @@ spec:
   interval: 24h
   url: https://grafana.github.io/helm-charts
 ---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: grafana-datasources
+  labels:
+    grafana_datasource: "true" # default value for: sidecar.datasources.label
+stringData:
+  prometheus.yaml: |-
+    apiVersion: 1
+    datasources:
+      - name: Prometheus
+        type: Prometheus
+        url: http://192.168.2.16:9090
+        user: promdata
+        secureJsonData:
+          password: promdata
+---
 apiVersion: helm.toolkit.fluxcd.io/v2beta2
 kind: HelmRelease
 metadata:
@@ -30,11 +47,11 @@ spec:
       enabled: true
       ingressClassName: traefik
       annotations:
-        cert-manager.io/cluster-issuer: letsencrypt-staging
+        cert-manager.io/cluster-issuer: letsencrypt-prod
       tls:
         - hosts:
             - grafana.mischavandenburg.net
-          secretName: grafana-ingress-staging
+          secretName: grafana-ingress-prod
       hosts:
         - grafana.mischavandenburg.net
       persistence:
