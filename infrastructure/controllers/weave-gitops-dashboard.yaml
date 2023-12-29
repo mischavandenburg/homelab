@@ -58,7 +58,7 @@ spec:
       enabled: true
       className: traefik
       annotations:
-        cert-manager.io/cluster-issuer: letsencrypt-production
+        cert-manager.io/cluster-issuer: letsencrypt-prod
       tls:
         - hosts:
             - weave.mischavandenburg.net
