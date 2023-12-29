@@ -61,3 +61,5 @@ spec:
         accessModes:
           - ReadWriteOnce
         size: 4Gi
+      sidecar:
+        datasources: enabled
