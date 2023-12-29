@@ -92,7 +92,7 @@ spec:
         - name: secrets-store01-inline
           mountPath: /mnt/secrets-store
           readOnly: true
-      admin:
-        existingSecret: grafana-admin-creds
-        userKey: username
-        passwordKey: password
+      # admin:
+      #   existingSecret: grafana-admin-creds
+      #   userKey: username
+      #   passwordKey: password
