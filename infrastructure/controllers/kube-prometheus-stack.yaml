@@ -4,36 +4,6 @@ kind: Namespace
 metadata:
   name: monitoring
 ---
-apiVersion: secrets-store.csi.x-k8s.io/v1
-kind: SecretProviderClass
-metadata:
-  name: azure-kv-secrets
-  namespace: monitoring
-spec:
-  provider: azure
-  parameters:
-    keyvaultName: mischa-homelab-k8s # the name of the KeyVault
-
-    objects: |
-      array:
-        - |
-          objectName: grafana-admin-username
-          objectType: secret
-        - |
-          objectName: grafana-admin-password
-          objectType: secret
-
-    tenantId: 6ddecc48-41b1-48de-bfde-2efd29fae9c7
-
-  secretObjects: # [OPTIONAL] SecretObjects defines the desired state of synced Kubernetes secret objects
-    - data:
-        - key: username # data field to populate
-          objectName: grafana-admin-username # name of the mounted content to sync; this could be the object name or the object alias
-        - key: password # data field to populate
-          objectName: grafana-admin-password # name of the mounted content to sync; this could be the object name or the object alias
-      secretName: grafana-admin-creds # name of the Kubernetes secret object
-      type: Opaque # type of Kubernetes secret object (for example, Opaque, kubernetes.io/tls)
----
 apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: HelmRepository
 metadata:
@@ -79,20 +49,3 @@ spec:
         accessModes:
           - ReadWriteOnce
         size: 4Gi
-      extraVolumes:
-        - name: secrets-store01-inline
-          csi:
-            driver: secrets-store.csi.k8s.io
-            readOnly: true
-            volumeAttributes:
-              secretProviderClass: azure-kv-secrets
-            nodePublishSecretRef: # Only required when using service principal mode
-              name: secrets-store-creds # Only required when using service principal mode. The name of the Kubernetes secret that contains the service principal credentials to access keyvault.
-      extraVolumeMounts:
-        - name: secrets-store01-inline
-          mountPath: /mnt/secrets-store
-          readOnly: true
-      admin:
-        existingSecret: grafana-admin-creds
-        userKey: username
-        passwordKey: password
