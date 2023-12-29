@@ -5,8 +5,8 @@ metadata:
   namespace: monitoring
   labels:
     grafana_datasource: "1" # default value for: sidecar.datasources.label
-stringData:
-  prometheus.yaml: |-
+data:
+  datasource.yaml: |-
     apiVersion: 1
     datasources:
     - name: Prometheus-from-code
