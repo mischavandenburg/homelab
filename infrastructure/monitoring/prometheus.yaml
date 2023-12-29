@@ -37,3 +37,4 @@ spec:
     server:
       service:
         type: LoadBalancer
+        servicePort: 9090
