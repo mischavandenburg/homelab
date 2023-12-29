@@ -25,6 +25,7 @@ spec:
         namespace: monitoring
       interval: 12h
   values:
+    adminPassword: strongpassword
     ingress:
       enabled: true
       ingressClassName: traefik
