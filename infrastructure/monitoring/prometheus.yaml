@@ -38,3 +38,8 @@ spec:
       service:
         type: LoadBalancer
         servicePort: 9090
+    prometheus-pushgateway:
+      service:
+        type: LoadBalancer
+        port: 9091
+        targetPort: 9091

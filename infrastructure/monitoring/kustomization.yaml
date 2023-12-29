@@ -3,4 +3,4 @@ kind: Kustomization
 resources:
   - prometheus.yaml
   - grafana.yaml
-  # - k8s-monitoring.yaml
+  - k8s-monitoring.yaml
