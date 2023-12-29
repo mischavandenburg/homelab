@@ -67,6 +67,7 @@ spec:
         - host: weave.mischavandenburg.net
           paths:
             - path: /
-              pathType: ImplementationSpecific
+              # pathType: ImplementationSpecific
+              pathType: Prefix
     metrics:
       enabled: true
