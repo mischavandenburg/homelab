@@ -15,23 +15,9 @@ spec:
         name: grafana
         namespace: monitoring
       interval: 12h
-  # values:
-  #   adminPassword: strongpassword
-  #   ingress:
-  #     enabled: true
-  #     ingressClassName: traefik
-  #     annotations:
-  #       cert-manager.io/cluster-issuer: letsencrypt-prod
-  #     tls:
-  #       - hosts:
-  #           - grafana.mischavandenburg.net
-  #         secretName: grafana-ingress-prod
-  #     hosts:
-  #       - grafana.mischavandenburg.net
-  #     persistence:
-  #       enabled: true
-  #       type: pvc
-  #       storageClassName: local-path
-  #       accessModes:
-  #         - ReadWriteOnce
-  #       size: 4Gi
+  values:
+  externalServices:
+    prometheus:
+      basicAuth:
+        username: promdata
+        password: promdata
