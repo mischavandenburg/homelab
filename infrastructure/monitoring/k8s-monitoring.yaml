@@ -20,6 +20,8 @@ spec:
       name: homelab
     logs:
       enabled: false
+    prometheus-operator-crds:
+      enabled: false
     externalServices:
       prometheus:
         host: http://192.168.2.16:9090
