@@ -12,7 +12,7 @@ data:
     - name: Prometheus-from-code
       type: prometheus
       uid: prometheus
-      url: http://prometheus-stack-kube-prom-prometheus.monitoring:9090/
+      url: http://kube-prometheus-stack-prometheus.monitoring:9090/
       # access: proxy
       isDefault: true
       jsonData:
