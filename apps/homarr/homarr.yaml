@@ -30,7 +30,7 @@ spec:
         namespace: homarr
       interval: 12h
   values:
-    replicaCount: 2
+    replicaCount: 1
     persistence:
       - name: homarr-config
         # -- Enable homarr-config persistent storage
