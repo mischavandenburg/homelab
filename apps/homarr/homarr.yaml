@@ -38,11 +38,11 @@ spec:
     ingress:
       enabled: true
       className: traefik
-    hosts:
-      - host: home.mischavandenburg.net
-        paths:
-          - path: /
-            pathType: Prefix
+      hosts:
+        - host: home.mischavandenburg.net
+          paths:
+            - path: /
+              pathType: Prefix
     # tls:
     #   - hosts:
     #     - "homarr.homelab.dev"
