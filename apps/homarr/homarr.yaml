@@ -11,8 +11,7 @@ metadata:
   namespace: homarr
 spec:
   interval: 24h
-  type: oci
-  url: oci://ghcr.io/oben01/charts/homarr
+  url: https://oben01.github.io/charts/
 ---
 apiVersion: helm.toolkit.fluxcd.io/v2beta2
 kind: HelmRelease
