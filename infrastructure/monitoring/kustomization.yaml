@@ -4,3 +4,4 @@ resources:
   - kube-prometheus-stack.yaml
   - grafana.yaml
   - loki.yaml
+  - promtail.yaml
