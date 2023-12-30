@@ -8,6 +8,20 @@ spec:
   interval: 24h
   url: https://grafana.github.io/helm-charts
 ---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: grafana-default-dashboards
+  namespace: monitoring
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 100Mi
+  storageClassName: local-path
+  volumeMode: Filesystem
+---
 apiVersion: helm.toolkit.fluxcd.io/v2beta2
 kind: HelmRelease
 metadata:
@@ -64,11 +78,8 @@ spec:
               path: /var/lib/grafana/dashboards/default
               foldersFromFilesStructure: false
     extraVolumeMounts:
-      # This will implicitly create an `emptyDir` volume as well (quite surprising),
-      # so we do not require the value `extraContainerVolumes`.
-      - name: collection
+      - name: grafana-default-dashboards
         mountPath: /var/lib/grafana/dashboards/default
     extraVolumes:
-      - name: collection
-        emptyDir:
-          sizeLimit: 500Mi
+      - name: grafana-default-dashboards
+        existingClaim: grafana-default-dashboards
