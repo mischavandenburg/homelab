@@ -49,3 +49,23 @@ spec:
         enabled: true
         label: grafana_datasource
         labelValue: "1"
+    dashboardProviders:
+      dashboardproviders.yaml:
+        apiVersion: 1
+        providers:
+          - name: default
+            orgId: 1
+            folder: ""
+            type: file
+            disableDeletion: false
+            updateIntervalSeconds: 10 # how often Grafana will scan for changed dashboards
+            allowUiUpdates: true
+            options:
+              path: /var/lib/grafana/dashboards/default
+              foldersFromFilesStructure: false
+    extraVolumeMounts:
+      # This will implicitly create an `emptyDir` volume as well (quite surprising),
+      # so we do not require the value `extraContainerVolumes`.
+      - name: collection
+        mountPath: /var/lib/grafana/dashboards/default
+        readOnly: true
