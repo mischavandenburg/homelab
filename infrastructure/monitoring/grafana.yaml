@@ -69,3 +69,8 @@ spec:
       - name: collection
         mountPath: /var/lib/grafana/dashboards/default
         readOnly: true
+    extraVolumes:
+      volumes:
+        - name: collection
+          emptyDir:
+            sizeLimit: 500Mi
