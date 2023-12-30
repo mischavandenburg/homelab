@@ -68,7 +68,6 @@ spec:
       # so we do not require the value `extraContainerVolumes`.
       - name: collection
         mountPath: /var/lib/grafana/dashboards/default
-        readOnly: true
     extraVolumes:
       - name: collection
         emptyDir:
