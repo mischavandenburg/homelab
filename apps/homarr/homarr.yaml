@@ -30,7 +30,9 @@ spec:
         namespace: homarr
       interval: 12h
   values:
-    persistence:
+    persistence[0]:
+      enabled: true
+    persistence[1]:
       enabled: true
 
     ingress:
