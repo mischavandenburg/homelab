@@ -46,6 +46,8 @@ spec:
     grafana.ini:
       date_formats:
         default_week_start: monday
+      security:
+        allow_embedding: true
 
     ingress:
       enabled: true
