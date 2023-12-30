@@ -30,6 +30,7 @@ spec:
         namespace: homarr
       interval: 12h
   values:
+    replicaCount: 2
     persistence:
       - name: homarr-config
         # -- Enable homarr-config persistent storage
@@ -68,13 +69,14 @@ spec:
     ingress:
       enabled: true
       className: traefik
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-staging
       hosts:
         - host: home.mischavandenburg.net
           paths:
             - path: /
               pathType: Prefix
-    # tls:
-    #   - hosts:
-    #     - "homarr.homelab.dev"
-    #     - "www.homarr.homelab.dev"
-    #     secretName: homelab-tls
+      tls:
+        - hosts:
+            - home.mischavandenburg.net
+          secretName: homarr-ingress-staging
