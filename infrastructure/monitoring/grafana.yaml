@@ -40,6 +40,7 @@ spec:
       interval: 12h
   values:
     adminPassword: strongpassword
+
     ingress:
       enabled: true
       ingressClassName: traefik
@@ -51,6 +52,7 @@ spec:
           secretName: grafana-ingress-prod
       hosts:
         - grafana.mischavandenburg.net
+
     persistence:
       enabled: true
       type: pvc
@@ -58,11 +60,31 @@ spec:
       accessModes:
         - ReadWriteOnce
       size: 4Gi
+
     sidecar:
       datasources:
         enabled: true
         label: grafana_datasource
         labelValue: "1"
+      dashboards:
+        enabled: true
+        label: grafana_dashboard
+        labelValue: "1"
+        # Allow discovery in all namespaces for dashboards
+        searchNamespace: ALL
+
+        ## Annotations for Grafana dashboard configmaps
+        ##
+        annotations: {}
+        multicluster:
+          global:
+            enabled: false
+          etcd:
+            enabled: false
+        provider:
+          allowUiUpdates: false
+
+    # configuration to load default dashboards from persistent volume
     dashboardProviders:
       dashboardproviders.yaml:
         apiVersion: 1
