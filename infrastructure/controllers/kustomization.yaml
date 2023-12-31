@@ -4,3 +4,4 @@ resources:
   - weave-gitops-dashboard.yaml
   - cert-manager.yaml
   - csi-secrets-store-provider-azure.yaml
+  - edb-operator.yaml
