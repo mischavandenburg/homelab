@@ -27,7 +27,7 @@ spec:
     metadata:
       labels:
         app: mealie
-        try: "5"
+        try: "6"
     spec:
       containers:
         - env:
