@@ -4,5 +4,5 @@ resources:
   - secrets.yaml
   - mealie-data-persistentvolumeclaim.yaml
   - mealie-service.yaml
-  # - mealie-deployment.yaml
+  - mealie-deployment.yaml
   - database.yaml
