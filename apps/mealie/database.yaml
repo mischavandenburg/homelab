@@ -35,10 +35,11 @@ spec:
       data:
         compression: gzip
     retentionPolicy: "30d"
-  #
-  # resources:
-  #   requests:
-  #     memory: "512Mi"
+
+  # handy: resources can be used to trigger a redeploy
+  resources:
+    requests:
+      memory: "300Mi"
   #     cpu: "1"
   # limits:
   #   memory: "1Gi"
