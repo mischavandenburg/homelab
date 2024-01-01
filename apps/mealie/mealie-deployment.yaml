@@ -31,21 +31,23 @@ spec:
               value: "1000"
             - name: POSTGRES_DB
               value: mealie
+            - name: POSTGRES_PORT
+              value: "5432"
+            - name: POSTGRES_SERVER
+              value: mealie-postgres-rw
+
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  name: mealie-db-creds
+                  key: username
+
             - name: POSTGRES_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: mealie-db-creds
                   key: password
-            - name: POSTGRES_PORT
-              value: "5432"
-            - name: POSTGRES_SERVER
-              value: mealie-postgres-rw
-            - name: POSTGRES_USER
-              # value: mealie
-              valueFrom:
-                secretKeyRef:
-                  name: mealie-db-creds
-                  key: username
+
             - name: PUID
               value: "1000"
             - name: TZ
