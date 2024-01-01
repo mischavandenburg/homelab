@@ -5,7 +5,7 @@ metadata:
   namespace: mealie
 spec:
   immediate: true
-  schedule: "* */15 * * * *"
+  schedule: "0 */15 * * * *"
   backupOwnerReference: cluster
   cluster:
     name: mealie-postgres
