@@ -24,9 +24,9 @@ spec:
     barmanObjectStore:
       destinationPath: "https://mischahomelabk8sbackups.blob.core.windows.net/mealie"
       azureCredentials:
-        connectionString:
-          name: azure-creds
-          key: mealie-connection-string
+        # connectionString:
+        #   name: azure-creds
+        #   key: mealie-connection-string
         storageAccount:
           name: azure-creds
           key: mealie-storage-account-name
