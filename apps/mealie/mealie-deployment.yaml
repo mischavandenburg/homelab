@@ -15,7 +15,7 @@ spec:
       # creationTimestamp: null
       labels:
         app: mealie
-        try: 1
+        try: "1"
     spec:
       containers:
         - env:
