@@ -34,8 +34,8 @@ spec:
             - name: POSTGRES_PORT
               value: "5432"
             - name: POSTGRES_SERVER
-              value: mealie-postgres-rw
-
+              # value: mealie-postgres-rw
+              value: mealie-postgres-restore-rw
             - name: POSTGRES_USER
               valueFrom:
                 secretKeyRef:
