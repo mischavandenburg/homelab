@@ -1,0 +1,34 @@
+apiVersion: postgresql.k8s.enterprisedb.io/v1
+kind: Cluster
+metadata:
+  name: cluster-restore-mealie
+spec:
+  description: "test recovery mealie db"
+  imageName: quay.io/enterprisedb/postgresql:16.1
+  instances: 3
+
+  storage:
+    storageClass: local-path
+    size: 1Gi
+
+  bootstrap:
+    recovery:
+      source: clusterBackup
+      database: mealie
+      owner: mealie
+      secret:
+        name: mealie-db-creds
+
+  externalClusters:
+    - name: clusterBackup
+      barmanObjectStore:
+      destinationPath: "https://mischahomelabk8sbackups.blob.core.windows.net/mealie"
+      azureCredentials:
+        storageAccount:
+          name: azure-creds
+          key: mealie-storage-account-name
+        storageSasToken:
+          name: azure-creds
+          key: mealie-blob-sas
+        wal:
+          maxParallel: 8
