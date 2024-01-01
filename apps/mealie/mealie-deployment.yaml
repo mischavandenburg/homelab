@@ -2,7 +2,6 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  # creationTimestamp: null
   name: mealie
   namespace: mealie
 spec:
@@ -10,9 +9,10 @@ spec:
   selector:
     matchLabels:
       app: mealie
+  strategy:
+    type: Recreate
   template:
     metadata:
-      # creationTimestamp: null
       labels:
         app: mealie
         try: "1"
@@ -41,11 +41,11 @@ spec:
             - name: POSTGRES_SERVER
               value: mealie-postgres-rw
             - name: POSTGRES_USER
-              value: mealie
-              # valueFrom:
-              #   secretKeyRef:
-              #     name: mealie-db-creds
-              #     key: username
+              # value: mealie
+              valueFrom:
+                secretKeyRef:
+                  name: mealie-db-creds
+                  key: username
             - name: PUID
               value: "1000"
             - name: TZ
