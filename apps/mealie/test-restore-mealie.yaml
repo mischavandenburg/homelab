@@ -17,7 +17,7 @@ spec:
   bootstrap:
     recovery:
       backup:
-        name: mealie-scheduled-backup-20240101172806
+        name: mealie-scheduled-backup-20240101173000
       # source: clusterBackup
       database: mealie
       owner: mealie
