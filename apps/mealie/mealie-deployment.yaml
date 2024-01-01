@@ -43,7 +43,7 @@ spec:
             - name: POSTGRES_PORT
               value: "5432"
             - name: POSTGRES_SERVER
-              value: mealie-postgres-rw
+              value: mealie-postgres-rw.mealie
             - name: POSTGRES_USER
               value: mealie
               # valueFrom:
