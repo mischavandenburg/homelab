@@ -16,9 +16,9 @@ spec:
 
   bootstrap:
     recovery:
-      backup:
-        name: mealie-scheduled-backup-20240101173000
-      # source: clusterBackup
+      source: clusterBackup
+      # backup:
+      #   name: mealie-scheduled-backup-20240101173000
       database: mealie
       owner: mealie
       secret:
@@ -26,17 +26,17 @@ spec:
       # recoveryTarget:
       #   targetImmediate: true
 
-  # externalClusters:
-  #   - name: clusterBackup
-  #     barmanObjectStore:
-  #       destinationPath: "https://mischahomelabk8sbackups.blob.core.windows.net/mealie"
-  #       serverName: mealie-postgres
-  #       azureCredentials:
-  #         storageAccount:
-  #           name: azure-creds
-  #           key: mealie-storage-account-name
-  #         storageSasToken:
-  #           name: azure-creds
-  #           key: mealie-blob-sas
+  externalClusters:
+    - name: clusterBackup
+      barmanObjectStore:
+        destinationPath: "https://mischahomelabk8sbackups.blob.core.windows.net/mealie"
+        serverName: mealie-postgres
+        azureCredentials:
+          storageAccount:
+            name: azure-creds
+            key: mealie-storage-account-name
+          storageSasToken:
+            name: azure-creds
+            key: mealie-blob-sas
   # wal:
   #   maxParallel: 8
