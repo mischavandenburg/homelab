@@ -12,7 +12,7 @@ spec:
     storageClass: local-path
     size: 1Gi
 
-  enableSuperUserAccess: true
+  enableSuperuserAccess: true
 
   bootstrap:
     recovery:
