@@ -6,6 +6,6 @@ metadata:
 spec:
   immediate: true
   schedule: "*/15 * * * *"
-  backupOwnerReference: owner
+  backupOwnerReference: cluster
   cluster:
     name: mealie-postgres
