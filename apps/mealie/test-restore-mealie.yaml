@@ -31,5 +31,5 @@ spec:
           storageSasToken:
             name: azure-creds
             key: mealie-blob-sas
-          wal:
-            maxParallel: 8
+        wal:
+          maxParallel: 8
