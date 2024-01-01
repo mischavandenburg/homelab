@@ -7,4 +7,5 @@ resources:
   - mealie-deployment.yaml
   - database.yaml
   - database-backup.yaml
+  - ingress.yaml
   # - test-restore-mealie.yaml
