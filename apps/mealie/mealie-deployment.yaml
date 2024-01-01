@@ -1,9 +1,4 @@
 ---
-apiVersion: v1
-kind: Namespace
-metadata:
-  name: mealie
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -43,7 +38,7 @@ spec:
             - name: POSTGRES_PORT
               value: "5432"
             - name: POSTGRES_SERVER
-              value: mealie-postgres-rw.mealie
+              value: mealie-postgres-rw
             - name: POSTGRES_USER
               value: mealie
               # valueFrom:
