@@ -23,13 +23,13 @@ spec:
   externalClusters:
     - name: clusterBackup
       barmanObjectStore:
-      destinationPath: "https://mischahomelabk8sbackups.blob.core.windows.net/mealie"
-      azureCredentials:
-        storageAccount:
-          name: azure-creds
-          key: mealie-storage-account-name
-        storageSasToken:
-          name: azure-creds
-          key: mealie-blob-sas
-        wal:
-          maxParallel: 8
+        destinationPath: "https://mischahomelabk8sbackups.blob.core.windows.net/mealie"
+        azureCredentials:
+          storageAccount:
+            name: azure-creds
+            key: mealie-storage-account-name
+          storageSasToken:
+            name: azure-creds
+            key: mealie-blob-sas
+          wal:
+            maxParallel: 8
