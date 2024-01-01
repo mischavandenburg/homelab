@@ -5,5 +5,4 @@ resources:
   - networking.yaml
   - mealie-deployment.yaml
   - database.yaml
-  - database-backup.yaml
   # - backup-restore-mealie.yaml
