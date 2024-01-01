@@ -2,6 +2,7 @@ apiVersion: postgresql.k8s.enterprisedb.io/v1
 kind: Cluster
 metadata:
   name: cluster-restore-mealie
+  namespace: mealie
 spec:
   description: "test recovery mealie db"
   imageName: quay.io/enterprisedb/postgresql:16.1
