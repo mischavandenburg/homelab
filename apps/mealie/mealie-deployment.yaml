@@ -45,10 +45,11 @@ spec:
             - name: POSTGRES_SERVER
               value: mealie-postgres-rw
             - name: POSTGRES_USER
-              valueFrom:
-                secretKeyRef:
-                  name: mealie-db-creds
-                  key: username
+              value: mealie
+              # valueFrom:
+              #   secretKeyRef:
+              #     name: mealie-db-creds
+              #     key: username
             - name: PUID
               value: "1000"
             - name: TZ
