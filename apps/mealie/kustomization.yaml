@@ -5,5 +5,5 @@ resources:
   - mealie-data-persistentvolumeclaim.yaml
   - mealie-service.yaml
   - mealie-deployment.yaml
-  # - database.yaml
+  - database.yaml
   # - test-restore-mealie.yaml
