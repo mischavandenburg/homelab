@@ -1,7 +1,7 @@
 apiVersion: postgresql.k8s.enterprisedb.io/v1
 kind: Cluster
 metadata:
-  name: mealie-postgres
+  name: mealie-postgres-restore
   namespace: mealie
 spec:
   description: "test recovery mealie db"
@@ -17,7 +17,7 @@ spec:
   bootstrap:
     recovery:
       backup:
-        name: mealie-backup-on-demand
+        name: mealie-scheduled-backup-20240101170000
       # source: clusterBackup
       database: mealie
       owner: mealie
