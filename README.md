@@ -12,6 +12,12 @@ Most of the homelab work is documented on my [YouTube channel](https://www.youtu
 * k3s for creating the clusters
 * flux
 
+## Secrets
+
+* Secrets are synced to Azure Key Vault
+* SAS tokens for Storage Account Access
+  * Note to self: expiry in 2 years
+
 ## Hardware
 
 * control plane: old laptop with 4gb of memory
