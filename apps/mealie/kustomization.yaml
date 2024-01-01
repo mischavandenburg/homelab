@@ -2,9 +2,9 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   - secrets.yaml
-  # - mealie-data-persistentvolumeclaim.yaml
-  # - mealie-service.yaml
-  # - mealie-deployment.yaml
-  # - database.yaml
+  - mealie-data-persistentvolumeclaim.yaml
+  - mealie-service.yaml
+  - mealie-deployment.yaml
+  - database.yaml
   # - database-backup.yaml
   # - test-restore-mealie.yaml
