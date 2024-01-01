@@ -47,7 +47,15 @@ spec:
   # affinity:
   #   enablePodAntiAffinity: true
   #   topologyKey: failure-domain.beta.kubernetes.io/zone
-
-  # nodeMaintenanceWindow:
-  #   inProgress: false
-  #   reusePVC: false
+---
+apiVersion: postgresql.k8s.enterprisedb.io/v1
+kind: ScheduledBackup
+metadata:
+  name: mealie-scheduled-backup
+  namespace: mealie
+spec:
+  immediate: true
+  schedule: "0 0 3 * * *"
+  backupOwnerReference: cluster
+  cluster:
+    name: mealie-postgres

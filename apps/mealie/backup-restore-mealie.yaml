@@ -1,3 +1,5 @@
+# sucessfully tested this configuration for restoring from Azure and in-cluster Backup
+
 apiVersion: postgresql.k8s.enterprisedb.io/v1
 kind: Cluster
 metadata:
@@ -12,7 +14,8 @@ spec:
     storageClass: local-path
     size: 1Gi
 
-  # enableSuperuserAccess: true
+  # use the source: clusterBackup for restoring from Azure blob
+  # when restoring from in-cluster Backup object, use backup and backup.name
 
   bootstrap:
     recovery:
@@ -23,8 +26,6 @@ spec:
       owner: mealie
       secret:
         name: mealie-db-creds
-      # recoveryTarget:
-      #   targetImmediate: true
 
   externalClusters:
     - name: clusterBackup
@@ -38,5 +39,3 @@ spec:
           storageSasToken:
             name: azure-creds
             key: mealie-blob-sas
-  # wal:
-  #   maxParallel: 8
