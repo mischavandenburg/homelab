@@ -15,8 +15,8 @@ spec:
   bootstrap:
     recovery:
       source: clusterBackup
-      # database: mealie
-      # owner: mealie
+      database: mealie
+      owner: mealie
       secret:
         name: mealie-db-creds
 
