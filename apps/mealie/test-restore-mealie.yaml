@@ -15,8 +15,8 @@ spec:
   bootstrap:
     recovery:
       source: clusterBackup
-      database: mealie
-      owner: mealie
+      # database: mealie
+      # owner: mealie
       secret:
         name: mealie-db-creds
 
@@ -32,5 +32,5 @@ spec:
           storageSasToken:
             name: azure-creds
             key: mealie-blob-sas
-        wal:
-          maxParallel: 8
+        # wal:
+        #   maxParallel: 8
