@@ -6,5 +6,5 @@ resources:
   - mealie-service.yaml
   - mealie-deployment.yaml
   - database.yaml
-  # - database-backup.yaml
+  - database-backup.yaml
   # - test-restore-mealie.yaml
