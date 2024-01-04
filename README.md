@@ -98,6 +98,11 @@ And following this example:
 
 https://github.com/fluxcd/flux2-kustomize-helm-example
 
+
+2024-01-04
+
+In [this commit](https://github.com/mischavandenburg/homelab/commit/3a65ae4707b633929f89cdc09490595ccfb9470b) I did a big refactor to enable base and environment layers.
+
 # Log
 
 # 2023-12-26
