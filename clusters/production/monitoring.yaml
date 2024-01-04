@@ -10,5 +10,5 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-system
-  path: ./monitoring/production
+  path: ./monitoring/controllers/production
   prune: true
