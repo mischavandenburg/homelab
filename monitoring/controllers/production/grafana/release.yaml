@@ -20,10 +20,11 @@ spec:
       enabled: true
       ingressClassName: traefik
       annotations:
-        cert-manager.io/cluster-issuer: letsencrypt-prod
+        cert-manager.io/cluster-issuer: letsencrypt-staging
       tls:
         - hosts:
             - grafana.mischavandenburg.net
-          secretName: grafana-ingress-prod
+          secretName: grafana-ingress-staging
       hosts:
         - grafana.mischavandenburg.net
+        - triggerg.mischavandenburg.net
