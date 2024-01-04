@@ -19,6 +19,8 @@ spec:
       tls:
         - hosts:
             - weave.mischavandenburg.net
+            # remove later
+            - weavetrigger.mischavandenburg.net
           secretName: weave-ingress-prod
       hosts:
         - host: weave.mischavandenburg.net
