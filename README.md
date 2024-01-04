@@ -74,7 +74,7 @@ I'm running a staging and production cluster. I decided to run two clusters so I
 * [x] set up loki
 * [] look into Falco
 * [] cloudflare secret to key vault
-* [] 
+* [] grafana REQ_URL environment variable in pod, try to disable loadbalancer
 * [] 
 * [] 
 
