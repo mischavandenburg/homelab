@@ -8,9 +8,9 @@ Most of the homelab work is documented on my [YouTube channel](https://www.youtu
 
 ## Tooling
 
-* Ubuntu server
-* k3s for creating the clusters
-* flux
+* Ubuntu server as OS
+* k3s for creating the cluster(s)
+* Flux for GitOps
 
 ## Secrets
 
@@ -20,18 +20,28 @@ Most of the homelab work is documented on my [YouTube channel](https://www.youtu
 
 ## Hardware
 
-* control plane: old laptop with 4gb of memory
+* control plane: old laptop with 4gb ram
+* node 1: thinkpad t420 with 8gb ram
 
 ## Current Goals
 
-* set up a vault solution for secrets
 * start running a few applications
 * look into exposing an app using a cloudflared tunnel
 * add more hardware
 * securing monitoring deployment with auth and secrets
 
+## Apps to Run
+
+* [] linkding (use in combination with [companion](https://github.com/acez/bookmark-companion) on ios)
+* [] RSS reader
+* [] 
+* [] Wallabag (read later app, maybe not needed with linkding)
+* [] 
+* [] 
+
 ## Achieved Goals
 
+* set up a vault solution for secrets
 * Run Prometheus and Grafana stack
 * Have Grafana dashboard available with a URL
   * ingress
