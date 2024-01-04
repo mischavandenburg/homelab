@@ -73,7 +73,7 @@ I'm running a staging and production cluster. I decided to run two clusters so I
 * [ ] look into Flagger
 * [x] set up loki
 * [] look into Falco
-* [] 
+* [] cloudflare secret to key vault
 * [] 
 * [] 
 * [] 
