@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+  name: mealie-prod
+  namespace: mealie-prod
+spec:
+  ingressClassName: traefik
+  rules:
+  - host: mealie.mischavandenburg.net
+    http:
+      paths:
+      - backend:
+          service:
+            name: mealie-prod
+            port:
+              number: 9925
+        path: /
+        pathType: Prefix
+  tls:
+  - hosts:
+    - mealie.mischavandenburg.net
+    secretName: grafana-ingress-prod

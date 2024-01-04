@@ -1,0 +1,36 @@
+apiVersion: postgresql.k8s.enterprisedb.io/v1
+kind: Cluster
+metadata:
+  name: mealie-postgres-prod
+  namespace: mealie-prod
+spec:
+  backup:
+    barmanObjectStore:
+      azureCredentials:
+        storageAccount:
+          key: mealie-storage-account-name
+          name: azure-creds
+        storageSasToken:
+          key: mealie-blob-sas
+          name: azure-creds
+      data:
+        compression: gzip
+      destinationPath: https://mischahomelabk8sbackups.blob.core.windows.net/mealie
+      wal:
+        compression: gzip
+    retentionPolicy: 30d
+  bootstrap:
+    initdb:
+      database: mealie
+      owner: mealie
+      secret:
+        name: mealie-db-creds
+  description: Postgres cluster for the Mealie application
+  imageName: quay.io/enterprisedb/postgresql:16.1
+  instances: 3
+  resources:
+    requests:
+      memory: 300Mi
+  storage:
+    size: 1Gi
+    storageClass: local-path

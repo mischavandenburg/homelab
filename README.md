@@ -1,10 +1,24 @@
-# Homelab
+# 🏠 Homelab
 
 This repo contains all of the configuration and documentation of my homelab.
 
 I began working on this 2023-12-25.
 
 Most of the homelab work is documented on my [YouTube channel](https://www.youtube.com/channel/UCDAck-gFPTrgTx_qp59-bQA)
+
+## Hardware
+
+I'm running a staging and production cluster. I decided to run two clusters so I stay in the habit of separating environments. And because then I can justify to buy more hardware 😏
+
+### Staging
+
+* control plane: old laptop with 4gb ram
+* node 1: thinkpad t420 with 8gb ram
+
+
+### Production
+
+* control plane: 16gp ram i5 HP mini pc
 
 ## Tooling
 
@@ -18,10 +32,6 @@ Most of the homelab work is documented on my [YouTube channel](https://www.youtu
 * SAS tokens for Storage Account Access
   * Note to self: expiry in 2 years
 
-## Hardware
-
-* control plane: old laptop with 4gb ram
-* node 1: thinkpad t420 with 8gb ram
 
 ## Current Goals
 
@@ -29,6 +39,7 @@ Most of the homelab work is documented on my [YouTube channel](https://www.youtu
 * look into exposing an app using a cloudflared tunnel
 * add more hardware
 * securing monitoring deployment with auth and secrets
+* Monitoring notifications to Telegram
 
 ## Apps to Run
 

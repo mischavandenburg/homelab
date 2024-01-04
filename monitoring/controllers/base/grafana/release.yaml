@@ -1,0 +1,69 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta2
+kind: HelmRelease
+metadata:
+  name: grafana
+  namespace: monitoring
+spec:
+  interval: 30m
+  chart:
+    spec:
+      chart: grafana
+      version: "7.0.19"
+      sourceRef:
+        kind: HelmRepository
+        name: grafana
+        namespace: monitoring
+      interval: 12h
+  values:
+    persistence:
+      enabled: true
+      type: pvc
+      storageClassName: local-path
+      accessModes:
+        - ReadWriteOnce
+      size: 4Gi
+
+    sidecar:
+      datasources:
+        enabled: true
+        label: grafana_datasource
+        labelValue: "1"
+      dashboards:
+        enabled: true
+        label: grafana_dashboard
+        labelValue: "1"
+        # Allow discovery in all namespaces for dashboards
+        searchNamespace: ALL
+
+        ## Annotations for Grafana dashboard configmaps
+        ##
+        annotations: {}
+        multicluster:
+          global:
+            enabled: false
+          etcd:
+            enabled: false
+        provider:
+          allowUiUpdates: false
+
+    # configuration to load default dashboards from persistent volume
+    dashboardProviders:
+      dashboardproviders.yaml:
+        apiVersion: 1
+        providers:
+          - name: default
+            orgId: 1
+            folder: ""
+            type: file
+            disableDeletion: false
+            updateIntervalSeconds: 10 # how often Grafana will scan for changed dashboards
+            allowUiUpdates: true
+            options:
+              path: /var/lib/grafana/dashboards/default
+              foldersFromFilesStructure: false
+    extraVolumeMounts:
+      - name: grafana-default-dashboards
+        mountPath: /var/lib/grafana/dashboards/default
+    extraVolumes:
+      - name: grafana-default-dashboards
+        existingClaim: grafana-default-dashboards

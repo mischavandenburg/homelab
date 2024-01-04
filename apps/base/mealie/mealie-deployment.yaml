@@ -1,0 +1,99 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  creationTimestamp: null
+  name: mealie-data
+  namespace: mealie
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 100Mi
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mealie
+  namespace: mealie
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mealie
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: mealie
+        try: "7"
+    spec:
+      containers:
+        - env:
+            - name: ALLOW_SIGNUP
+              value: "true"
+            - name: BASE_URL
+              value: https://mealie.yourdomain.com
+            - name: DB_ENGINE
+              value: postgres
+            - name: MAX_WORKERS
+              value: "1"
+            - name: PGID
+              value: "1000"
+            - name: POSTGRES_DB
+              value: mealie
+            - name: POSTGRES_PORT
+              value: "5432"
+            - name: POSTGRES_SERVER
+              value: mealie-postgres-rw
+              # value: mealie-postgres-restore-rw
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  name: mealie-db-creds
+                  key: username
+
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mealie-db-creds
+                  key: password
+
+            - name: PUID
+              value: "1000"
+            - name: TZ
+              value: America/Anchorage
+            - name: WEB_CONCURRENCY
+              value: "1"
+
+          image: ghcr.io/mealie-recipes/mealie:v1.0.0-RC1.1
+          name: mealie
+          ports:
+            - containerPort: 9000
+              hostPort: 9925
+              protocol: TCP
+          # resources:
+          #   limits:
+          #     memory: "1048576e3"
+          volumeMounts:
+            - mountPath: /app/data
+              name: mealie-data
+            - name: secrets-store-inline
+              mountPath: /mnt/secrets-store
+              readOnly: true
+
+      restartPolicy: Always
+      volumes:
+        - name: mealie-data
+          persistentVolumeClaim:
+            claimName: mealie-data
+        - name: secrets-store-inline
+          csi:
+            driver: secrets-store.csi.k8s.io
+            readOnly: true
+            volumeAttributes:
+              secretProviderClass: azure-kv-secrets
+            nodePublishSecretRef: # Only required when using service principal mode
+              name: secrets-store-creds # Only required when using service principal mode
+

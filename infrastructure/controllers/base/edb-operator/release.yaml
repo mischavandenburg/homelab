@@ -1,0 +1,17 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta2
+kind: HelmRelease
+metadata:
+  name: edb-postgres-for-kubernetes
+  namespace: postgresql-operator-system
+spec:
+  interval: 30m
+  chart:
+    spec:
+      chart: edb-postgres-for-kubernetes
+      version: "0.20.0"
+      sourceRef:
+        kind: HelmRepository
+        name: edb
+        namespace: postgresql-operator-system
+      interval: 12h
+  # values:

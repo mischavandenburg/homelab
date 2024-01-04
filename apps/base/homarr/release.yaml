@@ -1,0 +1,66 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta2
+kind: HelmRelease
+metadata:
+  name: homarr
+spec:
+  interval: 30m
+  chart:
+    spec:
+      chart: homarr
+      version: "1.0.4"
+      sourceRef:
+        kind: HelmRepository
+        name: homarr
+        namespace: homarr
+      interval: 12h
+  values:
+    replicaCount: 1
+    persistence:
+      - name: homarr-config
+        # -- Enable homarr-config persistent storage
+        enabled: true
+        # -- homarr-config storage class name
+        storageClassName: "local-path"
+        # -- homarr-config access mode
+        accessMode: "ReadWriteOnce"
+        # -- homarr-config storage size
+        size: "50Mi"
+        # -- homarr-config mount path inside the pod
+        mountPath: "/app/data/configs"
+      - name: homarr-database
+        # -- Enable homarr-database persistent storage
+        enabled: true
+        # -- homarr-database storage class name
+        storageClassName: "local-path"
+        # -- homarr-database access mode
+        accessMode: "ReadWriteOnce"
+        # -- homarr-database storage size
+        size: "50Mi"
+        # -- homarr-database mount path inside the pod
+        mountPath: "/app/database"
+      - name: homarr-icons
+        # -- Enable homarr-icons persistent storage
+        enabled: true
+        # -- homarr-icons storage class name
+        storageClassName: "local-path"
+        # -- homarr-icons access mode
+        accessMode: "ReadWriteOnce"
+        # -- homarr-icons storage size
+        size: "50Mi"
+        # -- homarr-icons mount path inside the pod
+        mountPath: "/app/public/icons"
+
+    ingress:
+      enabled: true
+      className: traefik
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-prod
+      hosts:
+        - host: home.mischavandenburg.net
+          paths:
+            - path: /
+              pathType: Prefix
+      tls:
+        - hosts:
+            - home.mischavandenburg.net
+          secretName: homarr-ingress-prod

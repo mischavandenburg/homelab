@@ -1,0 +1,29 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: ww-gitops
+spec:
+  chart:
+    spec:
+      version: "4.0.36"
+  values:
+    adminUser:
+      create: true
+      passwordHash: $2a$10$Fs82dgIPOUG21rM.1w6TN.kgBSJ4aNEKGLaVbnJ5VZ66sahN1PuiK
+      username: admin
+    ingress:
+      enabled: true
+      className: traefik
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-prod
+      tls:
+        - hosts:
+            - weave.mischavandenburg.net
+          secretName: weave-ingress-prod
+      hosts:
+        - host: weave.mischavandenburg.net
+          paths:
+            - path: /
+              pathType: ImplementationSpecific
+    metrics:
+      enabled: true

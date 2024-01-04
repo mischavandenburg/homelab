@@ -1,0 +1,11 @@
+apiVersion: postgresql.k8s.enterprisedb.io/v1
+kind: ScheduledBackup
+metadata:
+  name: mealie-scheduled-backup-prod
+  namespace: mealie-prod
+spec:
+  backupOwnerReference: cluster
+  cluster:
+    name: mealie-postgres
+  immediate: true
+  schedule: 0 0 3 * * *

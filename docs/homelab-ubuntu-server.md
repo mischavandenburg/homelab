@@ -45,10 +45,10 @@ network:
           password: "mypass"
       addresses: [192.168.178.18/24]
       nameservers:
-        addresses: [192.168.178.1]
+        addresses: [192.168.2.254]]
       routes:
         - to: default
-          via: 192.168.178.1
+          via: 192.168.2.254
 
 ```
 

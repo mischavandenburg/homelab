@@ -1,0 +1,29 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: grafana
+spec:
+  chart:
+    spec:
+      version: "7.0.19"
+  values:
+    # You can override these with env variables! https://grafana.com/docs/grafana/latest/setup-grafana/configure-grafana/
+    grafana.ini:
+      date_formats:
+        default_week_start: monday
+      security:
+        allow_embedding: true
+
+    adminPassword: strongpassword
+
+    ingress:
+      enabled: true
+      ingressClassName: traefik
+      annotations:
+        cert-manager.io/cluster-issuer: letsencrypt-prod
+      tls:
+        - hosts:
+            - grafana.mischavandenburg.net
+          secretName: grafana-ingress-prod
+      hosts:
+        - grafana.mischavandenburg.net
