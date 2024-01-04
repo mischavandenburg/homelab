@@ -24,7 +24,7 @@ spec:
       tls:
         - hosts:
             - grafana.mischavandenburg.net
+            - triggerg.mischavandenburg.net
           secretName: grafana-ingress-staging
       hosts:
         - grafana.mischavandenburg.net
-        - triggerg.mischavandenburg.net
