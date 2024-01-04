@@ -13,6 +13,7 @@ spec:
     name: flux-system
   path: ./infrastructure/controllers
   prune: true
+  suspend: true
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
@@ -28,6 +29,7 @@ spec:
     name: flux-system
   path: ./infrastructure/monitoring
   prune: true
+  suspend: true
 ---
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
@@ -45,3 +47,4 @@ spec:
     name: flux-system
   path: ./infrastructure/configs
   prune: true
+  suspend: true

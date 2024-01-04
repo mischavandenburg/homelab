@@ -13,3 +13,4 @@ spec:
     name: flux-system
   path: ./apps/mealie
   prune: true
+  suspend: true
