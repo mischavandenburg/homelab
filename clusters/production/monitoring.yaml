@@ -12,4 +12,3 @@ spec:
     name: flux-system
   path: ./infrastructure/monitoring/production
   prune: true
-  suspend: true
