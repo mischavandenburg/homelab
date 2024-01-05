@@ -10,7 +10,7 @@ patches:
     patch: |-
       - op: replace
         path: /metadata/name
-        value: mealie-postgres-production
+        value: mealie-db-production
       - op: replace
         path: /spec/backup/barmanObjectStore/destinationPath
         value: "https://hldatabasestaging.blob.core.windows.net/"
@@ -23,6 +23,9 @@ patches:
   - target:
       kind: SecretProviderClass
     patch: |-
+      - op: replace
+        path: /spec/parameters/keyvaultName
+        value: k8s-homelab-production
       - op: replace
         path: /spec/parameters/keyvaultName
         value: k8s-homelab-production
