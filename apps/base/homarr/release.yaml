@@ -2,6 +2,7 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta2
 kind: HelmRelease
 metadata:
   name: homarr
+  namespace: homarr
 spec:
   interval: 30m
   chart:
