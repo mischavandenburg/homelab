@@ -13,7 +13,7 @@ patches:
         value: mealie-db-production
       - op: replace
         path: /spec/backup/barmanObjectStore/destinationPath
-        value: "https://hldatabaseproduction.blob.core.windows.net/"
+        value: "https://hldatabaseproduction.blob.core.windows.net/mealie"
   - target:
       kind: ScheduledBackup
     patch: |-
