@@ -3,5 +3,26 @@ kind: Kustomization
 resources:
   - ../../base/mealie/
   # - backup-restore-mealie.yaml
-namespace: mealie-prod
-nameSuffix: -prod
+
+patches:
+  - target:
+      kind: Cluster
+    patch: |-
+      - op: replace
+        path: /metadata/name
+        value: mealie-postgres-production
+      - op: replace
+        path: /spec/backup/barmanObjectStore/destinationPath
+        value: "https://hldatabasestaging.blob.core.windows.net/"
+  - target:
+      kind: ScheduledBackup
+    patch: |-
+      - op: replace
+        path: /spec/cluster/name
+        value: mealie-db-production
+  - target:
+      kind: SecretProviderClass
+    patch: |-
+      - op: replace
+        path: /spec/parameters/keyvaultName
+        value: k8s-homelab-production

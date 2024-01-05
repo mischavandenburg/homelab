@@ -2,10 +2,10 @@
 apiVersion: postgresql.k8s.enterprisedb.io/v1
 kind: Cluster
 metadata:
-  name: mealie-postgres
+  name: mealie-db
   namespace: mealie
 spec:
-  description: "Postgres cluster for the Mealie application"
+  description: Postgres cluster for the Mealie application
   imageName: quay.io/enterprisedb/postgresql:16.1
   instances: 3
 
@@ -34,12 +34,12 @@ spec:
         compression: gzip
       data:
         compression: gzip
-    retentionPolicy: "30d"
+    retentionPolicy: 14d
 
   # handy: resources can be used to trigger a redeploy
   resources:
     requests:
-      memory: "300Mi"
+      memory: 300Mi
   #     cpu: "1"
   # limits:
   #   memory: "1Gi"
