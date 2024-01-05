@@ -26,6 +26,3 @@ patches:
       - op: replace
         path: /spec/parameters/keyvaultName
         value: k8s-homelab-production
-      - op: replace
-        path: /spec/parameters/keyvaultName
-        value: k8s-homelab-production
