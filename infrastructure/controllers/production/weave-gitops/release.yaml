@@ -15,13 +15,13 @@ spec:
       enabled: true
       className: traefik
       annotations:
-        cert-manager.io/cluster-issuer: letsencrypt-prod
+        cert-manager.io/cluster-issuer: letsencrypt-staging
       tls:
         - hosts:
             - weave.mischavandenburg.net
             # remove later
-            - weavetrigger.mischavandenburg.net
-          secretName: weave-ingress-prod
+            # - weavetrigger.mischavandenburg.net
+          secretName: weave-ingress-staging
       hosts:
         - host: weave.mischavandenburg.net
           paths:
