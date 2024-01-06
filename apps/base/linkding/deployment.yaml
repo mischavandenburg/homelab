@@ -42,7 +42,7 @@ spec:
               readOnly: true
 
             - name: creds
-              mountPath: /etc/cloudflared/creds/credentials.json
+              mountPath: /mnt/credentials.json
               readOnly: true
 
       restartPolicy: Always
