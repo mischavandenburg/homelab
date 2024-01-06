@@ -42,7 +42,7 @@ spec:
             # to run the tunnel. cloudflared will read this file from its local filesystem,
             # and it'll be stored in a k8s secret.
             - name: creds
-              mountPath: /etc/cloudflared/creds/credentials.json
+              mountPath: /etc/cloudflared/creds/
               readOnly: true
             - name: origin-cert
               mountPath: "/etc/cloudflared"
@@ -85,7 +85,7 @@ data:
   config.yaml: |
     # Name of the tunnel you want to run
     tunnel: linkding
-    credentials-file: /etc/cloudflared/creds/credentials.json
+    credentials-file: /etc/cloudflared/creds/linkding-cloudflare-tunnel
     # Serves the metrics server under /metrics and the readiness server under /ready
     metrics: 0.0.0.0:2000
     # Autoupdates applied in a k8s pod will be lost when the pod is removed or restarted, so
