@@ -14,3 +14,12 @@ patches:
       - op: replace
         path: /spec/parameters/keyvaultName
         value: k8s-homelab-production
+  - target:
+      kind: Ingress
+    patch: |-
+      - op: replace
+        path: /metadata/annotations/cert-manager.io~1cluster-issuer
+        value: letsencrypt-production
+      - op: replace
+        path: /spec/tls/0/secretName
+        value: linkding-ingress-production

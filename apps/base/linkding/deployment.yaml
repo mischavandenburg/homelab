@@ -19,14 +19,17 @@ spec:
       containers:
         - name: linkding
           image: sissbruecker/linkding:1.23.1
+
           envFrom:
             - configMapRef:
                 name: linkding-configmap
             - secretRef:
                 name: linkding-container-env
+
           ports:
             - containerPort: 3003
               protocol: TCP
+
           volumeMounts:
             - mountPath: /etc/linkding/data
               name: linkding-data
