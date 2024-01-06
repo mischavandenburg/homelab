@@ -10,4 +10,4 @@ spec:
     matchLabels:
       app: cloudflared
   podMetricsEndpoints:
-    - port: "2000"
+    - port: http-metrics
