@@ -1,7 +1,7 @@
 apiVersion: postgresql.k8s.enterprisedb.io/v1
 kind: ScheduledBackup
 metadata:
-  name: linkding-scheduled-backup
+  name: linkding-db-production
   namespace: linkding
 spec:
   immediate: true
