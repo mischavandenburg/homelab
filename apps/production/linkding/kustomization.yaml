@@ -4,7 +4,7 @@ resources:
   - configmap.yaml
   # - database.yaml
   # - scheduled-backup.yaml
-  # - ../../base/linkding/
+  - ../../base/linkding/
   # - backup-restore-linkding.yaml
 
 patches:
