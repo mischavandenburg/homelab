@@ -44,10 +44,18 @@ spec:
             - name: creds
               mountPath: /etc/cloudflared/creds/credentials.json
               readOnly: true
+
+      restartPolicy: Always
+
       volumes:
         - name: creds
-          secret:
-            secretName: linkding-cloudflare-tunnel
+          csi:
+            driver: secrets-store.csi.k8s.io
+            readOnly: true
+            volumeAttributes:
+              secretProviderClass: azure-kv-cloudflare
+            nodePublishSecretRef: # Only required when using service principal mode
+              name: secrets-store-creds # Only required when using service principal mode
 
         # Create a config.yaml file from the ConfigMap below.
         - name: config
