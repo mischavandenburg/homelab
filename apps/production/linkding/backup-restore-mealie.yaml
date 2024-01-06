@@ -1,0 +1,41 @@
+# sucessfully tested this configuration for restoring from Azure and in-cluster Backup
+
+apiVersion: postgresql.k8s.enterprisedb.io/v1
+kind: Cluster
+metadata:
+  name: linkding-postgres-restore
+  namespace: linkding
+spec:
+  description: "test recovery linkding db"
+  imageName: quay.io/enterprisedb/postgresql:16.1
+  instances: 3
+
+  storage:
+    storageClass: local-path
+    size: 1Gi
+
+  # use the source: clusterBackup for restoring from Azure blob
+  # when restoring from in-cluster Backup object, use backup and backup.name
+
+  bootstrap:
+    recovery:
+      source: clusterBackup
+      # backup:
+      #   name: linkding-scheduled-backup-20240101173000
+      database: linkding
+      owner: linkding
+      secret:
+        name: linkding-db-creds
+
+  externalClusters:
+    - name: clusterBackup
+      barmanObjectStore:
+        destinationPath: "https://mischahomelabk8sbackups.blob.core.windows.net/linkding"
+        serverName: linkding-postgres
+        azureCredentials:
+          storageAccount:
+            name: azure-creds
+            key: linkding-storage-account-name
+          storageSasToken:
+            name: azure-creds
+            key: linkding-blob-sas

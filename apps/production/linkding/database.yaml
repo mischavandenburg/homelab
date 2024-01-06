@@ -1,0 +1,41 @@
+apiVersion: postgresql.k8s.enterprisedb.io/v1
+kind: Cluster
+metadata:
+  name: linkding-db-production
+  namespace: linkding
+spec:
+  description: Postgres cluster for the linkding application
+  imageName: quay.io/enterprisedb/postgresql:16.1
+  instances: 3
+
+  bootstrap:
+    initdb:
+      database: linkding
+      owner: linkding
+      secret:
+        name: linkding-db-creds
+
+  storage:
+    storageClass: local-path
+    size: 200Mi
+
+  backup:
+    barmanObjectStore:
+      destinationPath: "https://hldatabaseproduction.blob.core.windows.net/linkding"
+      azureCredentials:
+        storageAccount:
+          name: azure-creds
+          key: linkding-storage-account-name
+        storageSasToken:
+          name: azure-creds
+          key: linkding-blob-sas
+      wal:
+        compression: gzip
+      data:
+        compression: gzip
+    retentionPolicy: 14d
+
+  # handy: resources can be used to trigger a redeploy
+  resources:
+    requests:
+      memory: 300Mi

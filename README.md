@@ -75,6 +75,9 @@ I'm running a staging and production cluster. I decided to run two clusters so I
 * [] look into Falco
 * [] cloudflare secret to key vault
 * [] grafana REQ_URL environment variable in pod, try to disable loadbalancer
+* [] mealie configmap env and secretenv
+* [] mealie delete hostport
+* [] mealie switch to production issuer
 * [] 
 * [] 
 
