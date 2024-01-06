@@ -44,6 +44,9 @@ spec:
             - name: creds
               mountPath: /etc/cloudflared/creds/credentials.json
               readOnly: true
+            - name: origin-cert
+              mountPath: "/etc/cloudflared"
+              readOnly: true
 
       restartPolicy: Always
 
@@ -64,6 +67,10 @@ spec:
             items:
               - key: config.yaml
                 path: config.yaml
+        # mount the origin cert
+        - name: origin-cert
+          secret:
+            secretName: origin-cert
 ---
 # This ConfigMap is just a way to define the cloudflared config.yaml file in k8s.
 # It's useful to define it in k8s, rather than as a stand-alone .yaml file, because

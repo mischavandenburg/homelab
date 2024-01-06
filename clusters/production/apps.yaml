@@ -4,7 +4,9 @@ metadata:
   name: apps
   namespace: flux-system
 spec:
-  interval: 1h
+  interval: 10m0s
+  dependsOn:
+    - name: infra-configs
   retryInterval: 1m
   timeout: 5m
   sourceRef:
