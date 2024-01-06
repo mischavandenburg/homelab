@@ -1,7 +1,7 @@
 apiVersion: postgresql.k8s.enterprisedb.io/v1
 kind: Backup
 metadata:
-  name: mealie-backup-on-demand-4
+  name: mealie-backup-on-demand-7
 spec:
   method: barmanObjectStore
   cluster:
