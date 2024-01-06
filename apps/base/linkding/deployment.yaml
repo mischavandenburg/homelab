@@ -14,7 +14,7 @@ spec:
     metadata:
       labels:
         app: linkding
-        try: "1"
+        try: "2"
     spec:
       containers:
         - name: linkding
