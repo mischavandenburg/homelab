@@ -3,7 +3,7 @@ kind: Kustomization
 resources:
   - local-path
   - traefik
-  # - csi-secrets-store-provider-azure
+  - csi-secrets-store-provider-azure
   - cert-manager
-  # - edb-operator
+  - edb-operator
   - weave-gitops
