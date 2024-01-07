@@ -17,3 +17,8 @@ spec:
   values:
     grafana:
       enabled: false
+    prometheus:
+      prometheusSpec:
+        podMonitorSelector:
+          matchLabels:
+            podmonitorscrape: true
