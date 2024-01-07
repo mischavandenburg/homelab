@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: isolate-linkding-namespace
+  namespace: linkding
+spec:
+  podSelector: {}
+  policyTypes:
+    - Ingress
+    - Egress
+  ingress:
+    - from:
+        - namespaceSelector:
+            matchLabels:
+              name: linkding
+  egress:
+    - to:
+        - namespaceSelector:
+            matchLabels:
+              name: linkding

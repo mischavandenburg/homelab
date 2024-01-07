@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: restrict-namespace-egress
+  namespace: linkding
+spec:
+  podSelector: {}
+  policyTypes:
+    - Egress
+  egress:
+    # Allow egress traffic to cloudflared pod
+    - to:
+        - podSelector:
+            matchLabels:
+              app: cloudflared
+    # Allow egress traffic within the namespace
+    - to:
+        - podSelector: {}
