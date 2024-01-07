@@ -19,6 +19,6 @@ spec:
       enabled: false
     prometheus:
       prometheusSpec:
-        podMonitorSelector:
+        podMonitorNamespaceSelector:
           matchLabels:
             podmonitorscrape: "true"
