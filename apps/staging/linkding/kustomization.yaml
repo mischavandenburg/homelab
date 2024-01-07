@@ -3,7 +3,7 @@ kind: Kustomization
 resources:
   - configmap.yaml
   - database.yaml
-  - scheduled-backup.yaml
+  # - scheduled-backup.yaml
   - ../../base/linkding/
   - ingress.yaml
   # - cloudflare.yaml
