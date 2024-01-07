@@ -55,7 +55,7 @@ spec:
       enabled: true
       className: traefik
       annotations:
-        cert-manager.io/cluster-issuer: letsencrypt-prod
+        cert-manager.io/cluster-issuer: letsencrypt-production
       hosts:
         - host: home.mischavandenburg.net
           paths:
@@ -64,4 +64,4 @@ spec:
       tls:
         - hosts:
             - home.mischavandenburg.net
-          secretName: homarr-ingress-prod
+          secretName: homarr-ingress-production
