@@ -4,6 +4,6 @@ resources:
   - local-path
   - traefik
   # - csi-secrets-store-provider-azure
-  # - cert-manager
+  - cert-manager
   # - edb-operator
   # - weave-gitops
