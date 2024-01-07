@@ -14,4 +14,7 @@ spec:
         name: traefik
         namespace: traefik
       interval: 12h
-  # values:
+  values:
+    service:
+      externalIPs:
+        - 192.168.2.26
