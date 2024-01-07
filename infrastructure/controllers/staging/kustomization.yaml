@@ -6,4 +6,4 @@ resources:
   # - csi-secrets-store-provider-azure
   - cert-manager
   # - edb-operator
-  # - weave-gitops
+  - weave-gitops
