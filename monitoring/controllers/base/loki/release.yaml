@@ -25,12 +25,12 @@ spec:
       replicas: 1
       persistence:
         storageClass: local-path
-    # write:
-    #   persistence:
-    #     storageClass: local-path
-    # read:
-    #   persistence:
-    #     storageClass: local-path
-    # backend:
-    #   persistence:
-    #     storageClass: local-path
+    write:
+      persistence:
+        storageClass: local-path
+    read:
+      persistence:
+        storageClass: local-path
+    backend:
+      persistence:
+        storageClass: local-path
