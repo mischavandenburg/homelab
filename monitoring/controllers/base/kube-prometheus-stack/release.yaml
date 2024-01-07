@@ -21,4 +21,4 @@ spec:
       prometheusSpec:
         podMonitorSelector:
           matchLabels:
-            podmonitorscrape: true
+            podmonitorscrape: "true"

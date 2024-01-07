@@ -3,4 +3,4 @@ kind: Namespace
 metadata:
   name: linkding
   labels:
-    podmonitorscrape: true
+    podmonitorscrape: "true"
