@@ -3,8 +3,6 @@ kind: PodMonitor
 metadata:
   name: cloudflare-tunnel
   namespace: linkding
-  labels:
-    app: cloudflared
 spec:
   selector:
     matchLabels:
