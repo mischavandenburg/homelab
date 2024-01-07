@@ -5,6 +5,7 @@ metadata:
   name: linkding-data
   namespace: linkding
 spec:
+  storageClassName: local-path
   accessModes:
     - ReadWriteOnce
   resources:

@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-staging
+  name: linkding
+  namespace: linkding
+spec:
+  ingressClassName: traefik
+  rules:
+    - host: linkding-staging.mischavandenburg.net
+      http:
+        paths:
+          - backend:
+              service:
+                name: linkding
+                port:
+                  number: 3003
+            path: /
+            pathType: Prefix
+  tls:
+    - hosts:
+        - linkding-staging.mischavandenburg.net
+      secretName: linkding-ingress-staging
+

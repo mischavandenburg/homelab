@@ -41,10 +41,6 @@ spec:
               mountPath: /mnt/secrets-store
               readOnly: true
 
-            - name: creds
-              mountPath: /mnt/credentials.json
-              readOnly: true
-
       restartPolicy: Always
 
       volumes:
@@ -57,14 +53,5 @@ spec:
             readOnly: true
             volumeAttributes:
               secretProviderClass: azure-kv-secrets
-            nodePublishSecretRef: # Only required when using service principal mode
-              name: secrets-store-creds # Only required when using service principal mode
-
-        - name: creds
-          csi:
-            driver: secrets-store.csi.k8s.io
-            readOnly: true
-            volumeAttributes:
-              secretProviderClass: azure-kv-cloudflare
             nodePublishSecretRef: # Only required when using service principal mode
               name: secrets-store-creds # Only required when using service principal mode
