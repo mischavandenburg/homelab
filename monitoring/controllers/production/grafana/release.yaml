@@ -24,6 +24,6 @@ spec:
       tls:
         - hosts:
             - grafana.mischavandenburg.net
-          secretName: grafana-ingress-prod
+          secretName: grafana-ingress-production
       hosts:
         - grafana.mischavandenburg.net
