@@ -15,11 +15,11 @@ spec:
       enabled: true
       className: traefik
       annotations:
-        cert-manager.io/cluster-issuer: letsencrypt-prod
+        cert-manager.io/cluster-issuer: letsencrypt-production
       tls:
         - hosts:
             - weave.mischavandenburg.net
-          secretName: weave-ingress-prod
+          secretName: weave-ingress-production
       hosts:
         - host: weave.mischavandenburg.net
           paths:
