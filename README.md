@@ -78,7 +78,7 @@ I'm running a staging and production cluster. I decided to run two clusters so I
 * [] mealie configmap env and secretenv
 * [] mealie delete hostport
 * [] mealie switch to production issuer
-* [] 
+* [] disable grafana agent
 * [] 
 
 ## Decisions

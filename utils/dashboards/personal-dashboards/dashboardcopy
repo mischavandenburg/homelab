@@ -2,7 +2,7 @@
 # script to copy dashboards as json files to the grafana podname
 # the path is the mount pount of the persistent volume defined in the helm install
 
-podname=grafana-59bc875f84-cn7wk
+podname=grafana-59bc875f84-hdlxn
 
 for file in *json; do
 	kubectl cp "$file" monitoring/"$podname":/var/lib/grafana/dashboards/default
