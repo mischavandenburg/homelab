@@ -4,7 +4,7 @@ metadata:
   name: linkding
   namespace: linkding
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: linkding
