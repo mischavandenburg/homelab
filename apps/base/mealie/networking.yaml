@@ -6,9 +6,7 @@ metadata:
   namespace: mealie
 spec:
   ports:
-    - name: "9925"
-      port: 9925
-      targetPort: 9000
+    - port: 9000
   selector:
     app: mealie
   type: ClusterIP
@@ -23,7 +21,7 @@ metadata:
 spec:
   ingressClassName: traefik
   rules:
-    - host: mealie.mischavandenburg.net
+    - host: mealie-staging.mischavandenburg.net
       http:
         paths:
           - backend:
@@ -35,5 +33,5 @@ spec:
             pathType: Prefix
   tls:
     - hosts:
-        - mealie.mischavandenburg.net
-      secretName: grafana-ingress-staging
+        - mealie-staging.mischavandenburg.net
+      secretName: mealie-ingress-staging

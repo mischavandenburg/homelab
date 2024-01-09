@@ -5,6 +5,7 @@ metadata:
   name: mealie-data
   namespace: mealie
 spec:
+  storageClassName: local-path
   accessModes:
     - ReadWriteOnce
   resources:

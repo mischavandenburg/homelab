@@ -4,69 +4,38 @@ metadata:
   name: mealie
   namespace: mealie
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: mealie
-  strategy:
-    type: Recreate
   template:
     metadata:
       labels:
         app: mealie
-        try: "7"
+        try: "1"
     spec:
+      securityContext:
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
+
       containers:
-        - env:
-            - name: ALLOW_SIGNUP
-              value: "true"
-            - name: BASE_URL
-              value: https://mealie.yourdomain.com
-            - name: DB_ENGINE
-              value: postgres
-            - name: MAX_WORKERS
-              value: "1"
-            - name: PGID
-              value: "1000"
-            - name: POSTGRES_DB
-              value: mealie
-            - name: POSTGRES_PORT
-              value: "5432"
-
-            - name: POSTGRES_SERVER
-              valueFrom:
-                secretKeyRef:
-                  name: mealie-db-creds
-                  key: host
-
-            - name: POSTGRES_USER
-              valueFrom:
-                secretKeyRef:
-                  name: mealie-db-creds
-                  key: username
-
-            - name: POSTGRES_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: mealie-db-creds
-                  key: password
-
-            - name: PUID
-              value: "1000"
-            - name: TZ
-              value: America/Anchorage
-            - name: WEB_CONCURRENCY
-              value: "1"
-
+        - name: mealie
           image: ghcr.io/mealie-recipes/mealie:v1.0.0-RC1.1
-          name: mealie
+
+          securityContext:
+            allowPrivilegeEscalation: false
+
           ports:
             - containerPort: 9000
-              hostPort: 9925
               protocol: TCP
-          # resources:
-          #   limits:
-          #     memory: "1048576e3"
+
+          envFrom:
+            - configMapRef:
+                name: mealie-configmap
+            - secretRef:
+                name: mealie-container-env
+
           volumeMounts:
             - mountPath: /app/data
               name: mealie-data
@@ -87,4 +56,3 @@ spec:
               secretProviderClass: azure-kv-secrets
             nodePublishSecretRef: # Only required when using service principal mode
               name: secrets-store-creds # Only required when using service principal mode
-

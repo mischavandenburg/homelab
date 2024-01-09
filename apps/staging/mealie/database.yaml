@@ -1,8 +1,7 @@
----
 apiVersion: postgresql.k8s.enterprisedb.io/v1
 kind: Cluster
 metadata:
-  name: mealie-db
+  name: mealie-db-staging
   namespace: mealie
 spec:
   description: Postgres cluster for the Mealie application
@@ -22,7 +21,7 @@ spec:
 
   backup:
     barmanObjectStore:
-      destinationPath: "https://mischahomelabk8sbackups.blob.core.windows.net/mealie"
+      destinationPath: "https://hldatabasestaging.blob.core.windows.net/mealie"
       azureCredentials:
         storageAccount:
           name: azure-creds
@@ -34,29 +33,9 @@ spec:
         compression: gzip
       data:
         compression: gzip
-    retentionPolicy: 14d
+    retentionPolicy: 7d
 
   # handy: resources can be used to trigger a redeploy
   resources:
     requests:
       memory: 300Mi
-  #     cpu: "1"
-  # limits:
-  #   memory: "1Gi"
-  #   cpu: "2"
-
-  # affinity:
-  #   enablePodAntiAffinity: true
-  #   topologyKey: failure-domain.beta.kubernetes.io/zone
----
-apiVersion: postgresql.k8s.enterprisedb.io/v1
-kind: ScheduledBackup
-metadata:
-  name: mealie-scheduled-backup
-  namespace: mealie
-spec:
-  immediate: true
-  schedule: "0 0 3 * * *"
-  backupOwnerReference: cluster
-  cluster:
-    name: mealie-postgres
