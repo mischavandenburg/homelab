@@ -8,6 +8,9 @@ spec:
   imageName: quay.io/enterprisedb/postgresql:16.1
   instances: 3
 
+  monitoring:
+    enablePodMonitor: true
+
   bootstrap:
     initdb:
       database: linkding
