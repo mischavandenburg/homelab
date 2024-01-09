@@ -10,28 +10,3 @@ spec:
   selector:
     app: mealie
   type: ClusterIP
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  annotations:
-    cert-manager.io/cluster-issuer: letsencrypt-staging
-  name: mealie
-  namespace: mealie
-spec:
-  ingressClassName: traefik
-  rules:
-    - host: mealie-staging.mischavandenburg.net
-      http:
-        paths:
-          - backend:
-              service:
-                name: mealie
-                port:
-                  number: 9925
-            path: /
-            pathType: Prefix
-  tls:
-    - hosts:
-        - mealie-staging.mischavandenburg.net
-      secretName: mealie-ingress-staging

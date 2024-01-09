@@ -2,24 +2,12 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   - ../../base/mealie/
+  # - database.yaml
+  - configmap.yaml
+  # - scheduled-backup.yaml
   # - backup-restore-mealie.yaml
 
 patches:
-  - target:
-      kind: Cluster
-    patch: |-
-      - op: replace
-        path: /metadata/name
-        value: mealie-db-production
-      - op: replace
-        path: /spec/backup/barmanObjectStore/destinationPath
-        value: "https://hldatabaseproduction.blob.core.windows.net/mealie"
-  - target:
-      kind: ScheduledBackup
-    patch: |-
-      - op: replace
-        path: /spec/cluster/name
-        value: mealie-db-production
   - target:
       kind: SecretProviderClass
     patch: |-
