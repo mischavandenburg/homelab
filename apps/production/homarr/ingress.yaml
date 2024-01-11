@@ -1,0 +1,24 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-production
+  name: homarr
+  namespace: homarr
+spec:
+  ingressClassName: traefik
+  rules:
+    - host: home.mischavandenburg.net
+      http:
+        paths:
+          - backend:
+              service:
+                name: homarr
+                port:
+                  number: 7575
+            path: /
+            pathType: Prefix
+  tls:
+    - hosts:
+        - home.mischavandenburg.net
+      secretName: homarr-ingress-production
