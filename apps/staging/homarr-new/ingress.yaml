@@ -15,7 +15,7 @@ spec:
               service:
                 name: homarr
                 port:
-                  number: 3003
+                  number: 7575
             path: /
             pathType: Prefix
   tls:
