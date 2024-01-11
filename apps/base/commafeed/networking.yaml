@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: commafeed
+  namespace: commafeed
+spec:
+  ports:
+    - port: 8082
+  selector:
+    app: commafeed
+  type: ClusterIP

@@ -1,0 +1,59 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: commafeed
+  namespace: commafeed
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: commafeed
+  template:
+    metadata:
+      labels:
+        app: commafeed
+        try: "0"
+    spec:
+      securityContext:
+        runAsUser: 1000
+        runAsGroup: 3000
+        fsGroup: 2000
+
+      containers:
+        - name: commafeed
+          image: athou/commafeed:4.0.0
+
+          securityContext:
+            allowPrivilegeEscalation: false
+
+          envFrom:
+            - configMapRef:
+                name: commafeed-configmap
+            - secretRef:
+                name: commafeed-container-env
+
+          ports:
+            - containerPort: 8082
+              protocol: TCP
+
+          volumeMounts:
+            - mountPath: /commafeed/data
+              name: commafeed-data
+            - name: secrets-store-inline
+              mountPath: /mnt/secrets-store
+              readOnly: true
+
+      restartPolicy: Always
+
+      volumes:
+        - name: commafeed-data
+          persistentVolumeClaim:
+            claimName: commafeed-data
+        - name: secrets-store-inline
+          csi:
+            driver: secrets-store.csi.k8s.io
+            readOnly: true
+            volumeAttributes:
+              secretProviderClass: azure-kv-secrets
+            nodePublishSecretRef: # Only required when using service principal mode
+              name: secrets-store-creds # Only required when using service principal mode
