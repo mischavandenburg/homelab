@@ -48,9 +48,9 @@ spec:
         - name: homarr-config
           persistentVolumeClaim:
             claimName: homarr-config
-        - name: homarr-config
-          persistentVolumeClaim:
-            claimName: homarr-config
         - name: homarr-database
+          persistentVolumeClaim:
+            claimName: homarr-database
+        - name: homarr-icons
           persistentVolumeClaim:
             claimName: homarr-icons
