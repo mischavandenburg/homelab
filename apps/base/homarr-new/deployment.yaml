@@ -14,10 +14,10 @@ spec:
         app: homarr
         try: "0"
     spec:
-      securityContext:
-        runAsUser: 3000
-        runAsGroup: 3000
-        fsGroup: 3000
+      # securityContext:
+      #   runAsUser: 3000
+      #   runAsGroup: 3000
+      #   fsGroup: 3000
 
       containers:
         - name: homarr
