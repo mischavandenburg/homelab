@@ -8,7 +8,7 @@ metadata:
 spec:
   ingressClassName: traefik
   rules:
-    - host: homarr-staging.mischavandenburg.net
+    - host: home-staging.mischavandenburg.net
       http:
         paths:
           - backend:
@@ -20,7 +20,7 @@ spec:
             pathType: Prefix
   tls:
     - hosts:
-        - homarr-staging.mischavandenburg.net
+        - home-staging.mischavandenburg.net
       secretName: homarr-ingress-staging
 
       # ingress:
