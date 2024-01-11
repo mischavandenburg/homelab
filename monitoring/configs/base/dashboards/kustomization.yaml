@@ -1,0 +1,44 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: monitoring
+configMapGenerator:
+  - name: default-dashboards
+    files:
+      - standard-dashboards/alertmanager-overview.json
+      - standard-dashboards/apiserver.json
+      - standard-dashboards/cluster-total.json
+      - standard-dashboards/controller-manager.json
+      - standard-dashboards/etcd.json
+      - standard-dashboards/grafana-overview.json
+      - standard-dashboards/k8s-coredns.json
+      - standard-dashboards/k8s-resources-cluster.json
+      - standard-dashboards/k8s-resources-multicluster.json
+      - standard-dashboards/k8s-resources-namespace.json
+      - standard-dashboards/k8s-resources-node.json
+      - standard-dashboards/k8s-resources-pod.json
+      - standard-dashboards/k8s-resources-workload.json
+      - standard-dashboards/k8s-resources-workloads-namespace.json
+      - standard-dashboards/kubelet.json
+      - standard-dashboards/namespace-by-pod.json
+      - standard-dashboards/namespace-by-workload.json
+      - standard-dashboards/node-cluster-rsrc-use.json
+      - standard-dashboards/node-rsrc-use.json
+      - standard-dashboards/nodes-darwin.json
+      - standard-dashboards/nodes.json
+      - standard-dashboards/persistentvolumesusage.json
+      - standard-dashboards/pod-total.json
+      - standard-dashboards/prometheus.json
+      - standard-dashboards/proxy.json
+      - standard-dashboards/scheduler.json
+      - standard-dashboards/workload-total.json
+    options:
+      labels:
+        grafana_dashboard: "1"
+  - name: extra-dashboards
+    files:
+      - extra-dashboards/edb-postgres.json # https://github.com/EnterpriseDB/docs/blob/main/product_docs/docs/postgres_for_kubernetes/1/samples/monitoring/grafana-dashboard.json
+      - extra-dashboards/node-exporter-full.json
+      - extra-dashboards/node-exporter-nodename.json
+    options:
+      labels:
+        grafana_dashboard: "1"

@@ -2,9 +2,26 @@
 
 This repo contains all of the configuration and documentation of my homelab.
 
-I began working on this 2023-12-25.
-
 Most of the homelab work is documented on my [YouTube channel](https://www.youtube.com/channel/UCDAck-gFPTrgTx_qp59-bQA)
+
+The purpose of my homelab is to learn and to have fun. Being a Cloud Native Engineer by trade, I work with Kubernetes every day, and my homelab is the place where I can try out and learn new things. On the other hand, by self-hosting some applications, it makes me feel responsible for the entire process of deploying and maintaining an application from A to Z. It forces me to think about backup strategies, security, scalability and the ease of deployment and maintenance.
+
+## Principles
+
+I have a few principles that guide my choices for my homelab.
+
+* Being an Azure focused engineer, I try to leverage Azure solutions when possible to use in a cluster that's running on local hardware
+* I try to keep in the Azure Kubernetes Service (AKS) ecosystem. This is why I chose Flux for GitOps, for example
+* I currently have low storage needs, so I have no NAS setup. Backups are made to Azure Blob Storage
+* I aim to adopt best practices in deployment and security
+* Everything is deployed through GitOps
+* All applications and infrastructure are run entirely on Kubernetes. I have no VM's running auxiliary services such as DNS or storage
+* When selecting self hosted options, I always opt for the ones that allow me to run a separate Postgres database that I can manage myself
+* I don't rely on persistent storage or stateful sets
+
+## Cluster Provisioning
+
+I use [Talos Linux](https://www.talos.dev/) to set up my machines. I love Talos because it is so lightweight and minimal, and it provides production grade security right out of the box. It also forces me to use all my servers as Kubernetes nodes only, so I need to figure out ways to run all my desired workloads and services on Kubernetes.
 
 ## Hardware
 
@@ -12,19 +29,25 @@ I'm running a staging and production cluster. I decided to run two clusters so I
 
 ### Staging
 
-* control plane: old laptop with 4gb ram
-* node 1: thinkpad t420 with 8gb ram
+My staging cluster is currently running only on virtual machines. I use a Thinkpad T480 with 32GB of memory running Ubuntu Desktop. I use VirtualBox as a hypervisor to provision VMs with Talos Linux.
 
+Currenntly running 3 VMs:
+
+* controlplane-1  1CPU 4GB RAM
+* worker-1        1CPU 4GB RAM
+* worker-2        1CPU 4GB RAM
 
 ### Production
 
-* control plane: 16gp ram i5 HP mini pc
+* controlplane-1  Lenovo ThinkPad T430 i5 8GB RAM 
+* worker-1        HP ELITEDESK 800 G2 MINI i5-6400T/16GB/240GB SSD
+* worker-2        Virtual Machine on Thinkpad T480 1CPU 4GB RAM
 
-## Tooling
+## Databases
 
-* Ubuntu server as OS
-* k3s for creating the cluster(s)
-* Flux for GitOps
+If you couldn't tell already, I quite like databases. I worked with the EDB operator during one of my assignments, and I think it's a great solution to run databases on Kubernetes as long as you know what you're doing and you're able to make backups to an object store.
+
+I doubted for a while whether I should choose the CloudnativePG or EDB operator, but I went for EDB (EnterpriseDB) becuase it's more like that I'll work with this operator during my day job. Additionally, the EDB documentation is better.
 
 ## Secrets
 
@@ -35,9 +58,6 @@ I'm running a staging and production cluster. I decided to run two clusters so I
 
 ## Current Goals
 
-* start running a few applications
-* look into exposing an app using a cloudflared tunnel
-* add more hardware
 * securing monitoring deployment with auth and secrets
 * Monitoring notifications to Telegram
 
@@ -61,6 +81,9 @@ I'm running a staging and production cluster. I decided to run two clusters so I
 * Everything should be deployed using GitOps
   * Try out Flux
 * set up loki
+* start running a few applications
+* look into exposing an app using a cloudflared tunnel
+* add more hardware
 
 ## Long Term Goals
 
@@ -68,7 +91,6 @@ I'm running a staging and production cluster. I decided to run two clusters so I
 
 ## TODO
 
-* [ ] Use UFW on all servers
 * [ ] Look into prometheus data source basic auth
 * [ ] look into Flagger
 * [x] set up loki
