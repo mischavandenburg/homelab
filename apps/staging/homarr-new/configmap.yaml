@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: homarr-configmap
+  namespace: homarr
+data:
+  TZ: "Europe/Paris"
+  DEFAULT_COLOR_SCHEME: "dark"
+  DISABLE_ANALYTICS: true
