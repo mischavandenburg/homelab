@@ -6,4 +6,4 @@ metadata:
 data:
   TZ: "Europe/Paris"
   DEFAULT_COLOR_SCHEME: "dark"
-  DISABLE_ANALYTICS: true
+  DISABLE_ANALYTICS: "true"
