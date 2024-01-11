@@ -23,7 +23,7 @@ spec:
         - homarr-staging.mischavandenburg.net
       secretName: homarr-ingress-staging
 
-      #     ingress:
+      # ingress:
       # enabled: true
       # className: traefik
       # annotations:
