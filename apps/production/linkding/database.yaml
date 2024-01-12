@@ -3,12 +3,14 @@ kind: Cluster
 metadata:
   name: linkding-db-production-v1
   namespace: linkding
-  labels:
-    app: linkding
 spec:
   description: Postgres cluster for the linkding application
   imageName: quay.io/enterprisedb/postgresql:16.1
   instances: 3
+
+  inheritedMetadata:
+    labels:
+      app: linkding
 
   monitoring:
     enablePodMonitor: true
