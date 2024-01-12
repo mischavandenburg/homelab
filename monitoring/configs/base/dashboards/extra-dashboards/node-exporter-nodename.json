@@ -38,7 +38,7 @@
   "annotations": {
     "list": []
   },
-  "editable": false,
+  "editable": true,
   "gnetId": 10242,
   "graphTooltip": 0,
   "hideControls": false,
