@@ -15,14 +15,7 @@ spec:
         namespace: monitoring
       interval: 12h
   values:
-    persistence:
-      enabled: true
-      type: pvc
-      storageClassName: local-path
-      accessModes:
-        - ReadWriteOnce
-      size: 4Gi
-
+    # configuration to make dashboard configmaps discoverable
     sidecar:
       datasources:
         enabled: true
@@ -34,36 +27,14 @@ spec:
         labelValue: "1"
         # Allow discovery in all namespaces for dashboards
         searchNamespace: ALL
+        allowUiUpdates: true
 
         ## Annotations for Grafana dashboard configmaps
         ##
-        annotations: {}
-        multicluster:
-          global:
-            enabled: false
-          etcd:
-            enabled: false
-        provider:
-          allowUiUpdates: false
-
-    # configuration to load default dashboards from persistent volume
-    dashboardProviders:
-      dashboardproviders.yaml:
-        apiVersion: 1
-        providers:
-          - name: default
-            orgId: 1
-            folder: ""
-            type: file
-            disableDeletion: false
-            updateIntervalSeconds: 10 # how often Grafana will scan for changed dashboards
-            allowUiUpdates: true
-            options:
-              path: /var/lib/grafana/dashboards/default
-              foldersFromFilesStructure: false
-    extraVolumeMounts:
-      - name: grafana-default-dashboards
-        mountPath: /var/lib/grafana/dashboards/default
-    extraVolumes:
-      - name: grafana-default-dashboards
-        existingClaim: grafana-default-dashboards
+        # annotations: {}
+        # multicluster:
+        #   global:
+        #     enabled: false
+        #   etcd:
+        #     enabled: false
+        # provider:
