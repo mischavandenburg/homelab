@@ -10,7 +10,7 @@ spec:
 
   inheritedMetadata:
     labels:
-      app: linkding
+      app: linkding-database
 
   monitoring:
     enablePodMonitor: true
