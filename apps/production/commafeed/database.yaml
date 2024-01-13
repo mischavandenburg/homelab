@@ -1,7 +1,7 @@
 apiVersion: postgresql.k8s.enterprisedb.io/v1
 kind: Cluster
 metadata:
-  name: commafeed-db-production
+  name: commafeed-db-production-v1
   namespace: commafeed
 spec:
   description: Postgres cluster for the commafeed application
@@ -11,20 +11,34 @@ spec:
   monitoring:
     enablePodMonitor: true
 
+  storage:
+    storageClass: local-path
+    size: 200Mi
+
   bootstrap:
-    initdb:
+    recovery:
+      source: clusterBackup
       database: commafeed
       owner: commafeed
       secret:
         name: commafeed-db-creds
 
-  storage:
-    storageClass: local-path
-    size: 200Mi
+  externalClusters:
+    - name: clusterBackup
+      barmanObjectStore:
+        destinationPath: https://hldatabaseproduction.blob.core.windows.net/commafeed
+        serverName: commafeed-db-production
+        azureCredentials:
+          storageAccount:
+            name: azure-creds
+            key: commafeed-storage-account-name
+          storageSasToken:
+            name: azure-creds
+            key: commafeed-blob-sas
 
   backup:
     barmanObjectStore:
-      destinationPath: "https://hldatabaseproduction.blob.core.windows.net/commafeed"
+      destinationPath: https://hldatabaseproduction.blob.core.windows.net/commafeed
       azureCredentials:
         storageAccount:
           name: azure-creds
@@ -41,4 +55,4 @@ spec:
   # handy: resources can be used to trigger a redeploy
   resources:
     requests:
-      memory: 600Mi
+      memory: 500Mi
