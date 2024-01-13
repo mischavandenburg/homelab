@@ -28,8 +28,8 @@ spec:
     write:
       persistence:
         enableStatefulSetAutoDeletePVC: true
-        volumeClaimsEnabled: true
+        volumeClaimsEnabled: false
     backend:
       persistence:
         enableStatefulSetAutoDeletePVC: true
-        volumeClaimsEnabled: true
+        volumeClaimsEnabled: false

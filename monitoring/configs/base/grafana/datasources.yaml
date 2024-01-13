@@ -26,3 +26,7 @@ data:
       jsonData:
         handleGrafanaManagedAlerts: false
         implementation: prometheus
+    - name: Loki
+      type: loki
+      uid: loki
+      url: http://loki.monitoring:3100/
