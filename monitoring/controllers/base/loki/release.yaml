@@ -24,12 +24,13 @@ spec:
     singleBinary:
       replicas: 1
       persistence:
-        enabled: false
+        storageClass: local-path
     write:
       persistence:
-        enableStatefulSetAutoDeletePVC: true
-        volumeClaimsEnabled: false
+        storageClass: local-path
+    read:
+      persistence:
+        storageClass: local-path
     backend:
       persistence:
-        enableStatefulSetAutoDeletePVC: true
-        volumeClaimsEnabled: false
+        storageClass: local-path
