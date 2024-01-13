@@ -20,11 +20,11 @@ spec:
 
   storage:
     storageClass: local-path
-    size: 1Gi
+    size: 200Mi
 
   backup:
     barmanObjectStore:
-      destinationPath: "https://hldatabase.blob.core.windows.net/mealie"
+      destinationPath: https://hldatabase.blob.core.windows.net/mealie
       azureCredentials:
         storageAccount:
           name: azure-creds
@@ -41,4 +41,4 @@ spec:
   # handy: resources can be used to trigger a redeploy
   resources:
     requests:
-      memory: 300Mi
+      memory: 200Mi
