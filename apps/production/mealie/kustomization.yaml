@@ -2,7 +2,7 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
   - ../../base/mealie/
-  - database.yaml
+  # - database.yaml
   - configmap.yaml
   - cloudflare.yaml
   # - scheduled-backup.yaml

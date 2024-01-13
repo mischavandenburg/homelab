@@ -1,7 +1,7 @@
 apiVersion: postgresql.k8s.enterprisedb.io/v1
 kind: Cluster
 metadata:
-  name: mealie-db-production-v1
+  name: mealie-db-production
   namespace: mealie
 spec:
   description: Postgres cluster for the Mealie application
@@ -11,34 +11,20 @@ spec:
   monitoring:
     enablePodMonitor: true
 
-  storage:
-    storageClass: local-path
-    size: 200Mi
-
   bootstrap:
-    recovery:
-      source: clusterBackup
+    initdb:
       database: mealie
       owner: mealie
       secret:
         name: mealie-db-creds
 
-  externalClusters:
-    - name: clusterBackup
-      barmanObjectStore:
-        destinationPath: https://hldatabaseproduction.blob.core.windows.net/mealie
-        serverName: mealie-db-production
-        azureCredentials:
-          storageAccount:
-            name: azure-creds
-            key: mealie-storage-account-name
-          storageSasToken:
-            name: azure-creds
-            key: mealie-blob-sas
+  storage:
+    storageClass: local-path
+    size: 1Gi
 
   backup:
     barmanObjectStore:
-      destinationPath: https://hldatabaseproduction.blob.core.windows.net/mealie
+      destinationPath: "https://hldatabase.blob.core.windows.net/mealie"
       azureCredentials:
         storageAccount:
           name: azure-creds
@@ -55,4 +41,4 @@ spec:
   # handy: resources can be used to trigger a redeploy
   resources:
     requests:
-      memory: 200Mi
+      memory: 300Mi
