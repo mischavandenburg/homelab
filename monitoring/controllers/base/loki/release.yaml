@@ -23,3 +23,13 @@ spec:
         type: "filesystem"
     singleBinary:
       replicas: 1
+      persistence:
+        enabled: false
+    write:
+      persistence:
+        enableStatefulSetAutoDeletePVC: true
+        volumeClaimsEnabled: true
+    backend:
+      persistence:
+        enableStatefulSetAutoDeletePVC: true
+        volumeClaimsEnabled: true
