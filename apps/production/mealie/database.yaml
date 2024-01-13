@@ -24,7 +24,7 @@ spec:
 
   backup:
     barmanObjectStore:
-      destinationPath: https://hldatabase.blob.core.windows.net/mealie
+      destinationPath: https://hldatabaseproduction.blob.core.windows.net/mealie
       azureCredentials:
         storageAccount:
           name: azure-creds
