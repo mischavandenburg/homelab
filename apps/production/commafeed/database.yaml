@@ -11,6 +11,10 @@ spec:
   monitoring:
     enablePodMonitor: true
 
+  inheritedMetadata:
+    labels:
+      app: commafeed-database
+
   storage:
     storageClass: local-path
     size: 200Mi
