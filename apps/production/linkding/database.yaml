@@ -11,6 +11,7 @@ spec:
   inheritedMetadata:
     labels:
       app: linkding-database
+      policy-type: "database"
 
   monitoring:
     enablePodMonitor: true

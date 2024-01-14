@@ -12,7 +12,7 @@ spec:
     metadata:
       labels:
         app: linkding
-        try: "2"
+        policy-type: "app"
     spec:
       securityContext:
         runAsUser: 1000
