@@ -18,6 +18,8 @@ spec:
             io.kubernetes.pod.namespace: postgresql-operator-system
   egress:
     - toEndpoints:
+        - {}
+    - toEndpoints:
         - matchLabels:
             io.kubernetes.pod.namespace: kube-system
             k8s-app: kube-dns
@@ -28,8 +30,6 @@ spec:
           rules:
             dns:
               - matchPattern: "*"
-    - toEndpoints:
-        - {}
     - toEntities:
         - world
       toPorts:
