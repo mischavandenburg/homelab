@@ -7,7 +7,6 @@ resources:
   - ../../base/linkding/
   - cloudflare.yaml
   - networkpolicy.yaml
-  # - backup-restore-linkding.yaml
 
 patches:
   - target:
@@ -16,14 +15,3 @@ patches:
       - op: replace
         path: /spec/parameters/keyvaultName
         value: k8s-homelab-production
-
-  # ingress + cert handled by cloudflare
-  # - target:
-  #     kind: Ingress
-  #   patch: |-
-  #     - op: replace
-  #       path: /metadata/annotations/cert-manager.io~1cluster-issuer
-  #       value: letsencrypt-production
-  #     - op: replace
-  #       path: /spec/tls/0/secretName
-  #       value: linkding-ingress-production

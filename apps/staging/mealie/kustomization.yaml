@@ -6,7 +6,6 @@ resources:
   - configmap.yaml
   - ingress.yaml
   - scheduled-backup.yaml
-  # - backup-restore-mealie.yaml
 
 patches:
   - target:

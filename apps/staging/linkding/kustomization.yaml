@@ -7,7 +7,6 @@ resources:
   - ../../base/linkding/
   - ingress.yaml
   # - cloudflare.yaml
-  # - backup-restore-linkding.yaml
 
 patches:
   - target:

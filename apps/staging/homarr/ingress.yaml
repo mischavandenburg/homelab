@@ -22,18 +22,3 @@ spec:
     - hosts:
         - home-staging.mischavandenburg.net
       secretName: homarr-ingress-staging
-
-      # ingress:
-      # enabled: true
-      # className: traefik
-      # annotations:
-      #   cert-manager.io/cluster-issuer: letsencrypt-production
-      # hosts:
-      #   - host: home.mischavandenburg.net
-      #     paths:
-      #       - path: /
-      #         pathType: Prefix
-      # tls:
-      #   - hosts:
-      #       - home.mischavandenburg.net
-      #     secretName: homarr-ingress-production
