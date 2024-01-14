@@ -12,7 +12,7 @@ spec:
     metadata:
       labels:
         app: mealie
-        try: "1"
+        policy-type: "app"
     spec:
       securityContext:
         runAsUser: 1000
