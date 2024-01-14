@@ -36,7 +36,9 @@ spec:
         storageClass: local-path
     monitoring:
       selfMonitoring:
-        enabled: false
+        enabled: true
+      grafanaAgent:
+        installOperator: false
       dashboards:
         enabled: false
       rules:
