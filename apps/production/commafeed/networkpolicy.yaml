@@ -84,3 +84,15 @@ spec:
       toPorts:
         - ports:
             - port: "443"
+---
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: deny-all
+  namespace: commafeed
+spec:
+  endpointSelector: {}
+  ingress:
+    - {}
+  egress:
+    - {}
