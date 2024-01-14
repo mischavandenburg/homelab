@@ -41,7 +41,9 @@ spec:
             - port: "7844"
     - toEndpoints:
         - matchLabels:
-            k8s-app: kube-apiserver
+            # k8s-app: kube-apiserver
+            reserved: kube-apiserver
+
             io.kubernetes.pod.namespace: kube-system
       toPorts:
         - ports:
