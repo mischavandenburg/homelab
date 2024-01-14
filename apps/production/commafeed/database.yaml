@@ -14,6 +14,7 @@ spec:
   inheritedMetadata:
     labels:
       app: commafeed-database
+      to-apiserver: "true"
 
   storage:
     storageClass: local-path

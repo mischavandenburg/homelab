@@ -4,7 +4,9 @@ metadata:
   name: commafeed-networkpolicy
   namespace: commafeed
 spec:
-  endpointSelector: {}
+  endpointSelector:
+    matchLabels:
+      to-apiserver: "false"
   ingress:
     - fromEndpoints:
         - {}
@@ -37,3 +39,43 @@ spec:
             - port: "80"
         - ports:
             - port: "7844"
+---
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: commafeed-database
+  namespace: commafeed
+spec:
+  endpointSelector:
+    matchLabels:
+      to-apiserver: "true"
+  ingress:
+    - fromEndpoints:
+        - {}
+    - fromEndpoints:
+        - matchLabels:
+            io.kubernetes.pod.namespace: monitoring
+    - fromEndpoints:
+        - matchLabels:
+            io.kubernetes.pod.namespace: postgresql-operator-system
+  egress:
+    - toEndpoints:
+        - matchLabels:
+            io.kubernetes.pod.namespace: kube-system
+            k8s-app: kube-dns
+      toPorts:
+        - ports:
+            - port: "53"
+              protocol: UDP
+          rules:
+            dns:
+              - matchPattern: "*"
+    - toEndpoints:
+        - matchLabels:
+            k8s-app: kube-apiserver
+            io.kubernetes.pod.namespace: kube-system
+      toPorts:
+        - ports:
+            - port: "6443"
+    - toEndpoints:
+        - {}

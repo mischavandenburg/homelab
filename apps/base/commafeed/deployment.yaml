@@ -13,6 +13,8 @@ spec:
       labels:
         app: commafeed
         try: "0"
+        to-apiserver: "false"
+
     spec:
       securityContext:
         runAsUser: 1000
