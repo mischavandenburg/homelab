@@ -4,8 +4,7 @@ metadata:
   name: commafeed-networkpolicy
   namespace: commafeed
 spec:
-  endpointSelector:
-    {}
+  endpointSelector: {}
     # matchLabels:
     #   to-apiserver: "false"
   ingress:
