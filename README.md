@@ -58,36 +58,14 @@ I doubted for a while whether I should choose the CloudnativePG or EDB operator,
 * SAS tokens for Storage Account Access
   * Note to self: expiry in 2 years
 
-
 ## Current Goals
 
-* securing monitoring deployment with auth and secrets
 * Monitoring notifications to Telegram
+* Set up renovate for maintenance PR's
+* Optimize resources/requests
+* Deploy Falco and increase security posture
 
-
-## TODO
-
-* [ ] Look into prometheus data source basic auth
-* [ ] look into Flagger
-* [x] set up loki
-* [] look into Falco
-* [] cloudflare secret to key vault
-* [] grafana REQ_URL environment variable in pod, try to disable loadbalancer
-* [] mealie configmap env and secretenv
-* [] mealie delete hostport
-* [] mealie switch to production issuer
-* [] disable grafana agent
-* [] 
-
-## Decisions
-
-### Using k3s
-
-By using k3s I'm commiting to a certain way of configuring the cluster and a set of resources that come with it. In my day job I mostly use Azure Kubernetes Service, so I am fine with not deepening my knowledge of running on-prem Kubernetes at this point in my journey. There is so much more involved with provisioning clusters with kubeadm which will slow me down to get up and running with my homelab.
-
-At this point it is more important to me to keep things light and fun, and to learn more about deploying and managing a cluster, not necessarily the privisioning of the clusters.
-
-### Repo Structure
+## Repo Structure
 
 Decided to fully commit to Flux and their practices.
 
@@ -103,23 +81,3 @@ https://github.com/fluxcd/flux2-kustomize-helm-example
 2024-01-04
 
 In [this commit](https://github.com/mischavandenburg/homelab/commit/3a65ae4707b633929f89cdc09490595ccfb9470b) I did a big refactor to enable base and environment layers.
-
-# Log
-
-# 2023-12-26
-
-* installed prometheus stack
-* tried out Flux in Azure
-* committed to using Flux on homelab
-* studied Flux and learned how it works
-* commited to using Flux way of structuring repo
-* configured Weave UI to access Flux
-* configured Grafana and Weave with ingress so they are available on fake local domains: weave. and grafana.homelab.nl
-
-
-## 2023-12-25
-
-* cleaned up old kubeadm install from controlplane
-* set up k3s on controlplane
-* added k3s documentation
-* set up repo and added documentation of earlier install
