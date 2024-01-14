@@ -12,6 +12,7 @@ spec:
     metadata:
       labels:
         app: cloudflared
+        policy-type: "app"
     spec:
       containers:
         - name: cloudflared
