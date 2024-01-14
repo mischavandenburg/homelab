@@ -6,6 +6,7 @@ resources:
   - database.yaml
   - scheduled-backup.yaml
   - cloudflare.yaml
+  - networkpolicy.yaml
 
 patches:
   - target:
