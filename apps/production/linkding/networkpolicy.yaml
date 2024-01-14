@@ -43,3 +43,10 @@ spec:
             - port: "443"
         - ports:
             - port: "7844"
+
+    # databases need to access the kube api server for probes
+    - toEntities:
+        - kube-apiserver
+      toPorts:
+        - ports:
+            - port: "6443"
