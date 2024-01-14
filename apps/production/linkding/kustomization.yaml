@@ -6,6 +6,7 @@ resources:
   - scheduled-backup.yaml
   - ../../base/linkding/
   - cloudflare.yaml
+  - networkpolicy.yaml
   # - backup-restore-linkding.yaml
 
 patches:
