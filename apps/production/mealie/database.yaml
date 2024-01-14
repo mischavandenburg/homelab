@@ -11,6 +11,10 @@ spec:
   monitoring:
     enablePodMonitor: true
 
+  inheritedMetadata:
+    labels:
+      app: mealie-database
+
   bootstrap:
     initdb:
       database: mealie
