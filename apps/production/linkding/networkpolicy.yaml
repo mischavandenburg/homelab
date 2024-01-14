@@ -1,0 +1,45 @@
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: linkding-networkpolicy
+  namespace: linkding
+spec:
+  endpointSelector: {}
+  ingress:
+    # denies all endpoints
+    - fromEndpoints:
+        - {}
+    # allow prometheus to scrape
+    - fromEndpoints:
+        - matchLabels:
+            io.kubernetes.pod.namespace: monitoring # allow from monitoring namespace
+
+        # allow the EDB operator to manage the database pods
+        - matchLabels:
+            io.kubernetes.pod.namespace: postgresql-operator-system
+  egress:
+    - toEndpoints:
+        - matchLabels:
+            io.kubernetes.pod.namespace: kube-system
+            k8s-app: kube-dns
+      toPorts:
+        - ports:
+            - port: "53"
+              protocol: UDP
+          rules:
+            dns:
+              - matchPattern: "*"
+
+    # allow traffic to all pods in the same namespace
+    - toEndpoints:
+        - {}
+
+    # allow outbound to the internet
+    # port 7844 is for cloudflared
+    - toEntities:
+        - world
+      toPorts:
+        - ports:
+            - port: "443"
+        - ports:
+            - port: "7844"
