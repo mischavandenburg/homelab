@@ -1,7 +1,7 @@
 apiVersion: cilium.io/v2
 kind: CiliumNetworkPolicy
 metadata:
-  name: commafeed-networkpolicy
+  name: commafeed-app
   namespace: commafeed
 spec:
   endpointSelector:

@@ -1,7 +1,7 @@
 apiVersion: cilium.io/v2
 kind: CiliumNetworkPolicy
 metadata:
-  name: mealie-networkpolicy
+  name: mealie-app
   namespace: mealie
 spec:
   endpointSelector:
