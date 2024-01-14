@@ -72,9 +72,6 @@ spec:
           rules:
             dns:
               - matchPattern: "*"
-      toPorts:
-        - ports:
-            - port: "6443"
 
     - toEntities:
         - kube-apiserver
