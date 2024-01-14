@@ -27,27 +27,30 @@ I use [Talos Linux](https://www.talos.dev/) to set up my machines. I love Talos 
 
 I'm running a staging and production cluster. I decided to run two clusters so I stay in the habit of separating environments. And because then I can justify to buy more hardware 😏
 
+I use a combination of HP ELITEDESK mini pc's, old laptops and sometimes a few virtual machines. The mini PC's are great because they are small and cheap to buy when you get them refurbished from a reseller.
+
 ### Staging
 
-My staging cluster is currently running only on virtual machines. I use a Thinkpad T480 with 32GB of memory running Ubuntu Desktop. I use VirtualBox as a hypervisor to provision VMs with Talos Linux.
+This is my playground where I can destroy things freely. Databases in staging don't contain data. In staging I allow workload pods to be scheduled on the control plane.
 
-Currenntly running 3 VMs:
+* controlplane-1  HP ELITEDESK 800 G2 MINI i3-6100T/8GB/240GB SSD
+* worker-2        HP ELITEDESK 800 G2 MINI i3-6100T/8GB/240GB SSD
 
-* controlplane-1  1CPU 4GB RAM
-* worker-1        1CPU 4GB RAM
-* worker-2        1CPU 4GB RAM
+I also use a Thinkpad T480 with 32GB of memory running Ubuntu Desktop. This is my personal machine and I sometimes add a few VMs to the staging cluster when I need them. I use VirtualBox as a hypervisor to provision VMs with Talos Linux.
 
 ### Production
 
-* controlplane-1  Lenovo ThinkPad T430 i5 8GB RAM 
+No pods are allowed to be scheduled on the control plane in production.
+
+* controlplane-1  Lenovo ThinkPad T430 i5 8GB RAM
 * worker-1        HP ELITEDESK 800 G2 MINI i5-6400T/16GB/240GB SSD
-* worker-2        Virtual Machine on Thinkpad T480 1CPU 4GB RAM
+* worker-2        HP ELITEDESK 800 G2 MINI i3-6100T/8GB/240GB SSD
 
 ## Databases
 
-If you couldn't tell already, I quite like databases. I worked with the EDB operator during one of my assignments, and I think it's a great solution to run databases on Kubernetes as long as you know what you're doing and you're able to make backups to an object store.
+If you couldn't tell already, I quite like databases. I worked with the EDB operator at one of my clients, and I think it's a great solution to run databases on Kubernetes as long as you know what you're doing and you're able to make backups to an object store.
 
-I doubted for a while whether I should choose the CloudnativePG or EDB operator, but I went for EDB (EnterpriseDB) becuase it's more like that I'll work with this operator during my day job. Additionally, the EDB documentation is better.
+I doubted for a while whether I should choose the CloudnativePG or EDB operator, but I went for EDB (EnterpriseDB) because it's more likely that I'll work with this operator during my day job. Additionally, the EDB documentation is better.
 
 ## Secrets
 
@@ -61,33 +64,6 @@ I doubted for a while whether I should choose the CloudnativePG or EDB operator,
 * securing monitoring deployment with auth and secrets
 * Monitoring notifications to Telegram
 
-## Apps to Run
-
-* [] linkding (use in combination with [companion](https://github.com/acez/bookmark-companion) on ios)
-* [] RSS reader
-* [] 
-* [] Wallabag (read later app, maybe not needed with linkding)
-* [] 
-* [] 
-
-## Achieved Goals
-
-* set up a vault solution for secrets
-* Run Prometheus and Grafana stack
-* Have Grafana dashboard available with a URL
-  * ingress
-  * tls
-  * DNS
-* Everything should be deployed using GitOps
-  * Try out Flux
-* set up loki
-* start running a few applications
-* look into exposing an app using a cloudflared tunnel
-* add more hardware
-
-## Long Term Goals
-
-* set up security solution to scan cluster and adopt best security practices
 
 ## TODO
 

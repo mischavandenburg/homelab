@@ -34,3 +34,11 @@ spec:
     backend:
       persistence:
         storageClass: local-path
+    monitoring:
+      selfMonitoring:
+        enabled: false
+      dashboards:
+        enabled: false
+      rules:
+        enabled: false
+        alerting: false
