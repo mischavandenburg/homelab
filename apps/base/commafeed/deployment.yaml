@@ -8,12 +8,13 @@ spec:
   selector:
     matchLabels:
       app: commafeed
+
   template:
     metadata:
       labels:
         app: commafeed
         try: "0"
-        to-apiserver: "false"
+        policy-type: "app"
 
     spec:
       securityContext:

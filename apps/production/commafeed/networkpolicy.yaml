@@ -6,7 +6,7 @@ metadata:
 spec:
   endpointSelector:
     matchLabels:
-      to-apiserver: "false"
+      policy-type: "app"
   ingress:
     - fromEndpoints:
         - {}
@@ -48,7 +48,7 @@ metadata:
 spec:
   endpointSelector:
     matchLabels:
-      to-apiserver: "true"
+      policy-type: "database"
   ingress:
     - fromEndpoints:
         - {}
@@ -84,5 +84,3 @@ spec:
       toPorts:
         - ports:
             - port: "443"
-        - ports:
-            - port: "7844"
