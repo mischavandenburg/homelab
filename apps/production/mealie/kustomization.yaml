@@ -6,7 +6,7 @@ resources:
   - configmap.yaml
   - cloudflare.yaml
   - scheduled-backup.yaml
-  # - backup-restore-mealie.yaml
+  - networkpolicy.yaml
 
 patches:
   - target:
