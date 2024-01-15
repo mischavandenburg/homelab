@@ -1,0 +1,40 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: renovate
+  namespace: renovate
+spec:
+  schedule: "@hourly"
+  concurrencyPolicy: Forbid
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: renovate
+              image: renovate/renovate:37.133
+              args:
+                - mischavandenburg/homelab
+
+              envFrom:
+                - secretRef:
+                    name: renovate-container-env
+                - configMapRef:
+                    name: renovate-configmap
+
+              volumeMounts:
+                - name: secrets-store-inline
+                  mountPath: /mnt/secrets-store
+                  readOnly: true
+
+              volumes:
+                - name: secrets-store-inline
+                  csi:
+                    driver: secrets-store.csi.k8s.io
+                    readOnly: true
+                    volumeAttributes:
+                      secretProviderClass: azure-kv-secrets
+                    nodePublishSecretRef: # Only required when using service principal mode
+                      name: secrets-store-creds # Only required when using service principal mode
+
+          restartPolicy: Never
