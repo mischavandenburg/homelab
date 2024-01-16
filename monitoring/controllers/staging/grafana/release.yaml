@@ -29,4 +29,4 @@ spec:
         - grafana-staging.mischavandenburg.net
 
     plugins:
-      - Strava
+      - strava
