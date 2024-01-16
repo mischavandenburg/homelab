@@ -43,3 +43,10 @@ configMapGenerator:
     options:
       labels:
         grafana_dashboard: "1"
+  - name: personal-dashboards
+    files:
+      - personal-dashboards/running-this-week.json
+      - personal-dashboards/running-this-year.json
+    options:
+      labels:
+        grafana_dashboard: "1"
