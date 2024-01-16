@@ -12,7 +12,7 @@ spec:
         spec:
           containers:
             - name: renovate
-              image: renovate/renovate:37.134
+              image: renovate/renovate:37.137
               args:
                 - mischavandenburg/homelab
 
