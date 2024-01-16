@@ -27,16 +27,13 @@ spec:
         labelValue: "1"
         # Allow discovery in all namespaces for dashboards
         searchNamespace: ALL
-
         provider:
           allowUiUpdates: true
 
-        ## Annotations for Grafana dashboard configmaps
-        ##
-        # annotations: {}
-        # multicluster:
-        #   global:
-        #     enabled: false
-        #   etcd:
-        #     enabled: false
-        # provider:
+    persistence:
+      enabled: true
+      type: pvc
+      storageClassName: local-path
+      accessModes:
+        - ReadWriteOnce
+      size: 4Gi
