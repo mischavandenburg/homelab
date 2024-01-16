@@ -27,3 +27,6 @@ spec:
           secretName: grafana-ingress-production
       hosts:
         - grafana-staging.mischavandenburg.net
+
+    plugins:
+      - Strava
