@@ -5,7 +5,12 @@ metadata:
 spec:
   chart:
     spec:
+      chart: grafana
       version: "7.0.19"
+      sourceRef:
+        kind: HelmRepository
+        name: grafana
+        namespace: monitoring
   values:
     # You can override these with env variables! https://grafana.com/docs/grafana/latest/setup-grafana/configure-grafana/
     grafana.ini:
