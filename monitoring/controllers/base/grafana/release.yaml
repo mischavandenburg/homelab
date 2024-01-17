@@ -37,3 +37,6 @@ spec:
       accessModes:
         - ReadWriteOnce
       size: 4Gi
+
+    plugins:
+      - grafana-strava-datasource
