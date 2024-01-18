@@ -26,7 +26,7 @@ spec:
         - name: calibre
           image: linuxserver/calibre-web:0.6.21
           securityContext:
-            allowPrivilegeEscalation: false
+            allowPrivilegeEscalation: true
 
           envFrom:
             - configMapRef:
