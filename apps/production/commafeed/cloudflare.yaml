@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: cloudflared
-          image: cloudflare/cloudflared:2024.1.2
+          image: cloudflare/cloudflared:2024.1.3
           args:
             - tunnel
             # Points cloudflared to the config file, which configures what
