@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: calibre
+  namespace: calibre
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: calibre
+
+  template:
+    metadata:
+      labels:
+        app: calibre
+        try: "0"
+        policy-type: "app"
+
+    spec:
+      securityContext:
+        runAsUser: 1000
+        runAsGroup: 1000
+        fsGroup: 1000
+
+      containers:
+        - name: calibre
+          image: linuxserver/calibre-web:0.6.21
+          securityContext:
+            allowPrivilegeEscalation: false
+
+          # envFrom:
+          #   - configMapRef:
+          #       name: calibre-configmap
+          #   - secretRef:
+          #       name: calibre-container-env
+
+          ports:
+            - containerPort: 8083
+              protocol: TCP
+
+          volumeMounts:
+            - mountPath: /config
+              name: calibre-data
+            - mountPath: /books
+              name: calibre-books
+
+      restartPolicy: Always
+
+      volumes:
+        - name: calibre-data
+          persistentVolumeClaim:
+            claimName: calibre-data
+        - name: calibre-books
+          persistentVolumeClaim:
+            claimName: calibre-books
+        # - name: secrets-store-inline
+        #   csi:
+        #     driver: secrets-store.csi.k8s.io
+        #     readOnly: true
+        #     volumeAttributes:
+        #       secretProviderClass: azure-kv-secrets
+        #     nodePublishSecretRef: # Only required when using service principal mode
+        #       name: secrets-store-creds # Only required when using service principal mode
