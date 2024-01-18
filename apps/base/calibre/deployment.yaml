@@ -28,9 +28,9 @@ spec:
           securityContext:
             allowPrivilegeEscalation: false
 
-          # envFrom:
-          #   - configMapRef:
-          #       name: calibre-configmap
+          envFrom:
+            - configMapRef:
+                name: calibre-configmap
           #   - secretRef:
           #       name: calibre-container-env
 
