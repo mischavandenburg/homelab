@@ -31,8 +31,6 @@ spec:
           envFrom:
             - configMapRef:
                 name: calibre-configmap
-          #   - secretRef:
-          #       name: calibre-container-env
 
           ports:
             - containerPort: 8083
@@ -53,11 +51,3 @@ spec:
         - name: calibre-books
           persistentVolumeClaim:
             claimName: calibre-books
-        # - name: secrets-store-inline
-        #   csi:
-        #     driver: secrets-store.csi.k8s.io
-        #     readOnly: true
-        #     volumeAttributes:
-        #       secretProviderClass: azure-kv-secrets
-        #     nodePublishSecretRef: # Only required when using service principal mode
-        #       name: secrets-store-creds # Only required when using service principal mode
