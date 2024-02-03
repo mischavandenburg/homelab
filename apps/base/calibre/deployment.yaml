@@ -24,7 +24,7 @@ spec:
 
       containers:
         - name: calibre
-          image: linuxserver/calibre-web:2021.12.16
+          image: linuxserver/calibre-web:0.6.21-ls250
           securityContext:
             allowPrivilegeEscalation: true
 
