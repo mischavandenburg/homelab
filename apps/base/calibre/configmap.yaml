@@ -4,6 +4,7 @@ metadata:
   name: calibre-configmap
   namespace: calibre
 data:
+  CALIBRE_PORT: "8083"
   PUID: "1000"
   PGID: "1000"
   TZ: "Etc/UTC"
