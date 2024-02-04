@@ -1,0 +1,50 @@
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: calibre-app
+  namespace: calibre
+spec:
+  endpointSelector:
+    matchLabels:
+      policy-type: "app"
+  ingress:
+    - fromEndpoints:
+        - {}
+    - fromEndpoints:
+        - matchLabels:
+            io.kubernetes.pod.namespace: monitoring
+  egress:
+    - toEndpoints:
+        - matchLabels:
+            io.kubernetes.pod.namespace: kube-system
+            k8s-app: kube-dns
+      toPorts:
+        - ports:
+            - port: "53"
+              protocol: UDP
+          rules:
+            dns:
+              - matchPattern: "*"
+    - toEndpoints:
+        - {}
+    - toEntities:
+        - world
+      toPorts:
+        - ports:
+            - port: "443"
+        - ports:
+            - port: "80"
+        - ports:
+            - port: "7844"
+---
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: deny-all
+  namespace: calibre
+spec:
+  endpointSelector: {}
+  ingress:
+    - {}
+  egress:
+    - {}
