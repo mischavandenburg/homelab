@@ -10,5 +10,5 @@ parameters:
   location: "/volume1"
   protocol: iscsi
   csi.storage.k8s.io/fstype: ext4
-reclaimPolicy: Retain
+reclaimPolicy: Delete
 allowVolumeExpansion: true
