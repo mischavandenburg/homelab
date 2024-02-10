@@ -24,6 +24,11 @@ spec:
       source: clusterBackup
       database: commafeed
       owner: commafeed
+
+      # normal recovery wasnt working because it was running out of space
+      recoveryTarget:
+        targetImmediate: true
+
       secret:
         name: commafeed-db-creds
 
