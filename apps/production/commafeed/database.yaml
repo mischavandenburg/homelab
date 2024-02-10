@@ -28,6 +28,7 @@ spec:
       # normal recovery wasnt working because it was running out of space
       recoveryTarget:
         targetImmediate: true
+        backupID: ""
 
       secret:
         name: commafeed-db-creds
