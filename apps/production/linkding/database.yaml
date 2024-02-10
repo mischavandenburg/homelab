@@ -1,7 +1,7 @@
 apiVersion: postgresql.k8s.enterprisedb.io/v1
 kind: Cluster
 metadata:
-  name: linkding-db-production-v2
+  name: linkding-db-production-v3
   namespace: linkding
 spec:
   description: Postgres cluster for the linkding application
@@ -17,8 +17,7 @@ spec:
     enablePodMonitor: true
 
   storage:
-    storageClass: local-path
-    size: 200Mi
+    size: 1Gi
 
   bootstrap:
     recovery:
@@ -32,7 +31,7 @@ spec:
     - name: clusterBackup
       barmanObjectStore:
         destinationPath: "https://hldatabaseproduction.blob.core.windows.net/linkding"
-        serverName: linkding-db-production-v1
+        serverName: linkding-db-production-v2
         azureCredentials:
           storageAccount:
             name: azure-creds
