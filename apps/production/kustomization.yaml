@@ -3,6 +3,6 @@ kind: Kustomization
 resources:
   - homarr
   - mealie
-  - linkding
-  - commafeed
+  # - linkding
+  # - commafeed
   - calibre
