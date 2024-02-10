@@ -4,5 +4,5 @@ resources:
   - homarr
   - mealie
   - linkding
-  - commafeed
+  # - commafeed
   - calibre
