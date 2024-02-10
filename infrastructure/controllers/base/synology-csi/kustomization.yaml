@@ -4,4 +4,4 @@ resources:
   - controller.yaml
   - csi-driver.yaml
   - node.yaml
-  # - storage-class.yaml
+  - storage-class.yaml
