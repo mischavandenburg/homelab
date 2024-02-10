@@ -88,6 +88,8 @@ spec:
             privileged: true
           imagePullPolicy: IfNotPresent
           image: ghcr.io/mischavandenburg/synology-csi:v1.1.3
+          imagePullSecrets:
+            - name: ghcr-login-secret
           args:
             - --nodeid=$(KUBE_NODE_NAME)
             - --endpoint=$(CSI_ENDPOINT)
