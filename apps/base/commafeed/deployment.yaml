@@ -17,17 +17,17 @@ spec:
         policy-type: "app"
 
     spec:
-      securityContext:
-        runAsUser: 1000
-        runAsGroup: 3000
-        fsGroup: 2000
+      # securityContext:
+      #   runAsUser: 1000
+      #   runAsGroup: 3000
+      #   fsGroup: 2000
 
       containers:
         - name: commafeed
           image: athou/commafeed:4.2.1
 
-          securityContext:
-            allowPrivilegeEscalation: false
+          # securityContext:
+          #   allowPrivilegeEscalation: false
 
           envFrom:
             - configMapRef:
