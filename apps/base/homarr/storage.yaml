@@ -4,7 +4,6 @@ metadata:
   name: homarr-config
   namespace: homarr
 spec:
-  storageClassName: local-path
   accessModes:
     - ReadWriteOnce
   resources:
@@ -17,7 +16,6 @@ metadata:
   name: homarr-database
   namespace: homarr
 spec:
-  storageClassName: local-path
   accessModes:
     - ReadWriteOnce
   resources:
@@ -30,7 +28,6 @@ metadata:
   name: homarr-icons
   namespace: homarr
 spec:
-  storageClassName: local-path
   accessModes:
     - ReadWriteOnce
   resources:
