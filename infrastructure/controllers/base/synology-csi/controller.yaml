@@ -155,14 +155,14 @@ spec:
             - name: CSI_ENDPOINT
               value: unix:///var/lib/csi/sockets/pluginproxy/csi.sock
           imagePullPolicy: IfNotPresent
-          imagePullSecrets:
-            - name: ghcr-login-secret
           volumeMounts:
             - name: socket-dir
               mountPath: /var/lib/csi/sockets/pluginproxy/
             - name: client-info
               mountPath: /etc/synology
               readOnly: true
+      imagePullSecrets:
+        - name: ghcr-login-secret
       volumes:
         - name: socket-dir
           emptyDir: {}
