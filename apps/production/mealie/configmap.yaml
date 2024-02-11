@@ -4,7 +4,7 @@ metadata:
   name: mealie-configmap
   namespace: mealie
 data:
-  ALLOW_SIGNUP: "true"
+  ALLOW_SIGNUP: "false"
   BASE_URL: https://mealie.mischavandenburg.net
   DB_ENGINE: postgres
   POSTGRES_DB: mealie
