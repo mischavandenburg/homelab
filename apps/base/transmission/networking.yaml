@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: transmission
+spec:
+  ports:
+    - port: 3004
+  selector:
+    app: transmission
+  type: ClusterIP
