@@ -1,3 +1,5 @@
+# abandoning this for now and running on nas instead
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
