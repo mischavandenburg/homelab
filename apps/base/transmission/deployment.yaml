@@ -43,6 +43,9 @@ spec:
               name: transmission-data
             - mountPath: /config
               name: transmission-config
+            - name: secrets-store-inline
+              mountPath: /mnt/secrets-store
+              readOnly: true
 
       restartPolicy: Always
 
