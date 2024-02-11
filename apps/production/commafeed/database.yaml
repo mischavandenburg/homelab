@@ -17,18 +17,13 @@ spec:
       policy-type: "database"
 
   storage:
-    size: 1Gi
+    size: 5Gi
 
   bootstrap:
     recovery:
       source: clusterBackup
       database: commafeed
       owner: commafeed
-
-      # normal recovery wasnt working because it was running out of space
-      # recoveryTarget:
-      #   targetImmediate: true
-      #   backupID: ""
 
       secret:
         name: commafeed-db-creds
