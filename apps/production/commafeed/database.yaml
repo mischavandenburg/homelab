@@ -17,7 +17,7 @@ spec:
       policy-type: "database"
 
   storage:
-    size: 5Gi
+    size: 1Gi
 
   bootstrap:
     recovery:
