@@ -27,7 +27,10 @@ spec:
 
           securityContext:
             allowPrivilegeEscalation: true
-
+            capabilities:
+              add:
+                - NET_ADMIN
+              privileged: true
           envFrom:
             - configMapRef:
                 name: transmission-configmap
