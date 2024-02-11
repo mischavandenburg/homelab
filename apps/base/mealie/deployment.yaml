@@ -21,7 +21,7 @@ spec:
 
       containers:
         - name: mealie
-          image: ghcr.io/mealie-recipes/mealie:v1.0.0-RC1.1
+          image: ghcr.io/mealie-recipes/mealie:v1.2.0
 
           securityContext:
             allowPrivilegeEscalation: false
