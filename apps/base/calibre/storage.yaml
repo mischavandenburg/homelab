@@ -4,12 +4,11 @@ metadata:
   name: calibre-data
   namespace: calibre
 spec:
-  storageClassName: local-path
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
-      storage: 200Mi
+      storage: 1Gi
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -17,7 +16,6 @@ metadata:
   name: calibre-books
   namespace: calibre
 spec:
-  storageClassName: local-path
   accessModes:
     - ReadWriteOnce
   resources:
