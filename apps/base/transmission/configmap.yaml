@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: transmission-configmap
 data:
-  LOCAL_NETWORK: "192.168.0.0/16"
+  LOCAL_NETWORK: "10.244.0.0/16"
   CREATE_TUN_DEVICE: "true"
   PUID: "1003"
   PGID: "1003"
