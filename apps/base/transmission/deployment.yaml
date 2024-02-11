@@ -16,10 +16,10 @@ spec:
         policy-type: "app"
 
     spec:
-      securityContext:
-        runAsUser: 1003
-        runAsGroup: 1003
-        fsGroup: 1003
+      # securityContext:
+      #   runAsUser: 1003
+      #   runAsGroup: 1003
+      #   fsGroup: 1003
 
       containers:
         - name: transmission
