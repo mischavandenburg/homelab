@@ -17,4 +17,4 @@ spec:
   values:
     service:
       externalIPs:
-        - 192.168.2.28
+        - 192.168.100.107
