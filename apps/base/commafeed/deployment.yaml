@@ -40,8 +40,6 @@ spec:
               protocol: TCP
 
           volumeMounts:
-            - mountPath: /commafeed/data
-              name: commafeed-data
             - name: secrets-store-inline
               mountPath: /mnt/secrets-store
               readOnly: true
@@ -49,9 +47,6 @@ spec:
       restartPolicy: Always
 
       volumes:
-        - name: commafeed-data
-          persistentVolumeClaim:
-            claimName: commafeed-data
         - name: secrets-store-inline
           csi:
             driver: secrets-store.csi.k8s.io
