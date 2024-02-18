@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: home-assistant
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: home-assistant
+  template:
+    metadata:
+      labels:
+        app: home-assistant
+        try: "0"
+    spec:
+      # securityContext:
+      #   runAsUser: 3000
+      #   runAsGroup: 3000
+      #   fsGroup: 3000
+
+      containers:
+        - name: home-assistant
+          image: homeassistant/home-assistant:2024.2
+
+          securityContext:
+            allowPrivilegeEscalation: true
+            runAsUser: 0
+
+          # envFrom:
+          #   - configMapRef:
+          #       name: home-assistant-configmap
+
+          ports:
+            - containerPort: 8123
+              protocol: TCP
+
+          volumeMounts:
+            - name: home-assistant-config
+              mountPath: /config
+
+      restartPolicy: Always
+
+      volumes:
+        - name: home-assistant-config
+          persistentVolumeClaim:
+            claimName: home-assistant-config
