@@ -9,7 +9,7 @@ spec:
       policy-type: "app"
   ingress:
     - fromEndpoints:
-        - {}
+        - {} # Allow traffic from all pods in the same namespace
     - fromEndpoints:
         - matchLabels:
             io.kubernetes.pod.namespace: monitoring
@@ -26,7 +26,7 @@ spec:
             dns:
               - matchPattern: "*"
     - toEndpoints:
-        - {}
+        - {} # Allow traffic to all pods in the same namespace
     - toEntities:
         - world
       toPorts:
