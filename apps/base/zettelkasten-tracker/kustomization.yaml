@@ -4,4 +4,4 @@ namespace: zettelkasten-tracker
 resources:
   - secrets.yaml
   - networking.yaml
-  - deployment.yaml
+  # - deployment.yaml
