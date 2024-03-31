@@ -12,12 +12,10 @@ I have a few principles that guide my choices for my homelab.
 
 * Being an Azure focused engineer, I try to leverage Azure solutions when possible to use in a cluster that's running on local hardware
 * I try to keep in the Azure Kubernetes Service (AKS) ecosystem. This is why I chose Flux for GitOps, for example
-* I currently have low storage needs, so I have no NAS setup. Backups are made to Azure Blob Storage
+* Storage is provisioned on my Synology NAS and database backups are made to Azure Blob Storage
 * I aim to adopt best practices in deployment and security
 * Everything is deployed through GitOps
-* All applications and infrastructure are run entirely on Kubernetes. I have no VM's running auxiliary services such as DNS or storage
 * When selecting self hosted options, I always opt for the ones that allow me to run a separate Postgres database that I can manage myself
-* I don't rely on persistent storage or stateful sets
 
 ## Cluster Provisioning
 
