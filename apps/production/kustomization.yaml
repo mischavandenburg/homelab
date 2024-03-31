@@ -6,6 +6,6 @@ resources:
   - linkding
   - commafeed
   # - calibre
-  # - zettelkasten-tracker
+  - zettelkasten-tracker
 # abandoning this for now and running on nas instead
 # - transmission
