@@ -1,0 +1,56 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zettelkasten-tracker
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: zettelkasten-tracker
+
+  template:
+    metadata:
+      labels:
+        app: zettelkasten-tracker
+        try: "0"
+        policy-type: "app"
+
+    spec:
+      securityContext:
+        runAsUser: 1000
+        runAsGroup: 3000
+        fsGroup: 2000
+
+      containers:
+        - name: zettelkasten-tracker
+          image: athou/zettelkasten-tracker:4.3.3
+
+          securityContext:
+            allowPrivilegeEscalation: false
+
+          envFrom:
+            - configMapRef:
+                name: zettelkasten-tracker-configmap
+            - secretRef:
+                name: zettelkasten-tracker-container-env
+
+          ports:
+            - containerPort: 8082
+              protocol: TCP
+
+          volumeMounts:
+            - name: secrets-store-inline
+              mountPath: /mnt/secrets-store
+              readOnly: true
+
+      restartPolicy: Always
+
+      volumes:
+        - name: secrets-store-inline
+          csi:
+            driver: secrets-store.csi.k8s.io
+            readOnly: true
+            volumeAttributes:
+              secretProviderClass: azure-kv-secrets
+            nodePublishSecretRef: # Only required when using service principal mode
+              name: secrets-store-creds # Only required when using service principal mode

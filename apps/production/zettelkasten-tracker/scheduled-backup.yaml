@@ -1,0 +1,11 @@
+apiVersion: postgresql.k8s.enterprisedb.io/v1
+kind: ScheduledBackup
+metadata:
+  name: zettelkasten-tracker-db-production
+  namespace: zettelkasten-tracker
+spec:
+  immediate: true
+  schedule: "0 0 3 * * *"
+  backupOwnerReference: cluster
+  cluster:
+    name: zettelkasten-tracker-db-production-v0
