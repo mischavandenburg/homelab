@@ -12,7 +12,7 @@ spec:
     metadata:
       labels:
         app: zettelkasten-tracker
-        try: "0"
+        try: "1"
         policy-type: "app"
 
     spec:
