@@ -6,6 +6,7 @@ resources:
   - ../../base/zettelkasten-tracker/
   - database.yaml
   - scheduled-backup.yaml
+  - podmonitor.yaml
   # - cloudflare.yaml
   # - networkpolicy.yaml
 

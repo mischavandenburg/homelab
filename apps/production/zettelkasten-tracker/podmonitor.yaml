@@ -1,0 +1,11 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PodMonitor
+metadata:
+  name: zettelkasten-tracker-monitor
+spec:
+  selector:
+    matchLabels:
+      app: zettelkasten-tracker
+  podMetricsEndpoints:
+    - port: "3009"
+      interval: 30s
