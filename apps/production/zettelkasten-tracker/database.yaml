@@ -20,26 +20,11 @@ spec:
     size: 1Gi
 
   bootstrap:
-    recovery:
-      source: clusterBackup
+    initdb:
       database: zettelkasten-tracker
-      owner: zettelkasten-tracker
-
+      owner: zktracker
       secret:
         name: zettelkasten-tracker-db-creds
-
-  externalClusters:
-    - name: clusterBackup
-      barmanObjectStore:
-        destinationPath: https://hldatabaseproduction.blob.core.windows.net/zettelkasten-tracker
-        serverName: zettelkasten-tracker-db-production-v0
-        azureCredentials:
-          storageAccount:
-            name: azure-creds
-            key: zettelkasten-tracker-storage-account-name
-          storageSasToken:
-            name: azure-creds
-            key: zettelkasten-tracker-blob-sas
 
   backup:
     barmanObjectStore:
