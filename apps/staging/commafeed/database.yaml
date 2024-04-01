@@ -41,4 +41,4 @@ spec:
   # handy: resources can be used to trigger a redeploy
   resources:
     requests:
-      memory: 750Mi
+      memory: 500Mi
