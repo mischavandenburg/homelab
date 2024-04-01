@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  # annotations:
+  #   cert-manager.io/cluster-issuer: letsencrypt-staging
+  name: zettelkasten-tracker
+spec:
+  ingressClassName: traefik
+  rules:
+    - host: zktracker.mischavandenburg.net
+      http:
+        paths:
+          - backend:
+              service:
+                name: zettelkasten-tracker
+                port:
+                  number: 3009
+            path: /
+            pathType: Prefix

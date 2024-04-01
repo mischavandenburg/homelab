@@ -7,6 +7,7 @@ resources:
   - database.yaml
   - scheduled-backup.yaml
   - podmonitor.yaml
+  - ingress.yaml
   # - cloudflare.yaml
   # - networkpolicy.yaml
 
