@@ -38,4 +38,4 @@ spec:
       size: 4Gi
 
     plugins:
-      - grafana-strava-datasource
+      - grafana-strava-datasource 1.6.1
