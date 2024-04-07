@@ -5,7 +5,4 @@ resources:
   - mealie
   - linkding
   - commafeed
-  # - calibre
   - zettelkasten-tracker
-# abandoning this for now and running on nas instead
-# - transmission
