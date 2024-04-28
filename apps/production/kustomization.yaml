@@ -5,4 +5,5 @@ resources:
   - mealie
   - linkding
   - commafeed
+  - home-assistant
   - zettelkasten-tracker
