@@ -8,4 +8,4 @@ spec:
   schedule: "0 0 3 * * *"
   backupOwnerReference: cluster
   cluster:
-    name: commafeed-db-production-v2
+    name: commafeed-db-production-v3

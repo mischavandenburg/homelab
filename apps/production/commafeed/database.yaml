@@ -1,7 +1,7 @@
 apiVersion: postgresql.k8s.enterprisedb.io/v1
 kind: Cluster
 metadata:
-  name: commafeed-db-production-v2
+  name: commafeed-db-production-v3
   namespace: commafeed
 spec:
   description: Postgres cluster for the commafeed application
@@ -32,7 +32,7 @@ spec:
     - name: clusterBackup
       barmanObjectStore:
         destinationPath: https://hldatabaseproduction.blob.core.windows.net/commafeed
-        serverName: commafeed-db-production-v1
+        serverName: commafeed-db-production-v2
         azureCredentials:
           storageAccount:
             name: azure-creds
