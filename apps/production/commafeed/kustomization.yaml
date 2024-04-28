@@ -3,7 +3,7 @@ kind: Kustomization
 resources:
   - configmap.yaml
   - ../../base/commafeed/
-  - database.yaml
+  # - database.yaml
   - scheduled-backup.yaml
   - cloudflare.yaml
   - networkpolicy.yaml
