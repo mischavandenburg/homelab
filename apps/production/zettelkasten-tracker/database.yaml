@@ -35,10 +35,10 @@ spec:
         azureCredentials:
           storageAccount:
             name: azure-creds
-            key: linkding-storage-account-name
+            key: zettelkasten-tracker-storage-account-name
           storageSasToken:
             name: azure-creds
-            key: linkding-blob-sas
+            key: zettelkasten-tracker-blob-sas
 
   backup:
     barmanObjectStore:
