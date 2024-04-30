@@ -3,7 +3,7 @@ kind: PersistentVolumeClaim
 metadata:
   name: home-assistant-config
 spec:
-  storageClassName: synology-iscsi-retain
+  storageClassName: synology-smb-retain
   accessModes:
     - ReadWriteOnce
   resources:
