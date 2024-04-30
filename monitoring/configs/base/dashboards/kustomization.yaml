@@ -47,6 +47,9 @@ configMapGenerator:
     files:
       - personal-dashboards/running-this-week.json
       - personal-dashboards/running-this-year.json
+
+      # keeping this unprovisioned for now
+      # - personal-dashboards/zettelkasten-count.json
     options:
       labels:
         grafana_dashboard: "1"
