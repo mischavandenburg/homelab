@@ -23,7 +23,7 @@ spec:
 
       containers:
         - name: zettelkasten-tracker
-          image: ghcr.io/mischavandenburg/zettelkasten-tracker:v0.0.3
+          image: ghcr.io/mischavandenburg/zettelkasten-tracker:v0.2.1
 
           # securityContext:
           #   allowPrivilegeEscalation: false
