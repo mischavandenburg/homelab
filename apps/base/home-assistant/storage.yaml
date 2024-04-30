@@ -5,7 +5,7 @@ metadata:
 spec:
   storageClassName: synology-smb-retain
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   resources:
     requests:
       storage: 1Gi
