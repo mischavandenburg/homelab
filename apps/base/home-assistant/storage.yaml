@@ -1,11 +1,12 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: home-assistant-config
+  name: home-assistant-config-v1
 spec:
-  storageClassName: synology-smb-retain
+  # storageClassName: synology-smb-retain
+  storageClassName: local-path
   accessModes:
-    - ReadWriteMany
+    - ReadWriteOnce
   resources:
     requests:
       storage: 1Gi

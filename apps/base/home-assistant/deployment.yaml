@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: home-assistant
+  name: home-assistant-v1
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: home-assistant
+      app: home-assistant-v1
   template:
     metadata:
       labels:
-        app: home-assistant
+        app: home-assistant-v1
         try: "0"
     spec:
       # securityContext:
@@ -23,7 +23,7 @@ spec:
           image: homeassistant/home-assistant:2024.2
 
           securityContext:
-            allowPrivilegeEscalation: true
+            allowPrivilegeEscalation: false
             runAsUser: 0
 
           # envFrom:
@@ -43,4 +43,4 @@ spec:
       volumes:
         - name: home-assistant-config
           persistentVolumeClaim:
-            claimName: home-assistant-config
+            claimName: home-assistant-config-v1

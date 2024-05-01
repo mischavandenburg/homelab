@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: home-assistant
+  name: home-assistant-v1
 spec:
   ports:
     - port: 8123
   selector:
-    app: home-assistant
+    app: home-assistant-v1
   type: ClusterIP
