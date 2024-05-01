@@ -12,7 +12,7 @@ spec:
         paths:
           - backend:
               service:
-                name: home-assistant
+                name: home-assistant-v1
                 port:
                   number: 8123
             path: /
