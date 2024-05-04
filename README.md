@@ -56,16 +56,9 @@ I doubted for a while whether I should choose the CloudnativePG or EDB operator,
 * SAS tokens for Storage Account Access
   * Note to self: expiry in 2 years
 
-## Current Goals
-
-* Monitoring notifications to Telegram
-* Set up renovate for maintenance PR's
-* Optimize resources/requests
-* Deploy Falco and increase security posture
-
 ## Repo Structure
 
-Decided to fully commit to Flux and their practices.
+Decided to fully commit to Flux CD and their best practices.
 
 Set up the repo according to this guide:
 
@@ -74,8 +67,3 @@ https://fluxcd.io/flux/guides/repository-structure/
 And following this example:
 
 https://github.com/fluxcd/flux2-kustomize-helm-example
-
-
-2024-01-04
-
-In [this commit](https://github.com/mischavandenburg/homelab/commit/3a65ae4707b633929f89cdc09490595ccfb9470b) I did a big refactor to enable base and environment layers.
