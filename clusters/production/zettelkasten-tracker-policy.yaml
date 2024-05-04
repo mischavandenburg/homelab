@@ -9,4 +9,4 @@ spec:
     name: zettelkasten-tracker
   policy:
     semver:
-      range: 0.x
+      range: ">=0.0.0 <1.0.0"
