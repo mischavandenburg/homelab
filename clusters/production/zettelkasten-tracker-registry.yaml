@@ -1,0 +1,9 @@
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageRepository
+metadata:
+  name: zettelkasten-tracker
+  namespace: flux-system
+spec:
+  image: ghcr.io/mischavandenburg/zettelkasten-tracker
+  interval: 5m0s
