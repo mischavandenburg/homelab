@@ -7,44 +7,35 @@ spec:
   selector:
     matchLabels:
       app: zettelkasten-tracker
-
   template:
     metadata:
       labels:
         app: zettelkasten-tracker
         try: "1"
         policy-type: "app"
-
     spec:
       # securityContext:
       #   runAsUser: 1000
       #   runAsGroup: 3000
       #   fsGroup: 2000
-
       containers:
         - name: zettelkasten-tracker
-          image: ghcr.io/mischavandenburg/zettelkasten-tracker:v0.0.3 # {"$imagepolicy": "flux-system:zettelkasten-tracker"}
-
+          image: ghcr.io/mischavandenburg/zettelkasten-tracker:v0.2.1 # {"$imagepolicy": "flux-system:zettelkasten-tracker"}
           # securityContext:
           #   allowPrivilegeEscalation: false
-
           envFrom:
             - configMapRef:
                 name: zettelkasten-tracker-configmap
             - secretRef:
                 name: zettelkasten-tracker-container-env
-
           ports:
             - containerPort: 3009
               protocol: TCP
-
           volumeMounts:
             - name: secrets-store-inline
               mountPath: /mnt/secrets-store
               readOnly: true
-
       restartPolicy: Always
-
       volumes:
         - name: secrets-store-inline
           csi:
