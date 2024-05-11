@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: wallabag
+spec:
+  ports:
+    - protocol: TCP
+      port: 8083
+      targetPort: 80
+      name: http
+  selector:
+    app: wallabag
+  type: ClusterIP
