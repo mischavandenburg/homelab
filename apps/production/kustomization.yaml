@@ -5,5 +5,5 @@ resources:
   - linkding
   - commafeed
   - home-assistant
-  - homepage
+  # - homepage
   - zettelkasten-tracker
