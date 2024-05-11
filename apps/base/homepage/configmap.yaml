@@ -5,8 +5,8 @@ metadata:
   labels:
     app.kubernetes.io/name: homepage
 data:
-  kubernetes.yaml: |
-    mode: cluster
+  # kubernetes.yaml: |
+  #   mode: cluster
   settings.yaml: ""
   custom.css: ""
   custom.js: ""
@@ -20,18 +20,22 @@ data:
       - Home Assistant:
             href: https://ass.mischavandenburg.net
             description: Home Assistant
+            icon: home-assistant.png
       - Grafana:
             href: http://grafana.mischavandenburg.net
             description: Grafana
+            icon: grafana.png
       - Synology:
             href: http://192.168.120.186:5000/
             description: Synology
+            icon: synology.png
 
 
     - Reading:
       - Commafeed:
             href: http://commafeed.mischavandenburg.net
             description: Commafeed
+            icon: commafeed.png
       - Hacker News:
             href: https://news.ycombinator.com/
             description: Hacker News
@@ -40,27 +44,29 @@ data:
       - YouTube:
             href: https://youtube.com
             description: YouTube
+            icon: youtube.png
       - YouTube Studio:
             href: https://studio.youtube.com
             description: YouTube Studio
+            icon: youtube.png
   widgets.yaml: |
-    - kubernetes:
-        cluster:
-          show: true
-          cpu: true
-          memory: true
-          showLabel: true
-          label: "cluster"
-        nodes:
-          show: true
-          cpu: true
-          memory: true
-          showLabel: true
-    - resources:
-        backend: resources
-        expanded: true
-        cpu: true
-        memory: true
+    # - kubernetes:
+    #     cluster:
+    #       show: true
+    #       cpu: true
+    #       memory: true
+    #       showLabel: true
+    #       label: "cluster"
+    #     nodes:
+    #       show: true
+    #       cpu: true
+    #       memory: true
+    #       showLabel: true
+    # - resources:
+    #     backend: resources
+    #     expanded: true
+    #     cpu: true
+    #     memory: true
     - search:
         provider: duckduckgo
         target: _blank
