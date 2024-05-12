@@ -29,8 +29,10 @@ data:
             href: http://192.168.120.186:5000/
             description: Synology
             icon: synology.png
-
-
+      - Transmission:
+            href: http://192.168.120.186:3001/
+            description: Transmission
+            icon: transmission.png
     - Reading:
       - Commafeed:
             href: http://commafeed.mischavandenburg.net
