@@ -20,7 +20,7 @@ spec:
       #   fsGroup: 2000
       containers:
         - name: zettelkasten-tracker
-          image: ghcr.io/mischavandenburg/zettelkasten-tracker:v0.3.0 # {"$imagepolicy": "flux-system:zettelkasten-tracker"}
+          image: ghcr.io/mischavandenburg/zettelkasten-tracker:v0.3.1 # {"$imagepolicy": "flux-system:zettelkasten-tracker"}
           # securityContext:
           #   allowPrivilegeEscalation: false
           envFrom:
