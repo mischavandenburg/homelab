@@ -9,4 +9,4 @@ data:
   SYMFONY__ENV__DATABASE_PORT: "5432"
   SYMFONY__ENV__DATABASE_NAME: wallabag
   SYMFONY__ENV__DATABASE_USER: wallabag
-  SYMFONY__ENV__DOMAIN_NAME: "http://localhost"
+  SYMFONY__ENV__DOMAIN_NAME: "https://wallabag.mischavandenburg.net"

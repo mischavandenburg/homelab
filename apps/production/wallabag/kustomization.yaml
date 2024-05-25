@@ -6,7 +6,7 @@ resources:
   - ../../base/wallabag/
   - database.yaml
   - scheduled-backup.yaml
-  # - cloudflare.yaml
+  - cloudflare.yaml
   # - networkpolicy.yaml
 
 patches:
