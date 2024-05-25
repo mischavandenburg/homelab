@@ -32,7 +32,7 @@ spec:
           imagePullPolicy: Always
           ports:
             - name: http
-              containerPort: 3001
+              containerPort: 3000
               protocol: TCP
           securityContext:
             allowPrivilegeEscalation: false

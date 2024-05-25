@@ -23,7 +23,7 @@ spec:
               service:
                 name: homepage
                 port:
-                  number: 3001
+                  number: 3000
   tls:
     - hosts:
         - homepage.mischavandenburg.net
