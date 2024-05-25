@@ -15,13 +15,12 @@ spec:
         try: "0"
         policy-type: "app"
 
-      # envsubst is writing to /etc/php and needs priviliges
-
-      # spec:
-      #   securityContext:
-      #     runAsUser: 65534
-      #     runAsGroup: 65534
-      #     fsGroup: 65534
+    spec:
+      # envsubst in the entrypoint sh needs to write to /etc/php
+      # securityContext:
+      #   runAsUser: 1000
+      #   runAsGroup: 3000
+      #   fsGroup: 2000
 
       containers:
         - name: wallabag
