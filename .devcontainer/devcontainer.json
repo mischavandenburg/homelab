@@ -1,0 +1,24 @@
+// customized version of https://github.com/devcontainers/images/tree/main/src/base-debian
+{
+  "build": {
+    "dockerfile": "./Dockerfile",
+    "context": "."
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "installZsh": "false",
+      "installOhMyZsh": "false",
+      "installOhMyZshConfig": "false",
+      "username": "vscode",
+      "userUid": "1000",
+      "userGid": "1000",
+      "upgradePackages": "true"
+    },
+    "ghcr.io/devcontainers/features/git:1": {
+      "version": "latest",
+      "ppa": "false"
+    },
+    "ghcr.io/devcontainers/features/nix:1": {}
+  },
+  "remoteUser": "vscode"
+}
