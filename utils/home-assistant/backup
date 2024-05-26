@@ -3,7 +3,7 @@
 backup_dir=/Users/mischa/icloud/backup/homelab/home-assistant
 
 # Get the pod name
-pod_name=$(kubectl get pods -l app=home-assistant-v1 -o=jsonpath='{.items[0].metadata.name}')
+pod_name=$(kubectl get pods -n home-assistant-v1 -l app=home-assistant-v1 -o=jsonpath='{.items[0].metadata.name}')
 
 # Copy the /config directory from the pod to the local directory
-kubectl cp "$pod_name":/config "$backup_dir"
+kubectl cp -n home-assistant-v1 "$pod_name":/config "$backup_dir"
