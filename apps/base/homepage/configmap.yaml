@@ -51,6 +51,14 @@ data:
             href: https://studio.youtube.com
             description: YouTube Studio
             icon: youtube.png
+      - X
+            href: https://x.com
+            description: X
+            icon: x.png
+      - LinkedIn
+            href: https://linkedin.com
+            description: LinkedIn
+            icon: linkedin.png
   widgets.yaml: |
     # - kubernetes:
     #     cluster:
