@@ -38,9 +38,14 @@ data:
             href: http://commafeed.mischavandenburg.net
             description: Commafeed
             icon: commafeed.png
+      - Wallabag:
+            href: http://wallabag.mischavandenburg.net
+            description: Wallabag
+            icon: wallabag.png
       - Hacker News:
             href: https://news.ycombinator.com/
             description: Hacker News
+            icon: commafeed.png
 
     - Content Creation:
       - YouTube:
