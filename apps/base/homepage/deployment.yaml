@@ -2,10 +2,9 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: homepage
-  namespace: default
   labels:
     app.kubernetes.io/name: homepage
-    try: "0"
+    try: "1"
 spec:
   revisionHistoryLimit: 3
   replicas: 1

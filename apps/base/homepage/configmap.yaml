@@ -64,6 +64,10 @@ data:
             href: https://linkedin.com
             description: LinkedIn
             icon: linkedin.png
+      - Substack:
+              href: https://mischavandenburg.substack.com
+              description: Substack
+              icon: substack.png
   widgets.yaml: |
     # - kubernetes:
     #     cluster:
