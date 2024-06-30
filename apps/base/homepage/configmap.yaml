@@ -60,7 +60,7 @@ data:
       - Hypefury:
             href: https://app.hypefury.com/
             description: Hypefury
-            icon: mi-note-text-outline-#1F93FF
+            icon: mdi-note-text-outline-#1F93FF
       - X:
             href: https://x.com
             description: X
@@ -72,7 +72,7 @@ data:
       - Skool:
             href: https://www.skool.com/kubernetes-devops-cloud-3122
             description: Skool
-            icon: mi-school-outline-#FFF200
+            icon: mdi-school-outline-#FFF200
       - Substack:
               href: https://mischavandenburg.substack.com
               description: Substack
