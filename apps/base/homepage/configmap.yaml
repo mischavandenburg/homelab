@@ -57,6 +57,10 @@ data:
             description: YouTube Studio
             icon: youtube.png
     - Posting:
+      - Hypefury:
+            href: https://app.hypefury.com/
+            description: Hypefury
+            icon: mi-note-text-outline-#1F93FF
       - X:
             href: https://x.com
             description: X
