@@ -47,7 +47,7 @@ data:
             description: Hacker News
             icon: commafeed.png
 
-    - Content Creation:
+    - Watching:
       - YouTube:
             href: https://youtube.com
             description: YouTube
@@ -56,6 +56,7 @@ data:
             href: https://studio.youtube.com
             description: YouTube Studio
             icon: youtube.png
+    - Posting:
       - X:
             href: https://x.com
             description: X
@@ -64,6 +65,10 @@ data:
             href: https://linkedin.com
             description: LinkedIn
             icon: linkedin.png
+      - Skool:
+            href: https://www.skool.com/kubernetes-devops-cloud-3122
+            description: Skool
+            icon: mi-school-outline-#FFF200
       - Substack:
               href: https://mischavandenburg.substack.com
               description: Substack
