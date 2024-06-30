@@ -67,7 +67,7 @@ data:
       - Substack:
               href: https://mischavandenburg.substack.com
               description: Substack
-              icon: substack.png
+              icon: si-substack-#FF6719
   widgets.yaml: |
     # - kubernetes:
     #     cluster:
