@@ -20,7 +20,7 @@ spec:
 
       containers:
         - name: home-assistant
-          image: homeassistant/home-assistant:2024.5
+          image: homeassistant/home-assistant:2024.7
 
           securityContext:
             allowPrivilegeEscalation: false
