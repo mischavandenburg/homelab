@@ -1,0 +1,54 @@
+apiVersion: postgresql.k8s.enterprisedb.io/v1
+kind: Cluster
+metadata:
+  name: skool-db-production-v0
+  namespace: skool
+spec:
+  backup:
+    barmanObjectStore:
+      azureCredentials:
+        storageAccount:
+          key: skool-storage-account-name
+          name: azure-creds
+        storageSasToken:
+          key: skool-blob-sas
+          name: azure-creds
+      data:
+        compression: gzip
+      destinationPath: https://hldatabaseproduction.blob.core.windows.net/skool
+      wal:
+        compression: gzip
+    retentionPolicy: 14d
+  bootstrap:
+    initdb:
+      database: skool
+      owner: skool
+      secret:
+        name: skool-db-creds
+  description: Postgres cluster for the skool application
+  imageName: quay.io/enterprisedb/postgresql:16.1
+  inheritedMetadata:
+    labels:
+      app: skool-database
+      policy-type: database
+  instances: 3
+  monitoring:
+    enablePodMonitor: true
+  resources:
+    requests:
+      memory: 100Mi
+  storage:
+    size: 1Gi
+
+---
+apiVersion: postgresql.k8s.enterprisedb.io/v1
+kind: ScheduledBackup
+metadata:
+  name: skool-db-production
+  namespace: skool
+spec:
+  backupOwnerReference: cluster
+  cluster:
+    name: skool-db-production-v0
+  immediate: true
+  schedule: 0 0 3 * *
