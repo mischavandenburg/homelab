@@ -1,0 +1,10 @@
+apiVersion: postgresql.k8s.enterprisedb.io/v1
+kind: ScheduledBackup
+metadata:
+  name: skool-db-production
+spec:
+  backupOwnerReference: cluster
+  cluster:
+    name: skool-db-production-v0
+  immediate: false
+  schedule: 0 0 3 * *
