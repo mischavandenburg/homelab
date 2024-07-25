@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: skool-database
+spec:
+  ingressClassName: traefik
+  rules:
+    - host: skool.mischavandenburg.net
+      http:
+        paths:
+          - backend:
+              service:
+                name: skool-db-production-v0-rw
+                port:
+                  number: 5432
+            path: /
+            pathType: Prefix

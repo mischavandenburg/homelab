@@ -6,3 +6,4 @@ resources:
   - scheduled-backup.yaml
   - deployment.yaml
   - secrets.yaml
+  - ingress.yaml
