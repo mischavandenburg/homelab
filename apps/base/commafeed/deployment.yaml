@@ -24,7 +24,7 @@ spec:
 
       containers:
         - name: commafeed
-          image: athou/commafeed:4.6.0
+          image: athou/commafeed:4.5.0
 
           securityContext:
             allowPrivilegeEscalation: false
