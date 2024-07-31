@@ -5,7 +5,7 @@ metadata:
 data:
   POSTGRES_USER: wallabag
   SYMFONY__ENV__DATABASE_DRIVER: pdo_pgsql
-  SYMFONY__ENV__DATABASE_HOST: wallabag-db-production-v0-rw.wallabag.svc.cluster.local
+  SYMFONY__ENV__DATABASE_HOST: wallabag-db-production-v1-rw.wallabag.svc.cluster.local
   SYMFONY__ENV__DATABASE_PORT: "5432"
   SYMFONY__ENV__DATABASE_NAME: wallabag
   SYMFONY__ENV__DATABASE_USER: wallabag
