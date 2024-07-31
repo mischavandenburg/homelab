@@ -1,7 +1,7 @@
 apiVersion: postgresql.k8s.enterprisedb.io/v1
 kind: Cluster
 metadata:
-  name: mealie-db-production-v2
+  name: mealie-db-production-v3
   namespace: mealie
 spec:
   description: Postgres cluster for the Mealie application
@@ -29,7 +29,7 @@ spec:
     - name: clusterBackup
       barmanObjectStore:
         destinationPath: https://hldatabaseproduction.blob.core.windows.net/mealie
-        serverName: mealie-db-production-v1
+        serverName: mealie-db-production-v2
         azureCredentials:
           storageAccount:
             name: azure-creds

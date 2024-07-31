@@ -8,4 +8,4 @@ spec:
   schedule: "0 0 3 * * *"
   backupOwnerReference: cluster
   cluster:
-    name: wallabag-db-production-v0
+    name: wallabag-db-production-v1

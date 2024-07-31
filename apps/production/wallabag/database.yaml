@@ -1,7 +1,7 @@
 apiVersion: postgresql.k8s.enterprisedb.io/v1
 kind: Cluster
 metadata:
-  name: wallabag-db-production-v0
+  name: wallabag-db-production-v1
 spec:
   description: Postgres cluster for the wallabag application
   imageName: quay.io/enterprisedb/postgresql:16.1
@@ -19,24 +19,26 @@ spec:
     size: 2Gi
 
   bootstrap:
-    initdb:
+    recovery:
+      source: clusterBackup
       database: wallabag
       owner: wallabag
       secret:
         name: wallabag-db-creds
 
-  # externalClusters:
-  #   - name: clusterBackup
-  #     barmanObjectStore:
-  #       destinationPath: https://hldatabaseproduction.blob.core.windows.net/wallabag
-  #       serverName: wallabag-db-production-v0
-  #       azureCredentials:
-  #         storageAccount:
-  #           name: azure-creds
-  #           key: wallabag-storage-account-name
-  #         storageSasToken:
-  #           name: azure-creds
-  #           key: wallabag-blob-sas
+
+  externalClusters:
+    - name: clusterBackup
+      barmanObjectStore:
+        destinationPath: https://hldatabaseproduction.blob.core.windows.net/wallabag
+        serverName: wallabag-db-production-v0
+        azureCredentials:
+          storageAccount:
+            name: azure-creds
+            key: wallabag-storage-account-name
+          storageSasToken:
+            name: azure-creds
+            key: wallabag-blob-sas
 
   backup:
     barmanObjectStore:
