@@ -37,5 +37,5 @@ spec:
         - ReadWriteOnce
       size: 4Gi
 
-    plugins:
-      - grafana-strava-datasource 1.6.1
+    # plugins:
+    #   - grafana-strava-datasource 1.6.1
