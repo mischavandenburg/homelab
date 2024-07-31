@@ -5,6 +5,6 @@ metadata:
 spec:
   backupOwnerReference: cluster
   cluster:
-    name: skool-db-production-v0
+    name: skool-db-production-v1
   immediate: false
   schedule: 0 0 3 * *
