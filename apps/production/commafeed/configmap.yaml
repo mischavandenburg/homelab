@@ -6,4 +6,4 @@ metadata:
 data:
   CF_APP_PUBLICURL: "https://commafeed.mischavandenburg.net"
   CF_DATABASE_DRIVERCLASS: "org.postgresql.Driver"
-  CF_DATABASE_URL: "jdbc:postgresql://commafeed-db-production-v3-rw:5432/commafeed"
+  CF_DATABASE_URL: "jdbc:postgresql://commafeed-db-production-v4-rw:5432/commafeed"
