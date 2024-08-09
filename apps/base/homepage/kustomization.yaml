@@ -8,4 +8,5 @@ resources:
   - ingress.yaml
   - deployment.yaml
   - clusterrole.yaml
-  - configmap.yaml
+
+  # The configmap for the dashboard is deployed from a private repo becuase I want to keep certain bookmarks private.
