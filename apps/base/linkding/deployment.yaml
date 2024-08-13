@@ -37,8 +37,8 @@ spec:
               protocol: TCP
 
           volumeMounts:
-            # - mountPath: /etc/linkding/data
-            #   name: linkding-data
+            - mountPath: /etc/linkding/data
+              name: linkding-data
             - name: secrets-store-inline
               mountPath: /mnt/secrets-store
               readOnly: true
@@ -46,9 +46,9 @@ spec:
       restartPolicy: Always
 
       volumes:
-        # - name: linkding-data
-        #   persistentVolumeClaim:
-        #     claimName: linkding-data
+        - name: linkding-data
+          persistentVolumeClaim:
+            claimName: linkding-data
         - name: secrets-store-inline
           csi:
             driver: secrets-store.csi.k8s.io
