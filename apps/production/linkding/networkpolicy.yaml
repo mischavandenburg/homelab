@@ -2,7 +2,6 @@ apiVersion: cilium.io/v2
 kind: CiliumNetworkPolicy
 metadata:
   name: linkding-app
-  namespace: linkding
 spec:
   endpointSelector:
     matchLabels:
