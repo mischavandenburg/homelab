@@ -6,6 +6,7 @@ resources:
   - homepage
   - linkding
   - mealie
+  - pgadmin
   - skool
   - wallabag
   - zettelkasten-tracker

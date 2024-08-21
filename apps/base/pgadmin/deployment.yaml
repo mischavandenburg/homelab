@@ -1,0 +1,58 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pgadmin
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pgadmin
+  template:
+    metadata:
+      labels:
+        app: pgadmin
+        policy-type: "app"
+    spec:
+      securityContext:
+        runAsUser: 5050
+        runAsGroup: 5050
+        fsGroup: 5050
+
+      containers:
+        - name: pgadmin
+          image: dpage/pgadmin4:8.10
+
+          securityContext:
+            allowPrivilegeEscalation: false
+
+          ports:
+            - containerPort: 3004
+              protocol: TCP
+
+          envFrom:
+            - configMapRef:
+                name: pgadmin-configmap
+            - secretRef:
+                name: pgadmin-container-env
+
+          volumeMounts:
+            - mountPath: /var/lib/pgadmin
+              name: pgadmin-data
+            - name: secrets-store-inline
+              mountPath: /mnt/secrets-store
+              readOnly: true
+
+      restartPolicy: Always
+
+      volumes:
+        - name: pgadmin-data
+          persistentVolumeClaim:
+            claimName: pgadmin-data
+        - name: secrets-store-inline
+          csi:
+            driver: secrets-store.csi.k8s.io
+            readOnly: true
+            volumeAttributes:
+              secretProviderClass: azure-kv-secrets
+            nodePublishSecretRef: # Only required when using service principal mode
+              name: secrets-store-creds # Only required when using service principal mode
