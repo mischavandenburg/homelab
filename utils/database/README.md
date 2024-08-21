@@ -8,3 +8,5 @@ To do:
 - Ask if I want to generate template for Deployment
 
 The Deployment template might be necessary as a dummy because the secret needs to be mounted somewhere in order to be synced.
+
+HL_AZ_CONN_STRING string is the connection string of the storage account, Security & networking > Access keys > key1 > connection string.

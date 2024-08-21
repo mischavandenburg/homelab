@@ -1,0 +1,54 @@
+apiVersion: postgresql.k8s.enterprisedb.io/v1
+kind: Cluster
+metadata:
+  name: shelly-db-production-v0
+  namespace: shelly
+spec:
+  backup:
+    barmanObjectStore:
+      azureCredentials:
+        storageAccount:
+          key: shelly-storage-account-name
+          name: azure-creds
+        storageSasToken:
+          key: shelly-blob-sas
+          name: azure-creds
+      data:
+        compression: gzip
+      destinationPath: https://hldatabaseproduction.blob.core.windows.net/shelly
+      wal:
+        compression: gzip
+    retentionPolicy: 14d
+  bootstrap:
+    initdb:
+      database: shelly
+      owner: shelly
+      secret:
+        name: shelly-db-creds
+  description: Postgres cluster for the shelly application
+  imageName: quay.io/enterprisedb/postgresql:16.1
+  inheritedMetadata:
+    labels:
+      app: shelly-database
+      policy-type: database
+  instances: 3
+  monitoring:
+    enablePodMonitor: true
+  resources:
+    requests:
+      memory: 100Mi
+  storage:
+    size: 1Gi
+
+---
+apiVersion: postgresql.k8s.enterprisedb.io/v1
+kind: ScheduledBackup
+metadata:
+  name: shelly-db-production
+  namespace: shelly
+spec:
+  backupOwnerReference: cluster
+  cluster:
+    name: shelly-db-production-v0
+  immediate: true
+  schedule: 0 0 3 * *

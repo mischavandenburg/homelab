@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: linkding-configmap
+data:
+  MQTT_BROKER: "192.168.120.186"
+  MQTT_PORT: "1883"
+  PG_HOST: shelly-db-production-v0-rw.data.svc.cluster.local
+  PG_DATABASE: shelly

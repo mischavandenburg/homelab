@@ -1,0 +1,11 @@
+apiVersion: postgresql.k8s.enterprisedb.io/v1
+kind: ScheduledBackup
+metadata:
+  name: shelly-db-production
+  namespace: shelly
+spec:
+  backupOwnerReference: cluster
+  cluster:
+    name: shelly-db-production-v0
+  immediate: true
+  schedule: 0 0 4 * *

@@ -1,0 +1,16 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: data
+resources:
+  - configmap.yaml
+  - database.yaml
+  - scheduled-backup.yaml
+  - ../../base/shelly/
+
+patches:
+  - target:
+      kind: SecretProviderClass
+    patch: |-
+      - op: replace
+        path: /spec/parameters/keyvaultName
+        value: k8s-homelab-production
