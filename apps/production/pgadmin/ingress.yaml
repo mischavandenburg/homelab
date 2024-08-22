@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-production
+  name: pgadmin
+spec:
+  ingressClassName: traefik
+  rules:
+    - host: pgadmin.mischavandenburg.net
+      http:
+        paths:
+          - backend:
+              service:
+                name: pgadmin
+                port:
+                  number: 3004
+            path: /
+            pathType: Prefix
+  tls:
+    - hosts:
+        - pgadmin.mischavandenburg.net
+      secretName: pgadmin-ingress-production
