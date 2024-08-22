@@ -15,25 +15,30 @@ spec:
         namespace: monitoring
       interval: 12h
   values:
+    deploymentMode: SingleBinary
     loki:
       auth_enabled: false
       commonConfig:
         replication_factor: 1
       storage:
         type: "filesystem"
+      schemaConfig:
+        configs:
+          - from: "2024-01-01"
+            store: tsdb
+            index:
+              prefix: loki_index_
+              period: 24h
+            object_store: filesystem # we're storing on filesystem so there's no real persistence here.
+            schema: v13
     singleBinary:
       replicas: 1
-      # persistence:
-      #   storageClass: local-path
-    # write:
-    #   persistence:
-    #     storageClass: local-path
-    # read:
-    #   persistence:
-    #     storageClass: local-path
-    # backend:
-    #   persistence:
-    #     storageClass: local-path
+    read:
+      replicas: 0
+    backend:
+      replicas: 0
+    write:
+      replicas: 0
     monitoring:
       selfMonitoring:
         enabled: true
