@@ -39,8 +39,8 @@ spec:
         enabled: true
         grafanaAgent:
           installOperator: false
-      dashboards:
-        enabled: false
-      rules:
-        enabled: false
-        alerting: false
+      # dashboards:
+      #   enabled: false
+      # rules:
+      #   enabled: false
+      #   alerting: false
