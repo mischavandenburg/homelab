@@ -1,0 +1,54 @@
+apiVersion: postgresql.k8s.enterprisedb.io/v1
+kind: Cluster
+metadata:
+  name: health-db-production-v0
+  namespace: health
+spec:
+  backup:
+    barmanObjectStore:
+      azureCredentials:
+        storageAccount:
+          key: health-storage-account-name
+          name: azure-creds
+        storageSasToken:
+          key: health-blob-sas
+          name: azure-creds
+      data:
+        compression: gzip
+      destinationPath: https://hldatabaseproduction.blob.core.windows.net/health
+      wal:
+        compression: gzip
+    retentionPolicy: 14d
+  bootstrap:
+    initdb:
+      database: health
+      owner: health
+      secret:
+        name: health-db-creds
+  description: Postgres cluster for the health application
+  imageName: quay.io/enterprisedb/postgresql:16.1
+  inheritedMetadata:
+    labels:
+      app: health-database
+      policy-type: database
+  instances: 3
+  monitoring:
+    enablePodMonitor: true
+  resources:
+    requests:
+      memory: 100Mi
+  storage:
+    size: 1Gi
+
+---
+apiVersion: postgresql.k8s.enterprisedb.io/v1
+kind: ScheduledBackup
+metadata:
+  name: health-db-production
+  namespace: health
+spec:
+  backupOwnerReference: cluster
+  cluster:
+    name: health-db-production-v0
+  immediate: true
+  schedule: 0 0 3 * *
