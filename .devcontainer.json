@@ -1,0 +1,16 @@
+{
+  "image": "mcr.microsoft.com/devcontainers/base:debian",
+  "features": {
+    "ghcr.io/devcontainers-contrib/features/neovim-homebrew:1": {},
+    "ghcr.io/devcontainers-contrib/features/poetry:2": {}
+    },
+  "onCreateCommand": "sudo chsh -s /usr/bin/zsh $USER",
+  "settings": {
+    "terminal.integrated.defaultProfile.linux": "zsh",
+    "terminal.integrated.profiles.linux": {
+      "zsh": {
+        "path": "/usr/bin/zsh"
+      }
+    }
+  }
+}
