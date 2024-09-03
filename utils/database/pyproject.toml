@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "database"
+version = "0.1.0"
+description = "Utilities to create databases for my homelab cluster"
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+pyyaml = "^6.0.2"
+azure-core = "^1.30.2"
+azure-identity = "^1.17.1"
+azure-keyvault-secrets = "^4.8.0"
+azure-storage-blob = "^12.22.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
