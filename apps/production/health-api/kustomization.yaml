@@ -4,6 +4,7 @@ namespace: data
 resources:
   - database.yaml
   - configmap.yaml
+  - ingress.yaml
   # - scheduled-backup.yaml
   - ../../base/health-api/
 

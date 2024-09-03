@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-production
+  name: health-api
+spec:
+  ingressClassName: traefik
+  rules:
+    - host: health.mischavandenburg.net
+      http:
+        paths:
+          - backend:
+              service:
+                name: health-api
+                port:
+                  number: 8000
+            path: /
+            pathType: Prefix
