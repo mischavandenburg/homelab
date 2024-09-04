@@ -31,7 +31,7 @@ spec:
     labels:
       app: health-database
       policy-type: database
-  instances: 3
+  instances: 2
   monitoring:
     enablePodMonitor: true
   resources:
