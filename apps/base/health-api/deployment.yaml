@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: health-api
-          image: ghcr.io/mischavandenburg/health-api:v0.2.4
+          image: ghcr.io/mischavandenburg/health-api:v0.2.5
           securityContext:
             allowPrivilegeEscalation: false
 
