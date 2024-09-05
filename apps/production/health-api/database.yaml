@@ -9,10 +9,10 @@ spec:
       azureCredentials:
         storageAccount:
           key: health-storage-account-name
-          name: azure-creds
+          name: health-azure-creds
         storageSasToken:
           key: health-blob-sas
-          name: azure-creds
+          name: health-azure-creds
       data:
         compression: gzip
       destinationPath: https://hldatabaseproduction.blob.core.windows.net/health
