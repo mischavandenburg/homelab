@@ -3,5 +3,5 @@ kind: ConfigMap
 metadata:
   name: zettelkasten-tracker-configmap
 data:
-  DB_HOST: zettelkasten-tracker-db-production-v1-rw.zettelkasten-tracker.svc.cluster.local
+  DB_HOST: zettelkasten-tracker-db-production-v2-rw.zettelkasten-tracker.svc.cluster.local
   DB_NAME: zettelkasten-tracker
