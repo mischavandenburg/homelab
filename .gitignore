@@ -4,3 +4,5 @@ private/
 __pycache__
 .envrc
 kubeconfig
+valhalla/
+talosconfig
