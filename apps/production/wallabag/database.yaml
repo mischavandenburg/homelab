@@ -1,7 +1,7 @@
 apiVersion: postgresql.k8s.enterprisedb.io/v1
 kind: Cluster
 metadata:
-  name: wallabag-db-production-v1
+  name: wallabag-db-production-v2
 spec:
   description: Postgres cluster for the wallabag application
   imageName: quay.io/enterprisedb/postgresql:16.1
@@ -31,7 +31,7 @@ spec:
     - name: clusterBackup
       barmanObjectStore:
         destinationPath: https://hldatabaseproduction.blob.core.windows.net/wallabag
-        serverName: wallabag-db-production-v0
+        serverName: wallabag-db-production-v1
         azureCredentials:
           storageAccount:
             name: azure-creds
