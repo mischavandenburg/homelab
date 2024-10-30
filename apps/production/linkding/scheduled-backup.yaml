@@ -7,4 +7,4 @@ spec:
   schedule: "0 0 3 * * *"
   backupOwnerReference: cluster
   cluster:
-    name: linkding-db-production-v5
+    name: linkding-db-production-v6
