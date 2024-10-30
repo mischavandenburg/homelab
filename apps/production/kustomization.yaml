@@ -3,10 +3,10 @@ kind: Kustomization
 resources:
   - commafeed
   - health-api
-  - home-assistant
+  # - home-assistant
   - homepage
   - linkding
-  - mealie
+  # - mealie
   - pgadmin
   - shelly
   - skool
