@@ -4,8 +4,8 @@ namespace: zettelkasten-tracker
 resources:
   - configmap.yaml
   - ../../base/zettelkasten-tracker/
-  # - database.yaml
-  # - scheduled-backup.yaml
+  - database.yaml
+  - scheduled-backup.yaml
   - podmonitor.yaml
   - ingress.yaml
   # - cloudflare.yaml

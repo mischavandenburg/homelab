@@ -1,7 +1,7 @@
 apiVersion: postgresql.k8s.enterprisedb.io/v1
 kind: Cluster
 metadata:
-  name: zettelkasten-tracker-db-production-v2
+  name: zettelkasten-tracker-db-production-v3
   namespace: zettelkasten-tracker
 spec:
   description: Postgres cluster for the zettelkasten-tracker application
@@ -31,7 +31,7 @@ spec:
     - name: clusterBackup
       barmanObjectStore:
         destinationPath: https://hldatabaseproduction.blob.core.windows.net/zettelkasten-tracker
-        serverName: zettelkasten-tracker-db-production-v1
+        serverName: zettelkasten-tracker-db-production-v2
         azureCredentials:
           storageAccount:
             name: azure-creds
