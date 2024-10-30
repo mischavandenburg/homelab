@@ -1,7 +1,7 @@
 apiVersion: postgresql.k8s.enterprisedb.io/v1
 kind: Cluster
 metadata:
-  name: commafeed-db-production-v4
+  name: commafeed-db-production-v5
   namespace: commafeed
 spec:
   description: Postgres cluster for the commafeed application
@@ -32,7 +32,7 @@ spec:
     - name: clusterBackup
       barmanObjectStore:
         destinationPath: https://hldatabaseproduction.blob.core.windows.net/commafeed
-        serverName: commafeed-db-production-v3
+        serverName: commafeed-db-production-v4
         azureCredentials:
           storageAccount:
             name: azure-creds
@@ -55,7 +55,7 @@ spec:
         compression: gzip
       data:
         compression: gzip
-    retentionPolicy: 7d
+    retentionPolicy: 14d
 
   # handy: resources can be used to trigger a redeploy
   resources:
