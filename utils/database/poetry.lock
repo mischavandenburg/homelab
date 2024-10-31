@@ -2,13 +2,13 @@
 
 [[package]]
 name = "azure-core"
-version = "1.30.2"
+version = "1.32.0"
 description = "Microsoft Azure Core Library for Python"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "azure-core-1.30.2.tar.gz", hash = "sha256:a14dc210efcd608821aa472d9fb8e8d035d29b68993819147bc290a8ac224472"},
-    {file = "azure_core-1.30.2-py3-none-any.whl", hash = "sha256:cf019c1ca832e96274ae85abd3d9f752397194d9fea3b41487290562ac8abe4a"},
+    {file = "azure_core-1.32.0-py3-none-any.whl", hash = "sha256:eac191a0efb23bfa83fddf321b27b122b4ec847befa3091fa736a5c32c50d7b4"},
+    {file = "azure_core-1.32.0.tar.gz", hash = "sha256:22b3c35d6b2dae14990f6c1be2912bf23ffe50b220e708a28ab1bb92b1c730e5"},
 ]
 
 [package.dependencies]
