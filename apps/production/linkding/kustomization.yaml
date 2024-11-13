@@ -7,7 +7,7 @@ resources:
   - scheduled-backup.yaml
   - ../../base/linkding/
   - cloudflare.yaml
-  - networkpolicy.yaml
+  # - networkpolicy.yaml
 
 patches:
   - target:
