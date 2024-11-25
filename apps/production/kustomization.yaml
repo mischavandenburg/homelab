@@ -6,7 +6,7 @@ resources:
   # - home-assistant
   - homepage
   - linkding
-  # - mealie
+  - mealie
   - pgadmin
   - shelly
   - skool
