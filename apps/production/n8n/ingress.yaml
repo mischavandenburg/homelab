@@ -1,0 +1,19 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  # annotations:
+  #   cert-manager.io/cluster-issuer: letsencrypt-staging
+  name: n8n
+spec:
+  ingressClassName: traefik
+  rules:
+    - host: n8n.mischavandenburg.net
+      http:
+        paths:
+          - backend:
+              service:
+                name: n8n
+                port:
+                  number: 3008
+            path: /
+            pathType: Prefix
