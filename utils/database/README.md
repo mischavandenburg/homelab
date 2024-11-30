@@ -13,7 +13,6 @@ HL_AZ_CONN_STRING string is the connection string of the storage account, Securi
 
 Then just run
 
+`poetry shell`
+`poetry install`
 `python3 main.py`
-
-
-
