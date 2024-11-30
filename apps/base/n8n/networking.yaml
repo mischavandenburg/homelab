@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: n8n
+spec:
+  ports:
+    - port: 3008
+  selector:
+    app: n8n
+  type: ClusterIP

@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: n8n
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: n8n
+
+  template:
+    metadata:
+      labels:
+        app: n8n
+        try: "0"
+        policy-type: "app"
+
+    spec:
+      # envsubst in the entrypoint sh needs to write to /etc/php
+      # securityContext:
+      #   runAsUser: 1000
+      #   runAsGroup: 3000
+      #   fsGroup: 2000
+
+      containers:
+        - name: n8n
+          image: docker.n8n.io/n8nio/n8n:1.70.1
+
+          securityContext:
+            allowPrivilegeEscalation: false
+
+          envFrom:
+            - configMapRef:
+                name: n8n-configmap
+            - secretRef:
+                name: n8n-container-env
+
+          ports:
+            - containerPort: 3008
+              protocol: TCP
+
+          volumeMounts:
+            - name: secrets-store-inline
+              mountPath: /mnt/secrets-store
+              readOnly: true
+
+      restartPolicy: Always
+
+      volumes:
+        - name: secrets-store-inline
+          csi:
+            driver: secrets-store.csi.k8s.io
+            readOnly: true
+            volumeAttributes:
+              secretProviderClass: azure-kv-secrets
+            nodePublishSecretRef: # Only required when using service principal mode
+              name: secrets-store-creds # Only required when using service principal mode

@@ -11,8 +11,11 @@ The Deployment template might be necessary as a dummy because the secret needs t
 
 HL_AZ_CONN_STRING string is the connection string of the storage account, Security & networking > Access keys > key1 > connection string.
 
-Then just run
+## Running
 
-`poetry shell`
-`poetry install`
-`python3 main.py`
+```bash
+az login --use-device-code
+poetry shell
+poetry install
+python3 main.py
+```
