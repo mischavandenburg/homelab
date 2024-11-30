@@ -5,3 +5,4 @@ resources:
   - secrets.yaml
   - networking.yaml
   - deployment.yaml
+  - storage.yaml
