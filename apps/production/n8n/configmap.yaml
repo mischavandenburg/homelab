@@ -8,3 +8,4 @@ data:
   DB_POSTGRESDB_HOST: "n8n-db-production-v0-rw.n8n.svc.cluster.local"
   DB_POSTGRESDB_PORT: "5432"
   DB_POSTGRESDB_DATABASE: "n8n"
+  N8N_SECURE_COOKIE: "false"
