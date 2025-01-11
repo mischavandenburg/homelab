@@ -1,0 +1,11 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: ScheduledBackup
+metadata:
+  name: health-db-production
+  namespace: health
+spec:
+  backupOwnerReference: cluster
+  cluster:
+    name: health-db-production-cnpg-v0
+  immediate: true
+  schedule: 0 0 4 * *

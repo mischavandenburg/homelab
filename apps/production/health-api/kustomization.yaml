@@ -7,6 +7,7 @@ resources:
   - configmap.yaml
   - ingress.yaml
   - scheduled-backup.yaml
+  - scheduled-backup-cnpg.yaml
   - ../../base/health-api/
 
 patches:

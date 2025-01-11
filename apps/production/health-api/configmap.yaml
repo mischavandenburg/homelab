@@ -3,5 +3,5 @@ kind: ConfigMap
 metadata:
   name: health-api-configmap
 data:
-  DB_HOST: health-db-production-v0-rw.data.svc.cluster.local
+  DB_HOST: health-db-production-cnpg-v0-rw.data.svc.cluster.local
   DB_NAME: health
