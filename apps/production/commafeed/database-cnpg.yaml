@@ -1,0 +1,63 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: commafeed-db-production-cnpg-v0
+  namespace: commafeed
+spec:
+  description: Postgres cluster for the commafeed application
+  imageName: quay.io/enterprisedb/postgresql:16.1
+  instances: 3
+
+  monitoring:
+    enablePodMonitor: true
+
+  inheritedMetadata:
+    labels:
+      app: commafeed-database
+      policy-type: "database"
+
+  storage:
+    size: 5Gi
+
+  bootstrap:
+    recovery:
+      source: clusterBackup
+      database: commafeed
+      owner: commafeed
+
+      secret:
+        name: commafeed-db-creds
+
+  externalClusters:
+    - name: clusterBackup
+      barmanObjectStore:
+        destinationPath: https://hldatabaseproduction.blob.core.windows.net/commafeed
+        serverName: commafeed-db-production-v5
+        azureCredentials:
+          storageAccount:
+            name: azure-creds
+            key: commafeed-storage-account-name
+          storageSasToken:
+            name: azure-creds
+            key: commafeed-blob-sas
+
+  backup:
+    barmanObjectStore:
+      destinationPath: https://hldatabaseproduction.blob.core.windows.net/commafeed
+      azureCredentials:
+        storageAccount:
+          name: azure-creds
+          key: commafeed-storage-account-name
+        storageSasToken:
+          name: azure-creds
+          key: commafeed-blob-sas
+      wal:
+        compression: gzip
+      data:
+        compression: gzip
+    retentionPolicy: 14d
+
+  # handy: resources can be used to trigger a redeploy
+  resources:
+    requests:
+      memory: 600Mi
