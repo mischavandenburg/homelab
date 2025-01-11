@@ -32,10 +32,10 @@ spec:
         serverName: health-db-production-v0
         azureCredentials:
           storageAccount:
-            name: azure-creds
+            name: health-azure-creds
             key: health-storage-account-name
           storageSasToken:
-            name: azure-creds
+            name: health-azure-creds
             key: health-blob-sas
 
   backup:
