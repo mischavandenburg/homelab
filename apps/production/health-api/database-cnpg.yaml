@@ -1,7 +1,7 @@
 apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
-  name: health-db-production-v0
+  name: health-db-production-cnpg-v0
   namespace: health
 spec:
   description: Postgres cluster for the health application
