@@ -3,8 +3,9 @@ kind: Kustomization
 resources:
   - local-path
   - traefik
-  - csi-secrets-store-provider-azure
   - cert-manager
+  - cloudnativepg
+  - csi-secrets-store-provider-azure
   - edb-operator
   - weave-gitops
   - renovate
