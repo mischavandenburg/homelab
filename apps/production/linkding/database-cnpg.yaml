@@ -30,7 +30,7 @@ spec:
     - name: clusterBackup
       barmanObjectStore:
         destinationPath: "https://hldatabaseproduction.blob.core.windows.net/linkding"
-        serverName: linkding-db-production-v5
+        serverName: linkding-db-production-v6
         azureCredentials:
           storageAccount:
             name: azure-creds
