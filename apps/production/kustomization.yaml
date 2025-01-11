@@ -3,13 +3,10 @@ kind: Kustomization
 resources:
   - commafeed
   - health-api
-  # - home-assistant
   - homepage
   - linkding
-  # - mealie
   - n8n
   - pgadmin
   - shelly
-  - skool
   - wallabag
   - zettelkasten-tracker
