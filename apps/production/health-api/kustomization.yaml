@@ -2,11 +2,9 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: data
 resources:
-  - database.yaml
   - database-cnpg.yaml
   - configmap.yaml
   - ingress.yaml
-  - scheduled-backup.yaml
   - scheduled-backup-cnpg.yaml
   - ../../base/health-api/
 
