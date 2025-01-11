@@ -4,9 +4,7 @@ namespace: wallabag
 resources:
   - configmap.yaml
   - ../../base/wallabag/
-  - database.yaml
   - database-cnpg.yaml
-  - scheduled-backup.yaml
   - scheduled-backup-cnpg.yaml
   - cloudflare.yaml
   # - networkpolicy.yaml
