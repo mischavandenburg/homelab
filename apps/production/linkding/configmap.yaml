@@ -7,4 +7,4 @@ data:
   LD_DB_ENGINE: postgres
   LD_DB_DATABASE: linkding
   LD_DB_PORT: "5432"
-  LD_DB_HOST: llinkding-db-production-cnpg-v0-rw
+  LD_DB_HOST: linkding-db-production-cnpg-v0-rw
