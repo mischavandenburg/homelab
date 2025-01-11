@@ -5,6 +5,7 @@ resources:
   - configmap.yaml
   - ../../base/wallabag/
   - database.yaml
+  - database-cnpg.yaml
   - scheduled-backup.yaml
   - cloudflare.yaml
   # - networkpolicy.yaml

@@ -4,7 +4,7 @@ namespace: linkding
 resources:
   - configmap.yaml
   - database.yaml
-  - database-cnpg.yaml
+  # - database-cnpg.yaml
   - scheduled-backup.yaml
   - ../../base/linkding/
   - cloudflare.yaml
