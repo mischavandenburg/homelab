@@ -6,6 +6,7 @@ resources:
   - database.yaml
   - database-cnpg.yaml
   - scheduled-backup.yaml
+  - scheduled-backup-cnpg.yaml
   - ../../base/linkding/
   - cloudflare.yaml
   # - networkpolicy.yaml
