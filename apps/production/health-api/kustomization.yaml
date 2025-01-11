@@ -3,6 +3,7 @@ kind: Kustomization
 namespace: data
 resources:
   - database.yaml
+  - database-cnpg.yaml
   - configmap.yaml
   - ingress.yaml
   - scheduled-backup.yaml

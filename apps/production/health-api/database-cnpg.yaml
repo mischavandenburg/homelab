@@ -1,0 +1,61 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: health-db-production-v0
+  namespace: health
+spec:
+  description: Postgres cluster for the health application
+  imageName: quay.io/enterprisedb/postgresql:16.1
+  inheritedMetadata:
+    labels:
+      app: health-database
+      policy-type: database
+
+  instances: 3
+
+  monitoring:
+    enablePodMonitor: true
+
+  bootstrap:
+    recovery:
+      source: clusterBackup
+      database: health
+      owner: health
+
+      secret:
+        name: health-db-creds
+
+  externalClusters:
+    - name: clusterBackup
+      barmanObjectStore:
+        destinationPath: https://hldatabaseproduction.blob.core.windows.net/health
+        serverName: health-db-production-v0
+        azureCredentials:
+          storageAccount:
+            name: azure-creds
+            key: health-storage-account-name
+          storageSasToken:
+            name: azure-creds
+            key: health-blob-sas
+
+  backup:
+    barmanObjectStore:
+      azureCredentials:
+        storageAccount:
+          key: health-storage-account-name
+          name: health-azure-creds
+        storageSasToken:
+          key: health-blob-sas
+          name: health-azure-creds
+      data:
+        compression: gzip
+      destinationPath: https://hldatabaseproduction.blob.core.windows.net/health
+      wal:
+        compression: gzip
+    retentionPolicy: 14d
+
+  resources:
+    requests:
+      memory: 100Mi
+  storage:
+    size: 1Gi
