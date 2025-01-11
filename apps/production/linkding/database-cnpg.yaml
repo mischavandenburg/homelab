@@ -1,0 +1,60 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: linkding-db-production-cnpg-v0
+spec:
+  description: Postgres cluster for the linkding application
+  imageName: quay.io/enterprisedb/postgresql:16.1
+  instances: 3
+
+  inheritedMetadata:
+    labels:
+      app: linkding-database
+      policy-type: "database"
+
+  monitoring:
+    enablePodMonitor: true
+
+  storage:
+    size: 1Gi
+
+  bootstrap:
+    recovery:
+      source: clusterBackup
+      database: linkding
+      owner: linkding
+      secret:
+        name: linkding-db-creds
+
+  externalClusters:
+    - name: clusterBackup
+      barmanObjectStore:
+        destinationPath: "https://hldatabaseproduction.blob.core.windows.net/linkding"
+        serverName: linkding-db-production-v5
+        azureCredentials:
+          storageAccount:
+            name: azure-creds
+            key: linkding-storage-account-name
+          storageSasToken:
+            name: azure-creds
+            key: linkding-blob-sas
+  backup:
+    barmanObjectStore:
+      destinationPath: https://hldatabaseproduction.blob.core.windows.net/linkding
+      azureCredentials:
+        storageAccount:
+          name: azure-creds
+          key: linkding-storage-account-name
+        storageSasToken:
+          name: azure-creds
+          key: linkding-blob-sas
+      wal:
+        compression: gzip
+      data:
+        compression: gzip
+    retentionPolicy: 14d
+
+  # handy: resources can be used to trigger a redeploy
+  resources:
+    requests:
+      memory: 320Mi
