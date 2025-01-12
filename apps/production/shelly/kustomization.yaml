@@ -4,6 +4,7 @@ namespace: data
 resources:
   - configmap.yaml
   - database.yaml
+  - database-cnpg.yaml
   - scheduled-backup.yaml
   - ../../base/shelly/
 
