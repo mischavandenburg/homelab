@@ -3,9 +3,7 @@ kind: Kustomization
 namespace: data
 resources:
   - configmap.yaml
-  - database.yaml
   - database-cnpg.yaml
-  - scheduled-backup.yaml
   - scheduled-backup-cnpg.yaml
   - ../../base/shelly/
 
