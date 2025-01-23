@@ -15,7 +15,7 @@ spec:
       interval: 12h
 
       valuesFiles:
-        - ./values.yaml
+        - values.yaml
 
   install:
     crds: Create
