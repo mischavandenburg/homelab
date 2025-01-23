@@ -13,6 +13,10 @@ spec:
         name: kube-prometheus-stack
         namespace: monitoring
       interval: 12h
+
+      valuesFiles:
+        - ./values.yaml
+
   install:
     crds: Create
   upgrade:
@@ -24,6 +28,3 @@ spec:
       - paths: ["/metadata/annotations/prometheus-operator-validated"]
         target:
           kind: PrometheusRule
-
-  valuesFiles:
-    - ./values.yaml
