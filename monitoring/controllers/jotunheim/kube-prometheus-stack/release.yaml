@@ -14,8 +14,9 @@ spec:
         namespace: monitoring
       interval: 12h
 
-      valuesFiles:
-        - values.yaml
+    valuesFrom:
+      - kind: ConfigMap
+        name: kube-prometheus-stack-values
 
   install:
     crds: Create
