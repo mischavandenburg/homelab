@@ -13,6 +13,9 @@ kubeScheduler:
     selector:
       k8s-app: kube-scheduler
 
+alertmanager:
+  enabled: false
+
 prometheus:
   prometheusSpec:
     podMonitorNamespaceSelector:
