@@ -3,7 +3,9 @@ kind: HelmRelease
 metadata:
   name: cilium
   namespace: kube-system
+
 spec:
+  releaseName: cilium
   interval: 15m
   chart:
     spec:
