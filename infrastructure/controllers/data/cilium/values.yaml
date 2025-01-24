@@ -1,7 +1,27 @@
-ipam:
-  mode: kubernetes
+ingressController:
+  enabled: true
+  hostNetwork:
+    enabled: true
+    sharedListenerPort: 80 # Use port 80 for shared ingress (optional, default is 8080)
 
-kubeProxyReplacement: true
+envoy:
+  enabled: true
+  securityContext:
+    capabilities:
+      keepCapNetBindService: true # Allow binding to privileged ports
+      envoy:
+        - NET_BIND_SERVICE # Add NET_BIND_SERVICE capability
+        - CHOWN
+        - KILL
+        - NET_ADMIN
+        - NET_RAW
+        - IPC_LOCK
+        - SYS_ADMIN
+        - SYS_RESOURCE
+        - DAC_OVERRIDE
+        - FOWNER
+        - SETGID
+        - SETUID
 
 securityContext:
   capabilities:
@@ -22,6 +42,11 @@ securityContext:
       - SYS_ADMIN
       - SYS_RESOURCE
 
+ipam:
+  mode: kubernetes
+
+kubeProxyReplacement: true
+
 cgroup:
   autoMount:
     enabled: false
@@ -40,7 +65,3 @@ hubble:
         omni-kube-service-exposer.sidero.dev/port: "50080"
         omni-kube-service-exposer.sidero.dev/label: Hubble
 
-ingressController:
-  enabled: true
-  hostNetwork:
-    enabled: true
