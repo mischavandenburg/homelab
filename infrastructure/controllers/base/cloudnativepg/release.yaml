@@ -14,4 +14,3 @@ spec:
         name: cnpg
         namespace: cnpg-system
       interval: 12h
-  # values:
