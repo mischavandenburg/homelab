@@ -42,6 +42,5 @@ hubble:
 
 ingressController:
   enabled: true
-  service:
-    type: LoadBalancer
-    loadBalancerIP: "192.168.100.100"
+  hostNetwork:
+    enabled: true
