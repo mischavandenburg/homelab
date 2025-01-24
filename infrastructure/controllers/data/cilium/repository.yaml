@@ -1,9 +1,8 @@
 apiVersion: source.toolkit.fluxcd.io/v1beta2
 kind: HelmRepository
-namespace: flux-system
 metadata:
   name: cilium
-  namespace: flux-system
+  namespace: kube-system
 spec:
   interval: 1h
   url: https://helm.cilium.io/

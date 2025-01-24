@@ -14,7 +14,7 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: cilium
-        namespace: flux-system
+        namespace: kube-system
 
   valuesFrom:
     - kind: ConfigMap
