@@ -1,5 +1,5 @@
 ingressController:
-  enabled: false
+  enabled: true
   hostNetwork:
     enabled: true
     sharedListenerPort: 80 # Use port 80 for shared ingress (optional, default is 8080)
