@@ -59,19 +59,19 @@ spec:
     requests:
       memory: 320Mi
 
-managed:
-  services:
-    disabledDefaultServices:
-      - ro
-      - r
-    additional:
-      - selectorType: rw
-        serviceTemplate:
-          metadata:
-            name: linkding-db-lb
-            labels:
-              cilium-lb-pool: postgres-pool
-            annotations:
-              external-dns.alpha.kubernetes.io/hostname: linkding-pg.mischavandenburg.net
-          spec:
-            type: LoadBalancer
+  managed:
+    services:
+      disabledDefaultServices:
+        - ro
+        - r
+      additional:
+        - selectorType: rw
+          serviceTemplate:
+            metadata:
+              name: linkding-db-lb
+              labels:
+                cilium-lb-pool: postgres-pool
+              annotations:
+                external-dns.alpha.kubernetes.io/hostname: linkding-pg.mischavandenburg.net
+            spec:
+              type: LoadBalancer
