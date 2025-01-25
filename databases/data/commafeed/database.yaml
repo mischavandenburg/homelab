@@ -1,0 +1,79 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: commafeed-db-production-cnpg-v1
+spec:
+  description: Postgres cluster for the commafeed application
+  imageName: quay.io/enterprisedb/postgresql:16.1
+  instances: 3
+
+  monitoring:
+    enablePodMonitor: true
+
+  inheritedMetadata:
+    labels:
+      app: commafeed-database
+      policy-type: "database"
+
+  storage:
+    size: 5Gi
+
+  bootstrap:
+    recovery:
+      source: clusterBackup
+      database: commafeed
+      owner: commafeed
+
+      secret:
+        name: commafeed-db-creds
+
+  externalClusters:
+    - name: clusterBackup
+      barmanObjectStore:
+        destinationPath: https://hldatabaseproduction.blob.core.windows.net/commafeed
+        serverName: commafeed-db-production-cnpg-v0
+        azureCredentials:
+          storageAccount:
+            name: azure-creds
+            key: commafeed-storage-account-name
+          storageSasToken:
+            name: azure-creds
+            key: commafeed-blob-sas
+
+  backup:
+    barmanObjectStore:
+      destinationPath: https://hldatabaseproduction.blob.core.windows.net/commafeed
+      azureCredentials:
+        storageAccount:
+          name: azure-creds
+          key: commafeed-storage-account-name
+        storageSasToken:
+          name: azure-creds
+          key: commafeed-blob-sas
+      wal:
+        compression: gzip
+      data:
+        compression: gzip
+    retentionPolicy: 14d
+
+  # handy: resources can be used to trigger a redeploy
+  resources:
+    requests:
+      memory: 600Mi
+
+  managed:
+    services:
+      disabledDefaultServices:
+        - ro
+        - r
+      additional:
+        - selectorType: rw
+          serviceTemplate:
+            metadata:
+              name: commafeed-db-lb
+              labels:
+                cilium-lb-pool: postgres-pool
+              annotations:
+                external-dns.alpha.kubernetes.io/hostname: commafeed-db.mischavandenburg.net
+            spec:
+              type: LoadBalancer
