@@ -3,8 +3,8 @@ kind: Kustomization
 namespace: linkding
 resources:
   - configmap.yaml
-  - database-cnpg.yaml
-  - scheduled-backup-cnpg.yaml
+  # - database-cnpg.yaml
+  # - scheduled-backup-cnpg.yaml
   - ../../base/linkding/
   - cloudflare.yaml
   # - networkpolicy.yaml
