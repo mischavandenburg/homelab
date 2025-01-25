@@ -6,6 +6,5 @@ resources:
   - cloudnativepg
   - csi-secrets-store-provider-azure
   - edb-operator
-  - weave-gitops
   - renovate
   - synology-csi
