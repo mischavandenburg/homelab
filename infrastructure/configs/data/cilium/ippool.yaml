@@ -1,0 +1,12 @@
+apiVersion: "cilium.io/v2alpha1"
+kind: CiliumLoadBalancerIPPool
+metadata:
+  name: postgres-pool
+  namespace: kube-system
+spec:
+  blocks:
+    # 192.168.100.160 - 192.168.100.190
+    - cidr: "192.168.100.160/27"
+  serviceSelector:
+    matchLabels:
+      cilium-lb-pool: postgres-pool
