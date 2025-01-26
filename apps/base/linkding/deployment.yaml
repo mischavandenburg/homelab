@@ -38,10 +38,10 @@ spec:
       restartPolicy: Always
 
       volumeMounts:
-        - name: linkding-data
+        - name: linkding-data-pvc
           mountPath: /etc/linkding/data
 
       volumes:
-        - name: linkding-data
+        - name: linkding-data-pvc
           persistentVolumeClaim:
             claimName: linkding-data-pvc
