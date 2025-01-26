@@ -1,0 +1,6 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: commafeed
+  labels:
+    app.kubernetes.io/component: monitoring
