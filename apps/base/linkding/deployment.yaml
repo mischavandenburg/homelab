@@ -35,24 +35,4 @@ spec:
             - containerPort: 3003
               protocol: TCP
 
-          volumeMounts:
-            - mountPath: /etc/linkding/data
-              name: linkding-data
-            - name: secrets-store-inline
-              mountPath: /mnt/secrets-store
-              readOnly: true
-
       restartPolicy: Always
-
-      volumes:
-        - name: linkding-data
-          persistentVolumeClaim:
-            claimName: linkding-data
-        - name: secrets-store-inline
-          csi:
-            driver: secrets-store.csi.k8s.io
-            readOnly: true
-            volumeAttributes:
-              secretProviderClass: azure-kv-secrets
-            nodePublishSecretRef: # Only required when using service principal mode
-              name: secrets-store-creds # Only required when using service principal mode
