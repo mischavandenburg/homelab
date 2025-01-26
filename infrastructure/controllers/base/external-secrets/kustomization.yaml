@@ -6,4 +6,4 @@ resources:
   - repositories.yaml
   - deployment-crds.yaml
   - release.yaml
-  - cluster-secret-store.yaml
+  # - cluster-secret-store.yaml
