@@ -1,0 +1,56 @@
+ipam:
+  mode: kubernetes
+
+kubeProxyReplacement: true
+
+securityContext:
+  capabilities:
+    ciliumAgent:
+      - CHOWN
+      - KILL
+      - NET_ADMIN
+      - NET_RAW
+      - IPC_LOCK
+      - SYS_ADMIN
+      - SYS_RESOURCE
+      - DAC_OVERRIDE
+      - FOWNER
+      - SETGID
+      - SETUID
+    cleanCiliumState:
+      - NET_ADMIN
+      - SYS_ADMIN
+      - SYS_RESOURCE
+
+cgroup:
+  autoMount:
+    enabled: false
+  hostRoot: /sys/fs/cgroup
+
+k8sServiceHost: localhost
+k8sServicePort: 7445
+
+hubble:
+  relay:
+    enabled: true
+  ui:
+    enabled: true
+    service:
+      annotations:
+        omni-kube-service-exposer.sidero.dev/port: "50080"
+        omni-kube-service-exposer.sidero.dev/label: Hubble
+
+l2announcements:
+  enabled: true
+
+# Calculated based on 30 services
+# https://docs.cilium.io/en/latest/network/l2-announcements/#sizing-client-rate-limit
+
+k8sClientRateLimit:
+  qps: 15
+  burst: 20
+
+ingressController:
+  enabled: true
+  loadbalancerMode: shared
+  default: true

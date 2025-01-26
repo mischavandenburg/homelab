@@ -1,0 +1,13 @@
+apiVersion: "cilium.io/v2alpha1"
+kind: CiliumL2AnnouncementPolicy
+metadata:
+  name: apps-policy
+  namespace: kube-system
+spec:
+  serviceSelector:
+    matchLabels:
+      cilium-lb-pool: apps-pool
+
+  # IMPORTANT: if externalIPss is desired, externalIPs.enabled=true must be set in values.yaml
+  # externalIPs: true
+  loadBalancerIPs: true

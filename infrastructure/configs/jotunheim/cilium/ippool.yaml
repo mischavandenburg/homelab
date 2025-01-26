@@ -1,0 +1,13 @@
+apiVersion: "cilium.io/v2alpha1"
+kind: CiliumLoadBalancerIPPool
+metadata:
+  name: apps-pool
+  namespace: kube-system
+spec:
+  blocks:
+    # 192.168.100.192 - 192.168.100.207
+    - cidr: "192.168.100.192/28"
+
+  serviceSelector:
+    matchLabels:
+      cilium-lb-pool: apps-pool
