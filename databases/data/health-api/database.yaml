@@ -60,3 +60,20 @@ spec:
       memory: 100Mi
   storage:
     size: 1Gi
+
+  managed:
+    services:
+      disabledDefaultServices:
+        - ro
+        - r
+      additional:
+        - selectorType: rw
+          serviceTemplate:
+            metadata:
+              name: health-db-lb
+              labels:
+                cilium-lb-pool: postgres-pool
+              annotations:
+                external-dns.alpha.kubernetes.io/hostname: health-db.mischavandenburg.net
+            spec:
+              type: LoadBalancer
