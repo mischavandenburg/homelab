@@ -25,9 +25,4 @@ spec:
             - secretRef:
                 name: health-api-container-env
 
-          volumeMounts:
-            - name: secrets-store-inline
-              mountPath: /mnt/secrets-store
-              readOnly: true
-
       restartPolicy: Always
