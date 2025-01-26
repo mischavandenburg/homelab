@@ -11,4 +11,3 @@ spec:
   serviceSelector:
     matchLabels:
       cilium-lb-pool: apps-pool
-      cilium.io/ingress: "true"
