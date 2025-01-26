@@ -6,6 +6,6 @@ metadata:
 spec:
   backupOwnerReference: cluster
   cluster:
-    name: health-db-production-cnpg-v1
+    name: health-db-production-cnpg-v2
   immediate: true
   schedule: 0 0 4 * *

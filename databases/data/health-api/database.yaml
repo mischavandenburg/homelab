@@ -1,7 +1,7 @@
 apiVersion: postgresql.cnpg.io/v1
 kind: Cluster
 metadata:
-  name: health-db-production-cnpg-v1
+  name: health-db-production-cnpg-v2
 spec:
   description: Postgres cluster for the health application
   imageName: quay.io/enterprisedb/postgresql:16.1
@@ -28,6 +28,8 @@ spec:
     - name: clusterBackup
       barmanObjectStore:
         destinationPath: https://hldatabaseproduction.blob.core.windows.net/health
+
+        # had to restore from 0 instead of 1.
         serverName: health-db-production-cnpg-v0
         azureCredentials:
           storageAccount:
