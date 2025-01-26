@@ -2,16 +2,6 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 namespace: data
 resources:
-  - database-cnpg.yaml
   - configmap.yaml
-  - ingress.yaml
-  - scheduled-backup-cnpg.yaml
   - ../../base/health-api/
-
-patches:
-  - target:
-      kind: SecretProviderClass
-    patch: |-
-      - op: replace
-        path: /spec/parameters/keyvaultName
-        value: k8s-homelab-production
+  - ingress.yaml
