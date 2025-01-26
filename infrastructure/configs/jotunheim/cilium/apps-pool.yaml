@@ -5,8 +5,8 @@ metadata:
   namespace: kube-system
 spec:
   blocks:
-    # 192.168.100.192 - 192.168.100.207
-    - cidr: "192.168.100.192/28"
+    - start: "192.168.100.196"
+      stop: "192.168.100.210"
 
   serviceSelector:
     matchLabels:

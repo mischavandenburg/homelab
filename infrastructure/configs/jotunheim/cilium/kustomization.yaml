@@ -1,5 +1,7 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - ippool.yaml
-  - l2policy.yaml
+  - apps-pool.yaml
+  - ingress-pool.yaml
+  - apps-l2policy.yaml
+  - ingress-l2policy.yaml
