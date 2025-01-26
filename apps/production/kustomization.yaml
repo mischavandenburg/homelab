@@ -3,7 +3,6 @@ kind: Kustomization
 resources:
   - health-api
   - homepage
-  - linkding
   - n8n
   - pgadmin
   - shelly

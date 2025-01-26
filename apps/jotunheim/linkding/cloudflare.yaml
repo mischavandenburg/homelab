@@ -44,37 +44,33 @@ spec:
       restartPolicy: Always
 
       volumes:
+        - name: creds
+          secret:
+            secretName: cloudflare-tunnel
         - name: config
           configMap:
             name: cloudflared
             items:
               - key: config.yaml
                 path: config.yaml
-        - name: creds
-          secret:
-            secretName: cloudflare-tunnel
 ---
 apiVersion: v1
 kind: ConfigMap
 metadata:
   name: cloudflared
-  namespace: commafeed
+  namespace: linkding
 data:
   config.yaml: |
-    # Name of the tunnel you want to run
-    tunnel: commafeed
+    tunnel: linkding
     credentials-file: /etc/cloudflared/creds/credentials.json
 
     metrics: 0.0.0.0:2000
 
     no-autoupdate: true
-
     ingress:
-    - hostname: commafeed.mischavandenburg.net
-      service: http://commafeed:8082
+    - hostname: linkding.mischavandenburg.net
+      service: http://linkding:3003
 
-    - hostname: hello.mischavandenburg.net
+    - hostname: hello.example.com
       service: hello_world
-
-    # This rule matches any traffic which didn't match a previous rule, and responds with HTTP 404.
     - service: http_status:404
