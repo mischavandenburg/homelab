@@ -6,7 +6,7 @@ resources:
   - configmap.yaml
   - database.yaml
   - ingress.yaml
-  # - scheduled-backup.yaml
+  - scheduled-backup.yaml
   # - cloudflare.yaml
   # - networkpolicy.yaml
 
