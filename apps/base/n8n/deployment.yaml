@@ -39,9 +39,6 @@ spec:
               protocol: TCP
 
           volumeMounts:
-            - name: secrets-store-inline
-              mountPath: /mnt/secrets-store
-              readOnly: true
             - mountPath: /home/node/.n8n
               name: n8n-data
 
@@ -51,11 +48,3 @@ spec:
         - name: n8n-data
           persistentVolumeClaim:
             claimName: n8n-data
-        - name: secrets-store-inline
-          csi:
-            driver: secrets-store.csi.k8s.io
-            readOnly: true
-            volumeAttributes:
-              secretProviderClass: azure-kv-secrets
-            nodePublishSecretRef: # Only required when using service principal mode
-              name: secrets-store-creds # Only required when using service principal mode
