@@ -1,0 +1,11 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: ScheduledBackup
+metadata:
+  name: n8n-db-production
+  namespace: n8n
+spec:
+  backupOwnerReference: cluster
+  cluster:
+    name: n8n-db-production-v1
+  immediate: true
+  schedule: 0 0 3 * *

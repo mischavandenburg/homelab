@@ -1,0 +1,59 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: n8n-db-production-v1
+  namespace: n8n
+spec:
+  description: Postgres cluster for the n8n application
+
+  imageName: quay.io/enterprisedb/postgresql:16.1
+  inheritedMetadata:
+    labels:
+      app: n8n-database
+      policy-type: database
+  instances: 3
+  monitoring:
+    enablePodMonitor: true
+
+  bootstrap:
+    recovery:
+      source: clusterBackup
+      database: n8n
+      owner: n8n
+      secret:
+        name: n8n-db-creds
+
+  backup:
+    barmanObjectStore:
+      azureCredentials:
+        storageAccount:
+          key: n8n-storage-account-name
+          name: azure-creds
+        storageSasToken:
+          key: n8n-blob-sas
+          name: azure-creds
+      data:
+        compression: gzip
+      destinationPath: https://hldatabaseproduction.blob.core.windows.net/n8n
+      wal:
+        compression: gzip
+    retentionPolicy: 14d
+
+  externalClusters:
+    - name: clusterBackup
+      barmanObjectStore:
+        destinationPath: https://hldatabaseproduction.blob.core.windows.net/n8n
+        serverName: n8n-db-production-v0
+        azureCredentials:
+          storageAccount:
+            name: azure-creds
+            key: commafeed-storage-account-name
+          storageSasToken:
+            name: azure-creds
+            key: commafeed-blob-sas
+
+  resources:
+    requests:
+      memory: 100Mi
+  storage:
+    size: 1Gi
