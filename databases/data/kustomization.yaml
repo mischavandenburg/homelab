@@ -4,3 +4,4 @@ resources:
   - commafeed
   - health-api
   - linkding
+  - n8n
