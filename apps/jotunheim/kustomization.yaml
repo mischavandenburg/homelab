@@ -5,4 +5,4 @@ resources:
   - health-api
   - homepage
   - linkding
-  - n8n
+  # - n8n
