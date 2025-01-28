@@ -47,10 +47,10 @@ spec:
         azureCredentials:
           storageAccount:
             name: azure-creds
-            key: commafeed-storage-account-name
+            key: n8n-storage-account-name
           storageSasToken:
             name: azure-creds
-            key: commafeed-blob-sas
+            key: n8n-blob-sas
 
   resources:
     requests:
