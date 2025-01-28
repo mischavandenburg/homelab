@@ -4,9 +4,7 @@ namespace: n8n
 resources:
   - ../../base/n8n/
   - configmap.yaml
-  - database.yaml
   - ingress.yaml
-  - scheduled-backup.yaml
   # - cloudflare.yaml
   # - networkpolicy.yaml
 

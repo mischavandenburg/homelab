@@ -1,11 +1,11 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  # annotations:
-  #   cert-manager.io/cluster-issuer: letsencrypt-staging
+  annotations:
+    external-dns.alpha.kubernetes.io/hostname: n8n.mischavandenburg.net
   name: n8n
 spec:
-  ingressClassName: traefik
+  ingressClassName: cilium
   rules:
     - host: n8n.mischavandenburg.net
       http:

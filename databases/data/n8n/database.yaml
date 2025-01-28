@@ -57,3 +57,20 @@ spec:
       memory: 100Mi
   storage:
     size: 1Gi
+
+  managed:
+    services:
+      disabledDefaultServices:
+        - ro
+        - r
+      additional:
+        - selectorType: rw
+          serviceTemplate:
+            metadata:
+              name: n8n-db-lb
+              labels:
+                cilium-lb-pool: postgres-pool
+              annotations:
+                external-dns.alpha.kubernetes.io/hostname: n8n-db.mischavandenburg.net
+            spec:
+              type: LoadBalancer

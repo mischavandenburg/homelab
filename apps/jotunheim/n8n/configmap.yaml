@@ -6,7 +6,7 @@ data:
   N8N_PORT: "3008"
   N8N_PROTOCOL: "http"
   DB_TYPE: "postgresdb"
-  DB_POSTGRESDB_HOST: "n8n-db-production-v0-rw.n8n.svc.cluster.local"
+  DB_POSTGRESDB_HOST: "n8n-db.mischavandenburg.net"
   DB_POSTGRESDB_PORT: "5432"
   DB_POSTGRESDB_DATABASE: "n8n"
   N8N_SECURE_COOKIE: "false"
