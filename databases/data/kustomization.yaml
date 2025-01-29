@@ -3,7 +3,7 @@ kind: Kustomization
 resources:
   - commafeed
   - health-api
-  - home-iot
+  # - home-iot
   - linkding
   - n8n
   - pgadmin
