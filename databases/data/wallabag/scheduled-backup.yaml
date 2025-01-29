@@ -1,0 +1,11 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: ScheduledBackup
+metadata:
+  name: wallabag-db-production-cnpg
+  namespace: wallabag
+spec:
+  immediate: true
+  schedule: "0 0 3 * * *"
+  backupOwnerReference: cluster
+  cluster:
+    name: wallabag-db-production-cnpg-v1

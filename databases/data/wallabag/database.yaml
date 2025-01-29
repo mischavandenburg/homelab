@@ -1,0 +1,78 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: wallabag-db-production-cnpg-v1
+spec:
+  description: Postgres cluster for the wallabag application
+  imageName: quay.io/enterprisedb/postgresql:16.1
+  instances: 3
+
+  monitoring:
+    enablePodMonitor: true
+
+  inheritedMetadata:
+    labels:
+      app: wallabag-database
+      policy-type: "database"
+
+  storage:
+    size: 2Gi
+
+  bootstrap:
+    recovery:
+      source: clusterBackup
+      database: wallabag
+      owner: wallabag
+      secret:
+        name: wallabag-db-creds
+
+  externalClusters:
+    - name: clusterBackup
+      barmanObjectStore:
+        destinationPath: https://hldatabaseproduction.blob.core.windows.net/wallabag
+        serverName: wallabag-db-production-cnpg-v0
+        azureCredentials:
+          storageAccount:
+            name: azure-creds
+            key: wallabag-storage-account-name
+          storageSasToken:
+            name: azure-creds
+            key: wallabag-blob-sas
+
+  backup:
+    barmanObjectStore:
+      destinationPath: https://hldatabaseproduction.blob.core.windows.net/wallabag
+      azureCredentials:
+        storageAccount:
+          name: azure-creds
+          key: wallabag-storage-account-name
+        storageSasToken:
+          name: azure-creds
+          key: wallabag-blob-sas
+      wal:
+        compression: gzip
+      data:
+        compression: gzip
+    retentionPolicy: 14d
+
+  # handy: resources can be used to trigger a redeploy
+  resources:
+    requests:
+      memory: 300Mi
+
+  managed:
+    services:
+      disabledDefaultServices:
+        - ro
+        - r
+      additional:
+        - selectorType: rw
+          serviceTemplate:
+            metadata:
+              name: home-iot-db-lb
+              labels:
+                cilium-lb-pool: postgres-pool
+              annotations:
+                external-dns.alpha.kubernetes.io/hostname: wallabag-db.mischavandenburg.net
+            spec:
+              type: LoadBalancer
