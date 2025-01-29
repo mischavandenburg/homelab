@@ -1,0 +1,8 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: zettelkasten-tracker
+resources:
+  - configmap.yaml
+  - ../../base/zettelkasten-tracker/
+  - podmonitor.yaml
+  - ingress.yaml

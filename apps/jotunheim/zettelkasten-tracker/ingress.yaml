@@ -1,11 +1,11 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  # annotations:
-  #   cert-manager.io/cluster-issuer: letsencrypt-staging
+  annotations:
+    external-dns.alpha.kubernetes.io/hostname: zktracker.mischavandenburg.net
   name: zettelkasten-tracker
 spec:
-  ingressClassName: traefik
+  ingressClassName: cilium
   rules:
     - host: zktracker.mischavandenburg.net
       http:
