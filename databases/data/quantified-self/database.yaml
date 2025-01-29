@@ -1,0 +1,62 @@
+apiVersion: postgresql.k8s.enterprisedb.io/v1
+kind: Cluster
+metadata:
+  name: quantified-self-production-v0
+spec:
+  description: Postgres cluster for tracking my obsessions
+  imageName: quay.io/enterprisedb/postgresql:16.1
+  instances: 3
+
+  monitoring:
+    enablePodMonitor: true
+
+  inheritedMetadata:
+    labels:
+      app: zettelkasten-tracker-database
+      policy-type: database
+
+  storage:
+    size: 1Gi
+
+  bootstrap:
+    recovery:
+      source: clusterBackup
+      database: zettelkasten-tracker
+      owner: zktracker
+      secret:
+        name: zettelkasten-tracker-db-creds
+
+  externalClusters:
+    - name: clusterBackup
+      barmanObjectStore:
+        destinationPath: https://hldatabaseproduction.blob.core.windows.net/zettelkasten-tracker
+        serverName: zettelkasten-tracker-db-production-v3
+        azureCredentials:
+          storageAccount:
+            name: azure-creds
+            key: zettelkasten-tracker-storage-account-name
+          storageSasToken:
+            name: azure-creds
+            key: zettelkasten-tracker-blob-sas
+
+  backup:
+    barmanObjectStore:
+      destinationPath: https://hldatabaseproduction.blob.core.windows.net/zettelkasten-tracker
+      azureCredentials:
+        storageAccount:
+          name: azure-creds
+          key: zettelkasten-tracker-storage-account-name
+        storageSasToken:
+          name: azure-creds
+          key: zettelkasten-tracker-blob-sas
+      wal:
+        compression: gzip
+      data:
+        compression: gzip
+    retentionPolicy: 7d
+
+  # handy: resources can be used to trigger a redeploy
+  resources:
+    requests:
+      memory: 201Mi
+      cpu: 200m
