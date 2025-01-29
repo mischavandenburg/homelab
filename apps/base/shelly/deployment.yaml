@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: shelly
+  name: shelly-api
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: shelly
+      app: shelly-api
   template:
     metadata:
       labels:
-        app: shelly
+        app: shelly-api
         policy-type: "app"
     spec:
       containers:
-        - name: shelly
+        - name: shelly-api
           image: ghcr.io/mischavandenburg/shelly:v0.1.2
           securityContext:
             allowPrivilegeEscalation: false
@@ -25,19 +25,4 @@ spec:
             - secretRef:
                 name: shelly-container-env
 
-          volumeMounts:
-            - name: secrets-store-inline
-              mountPath: /mnt/secrets-store
-              readOnly: true
-
       restartPolicy: Always
-
-      volumes:
-        - name: secrets-store-inline
-          csi:
-            driver: secrets-store.csi.k8s.io
-            readOnly: true
-            volumeAttributes:
-              secretProviderClass: azure-kv-secrets-shelly
-            nodePublishSecretRef: # Only required when using service principal mode
-              name: secrets-store-creds # Only required when using service principal mode

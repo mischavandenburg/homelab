@@ -5,5 +5,5 @@ metadata:
 data:
   MQTT_BROKER: "192.168.120.186"
   MQTT_PORT: "1883"
-  PG_HOST: shelly-db-production-cnpg-v0-rw.data.svc.cluster.local
+  PG_HOST: home-iot-db.mischavandenburg.net
   PG_DATABASE: shelly
