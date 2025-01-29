@@ -3,6 +3,9 @@ kind: Kustomization
 namespace: data
 resources:
   - namespace.yaml
-  - ../../base/pgadmin/
   - configmap.yaml
   # - ingress.yaml
+  - secrets.yaml
+  - networking.yaml
+  - storage.yaml
+  - deployment.yaml
