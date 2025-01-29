@@ -1,0 +1,10 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: ScheduledBackup
+metadata:
+  name: home-iot-production-v0
+spec:
+  backupOwnerReference: cluster
+  cluster:
+    name: home-iot-production-v0
+  immediate: true
+  schedule: 0 0 4 * *

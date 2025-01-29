@@ -1,0 +1,73 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: home-iot-production-v0
+spec:
+  backup:
+    barmanObjectStore:
+      azureCredentials:
+        storageAccount:
+          key: shelly-storage-account-name
+          name: azure-creds
+        storageSasToken:
+          key: shelly-blob-sas
+          name: azure-creds
+      data:
+        compression: gzip
+      destinationPath: https://hldatabaseproduction.blob.core.windows.net/shelly
+      wal:
+        compression: gzip
+    retentionPolicy: 14d
+
+  bootstrap:
+    recovery:
+      source: clusterBackup
+      database: shelly
+      owner: shelly
+      secret:
+        name: shelly-db-creds
+
+  externalClusters:
+    - name: clusterBackup
+      barmanObjectStore:
+        destinationPath: https://hldatabaseproduction.blob.core.windows.net/shelly
+        serverName: home-iot-production-v0
+        azureCredentials:
+          storageAccount:
+            name: azure-creds
+            key: shelly-storage-account-name
+          storageSasToken:
+            name: azure-creds
+            key: shelly-blob-sas
+
+  description: Postgres cluster for home-iot & shelly application
+  imageName: quay.io/enterprisedb/postgresql:16.1
+  inheritedMetadata:
+    labels:
+      app: shelly-database
+      policy-type: database
+  instances: 3
+  monitoring:
+    enablePodMonitor: true
+  resources:
+    requests:
+      memory: 100Mi
+  storage:
+    size: 1Gi
+
+  managed:
+    services:
+      disabledDefaultServices:
+        - ro
+        - r
+      additional:
+        - selectorType: rw
+          serviceTemplate:
+            metadata:
+              name: home-iot-db-lb
+              labels:
+                cilium-lb-pool: postgres-pool
+              annotations:
+                external-dns.alpha.kubernetes.io/hostname: home-iot-db.mischavandenburg.net
+            spec:
+              type: LoadBalancer
