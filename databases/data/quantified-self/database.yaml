@@ -60,3 +60,20 @@ spec:
     requests:
       memory: 201Mi
       cpu: 200m
+
+  managed:
+    services:
+      disabledDefaultServices:
+        - ro
+        - r
+      additional:
+        - selectorType: rw
+          serviceTemplate:
+            metadata:
+              name: quantified-self-db-lb
+              labels:
+                cilium-lb-pool: postgres-pool
+              annotations:
+                external-dns.alpha.kubernetes.io/hostname: quantified-self-db.mischavandenburg.net
+            spec:
+              type: LoadBalancer
