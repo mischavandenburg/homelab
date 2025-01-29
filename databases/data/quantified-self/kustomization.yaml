@@ -5,4 +5,4 @@ resources:
   - namespace.yaml
   - secrets.yaml
   - database.yaml
-  - sheduled-backup.yaml
+  - scheduled-backup.yaml
