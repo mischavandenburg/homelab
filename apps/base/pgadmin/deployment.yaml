@@ -38,9 +38,6 @@ spec:
           volumeMounts:
             - mountPath: /var/lib/pgadmin
               name: pgadmin-data
-            - name: secrets-store-inline
-              mountPath: /mnt/secrets-store
-              readOnly: true
 
       restartPolicy: Always
 
@@ -48,11 +45,3 @@ spec:
         - name: pgadmin-data
           persistentVolumeClaim:
             claimName: pgadmin-data
-        - name: secrets-store-inline
-          csi:
-            driver: secrets-store.csi.k8s.io
-            readOnly: true
-            volumeAttributes:
-              secretProviderClass: azure-kv-secrets
-            nodePublishSecretRef: # Only required when using service principal mode
-              name: secrets-store-creds # Only required when using service principal mode

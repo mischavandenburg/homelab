@@ -3,7 +3,7 @@ kind: Kustomization
 namespace: data
 resources:
   - configmap.yaml
-  - ingress.yaml
+  # - ingress.yaml
   - ../../base/pgadmin/
 patches:
   - target:

@@ -5,3 +5,4 @@ resources:
   - health-api
   - linkding
   - n8n
+  - pgadmin

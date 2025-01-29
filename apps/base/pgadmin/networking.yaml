@@ -2,6 +2,9 @@ apiVersion: v1
 kind: Service
 metadata:
   name: pgadmin
+  annotations:
+    omni-kube-service-exposer.sidero.dev/port: "50080"
+    omni-kube-service-exposer.sidero.dev/label: PgAdmin
 spec:
   ports:
     - port: 3004
