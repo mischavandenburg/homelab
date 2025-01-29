@@ -64,14 +64,13 @@ data:
     tunnel: wallabag
     credentials-file: /etc/cloudflared/creds/credentials.json
 
+    metrics: 0.0.0.0:2000
+
     no-autoupdate: true
 
     ingress:
-
     - hostname: wallabag.mischavandenburg.net
       service: http://wallabag:8083
-
     - hostname: hello.mischavandenburg.net
       service: hello_world
-
     - service: http_status:404
