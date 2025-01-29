@@ -31,7 +31,7 @@ spec:
     - name: clusterBackup
       barmanObjectStore:
         destinationPath: https://hldatabaseproduction.blob.core.windows.net/shelly
-        serverName: home-iot-production-v0
+        serverName: shelly-db-production-cnpg-v0
         azureCredentials:
           storageAccount:
             name: azure-creds
