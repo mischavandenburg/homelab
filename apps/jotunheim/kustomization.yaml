@@ -6,5 +6,5 @@ resources:
   - homepage
   - linkding
   - n8n
-  # - shelly-api
+  - shelly-api
   - wallabag
