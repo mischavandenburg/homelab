@@ -8,3 +8,4 @@ resources:
   - n8n
   - shelly-api
   - wallabag
+  - zettelkasten-tracker
