@@ -1,5 +1,15 @@
 # 🏠 Homelab
 
+# 🚧  Currently under heavy construction 🚧
+
+I'm overhauling my entire structure and cluster setup.
+
+Weekly updates with in-depth explanation are posted in my DevOps community:
+
+<https://skool.com/kubecraft>
+
+## Introduction
+
 This repo contains all of the configuration and documentation of my homelab.
 
 Most of the homelab work is documented on my [YouTube channel](https://www.youtube.com/channel/UCDAck-gFPTrgTx_qp59-bQA)
@@ -62,10 +72,8 @@ Decided to fully commit to Flux CD and their best practices.
 
 Set up the repo according to this guide:
 
-https://fluxcd.io/flux/guides/repository-structure/
+<https://fluxcd.io/flux/guides/repository-structure/>
 
 And following this example:
 
-https://github.com/fluxcd/flux2-kustomize-helm-example
-
-
+<https://github.com/fluxcd/flux2-kustomize-helm-example>
