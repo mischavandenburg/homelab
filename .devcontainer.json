@@ -12,6 +12,9 @@
       }
     }
   },
+  "remoteEnv": {
+    "LANG": "en_US.UTF-8"
+  },
   "forwardPorts": [
     8000
   ]
