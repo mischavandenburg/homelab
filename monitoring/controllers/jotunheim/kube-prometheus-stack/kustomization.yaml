@@ -3,6 +3,7 @@ kind: Kustomization
 namespace: monitoring
 resources:
   - namespace.yaml
+  - secrets.yaml
   - release.yaml
   - repository.yaml
 

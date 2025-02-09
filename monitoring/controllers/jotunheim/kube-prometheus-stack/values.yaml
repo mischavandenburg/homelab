@@ -40,6 +40,35 @@ grafana:
     date_formats:
       default_week_start: monday
 
+  envFromSecret: grafana-env
+
+  datasources:
+    datasources.yaml:
+      apiVersion: 1
+      datasources:
+        - name: health
+          type: postgres
+          url: health-db.mischavandenburg.net:5432
+          user: health
+          secureJsonData:
+            password: $HEALTH_DB_PASSWORD
+          jsonData:
+            database: health
+            sslmode: disable
+            maxOpenConns: 100
+            maxIdleConns: 100
+            maxLifetime: 14400
+            minIdleTimeoutMinutes: 1
+            connMaxLifetime: 14400
+            postgresVersion: 1500
+            timescaledb: false
+          version: 1
+          editable: true
+
+      deleteDatasources:
+        - name: health
+          orgId: 1
+
   persistence:
     enabled: true
     type: pvc
