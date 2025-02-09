@@ -30,13 +30,13 @@ prometheus:
 
 grafana:
   grafana.ini:
-    auth:
-      disable_login_form: true
-      disable_signout_menu: true
-    auth.basic:
-      enabled: false
-    auth.anonymous:
-      enabled: true
+    # auth:
+    #   disable_login_form: true
+    #   disable_signout_menu: true
+    # auth.basic:
+    #   enabled: false
+    # auth.anonymous:
+    #   enabled: true
     date_formats:
       default_week_start: monday
 
