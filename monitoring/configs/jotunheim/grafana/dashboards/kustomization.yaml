@@ -16,6 +16,7 @@ configMapGenerator:
     files:
       - quantified-self/zettelkasten.json
       - quantified-self/health.json
+      - quantified-self/sleep.json
     options:
       labels:
         grafana_dashboard: "1"
