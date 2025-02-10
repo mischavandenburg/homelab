@@ -101,7 +101,11 @@ grafana:
           editable: true
 
       deleteDatasources:
-        - name: health
+        - name: Health DB
+          orgId: 1
+        - name: Home IoT DB
+          orgId: 1
+        - name: Quatified Self DB
           orgId: 1
 
   persistence:
