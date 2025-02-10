@@ -1,8 +1,0 @@
-apiVersion: source.toolkit.fluxcd.io/v1
-kind: HelmRepository
-metadata:
-  name: csi-secrets-store-provider-azure
-  namespace: kube-system
-spec:
-  interval: 24h
-  url: https://azure.github.io/secrets-store-csi-driver-provider-azure/charts

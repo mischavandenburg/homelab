@@ -1,8 +1,0 @@
-apiVersion: source.toolkit.fluxcd.io/v1
-kind: HelmRepository
-metadata:
-  name: edb
-  namespace: postgresql-operator-system
-spec:
-  interval: 24h
-  url: https://enterprisedb.github.io/edb-postgres-for-kubernetes-charts/
