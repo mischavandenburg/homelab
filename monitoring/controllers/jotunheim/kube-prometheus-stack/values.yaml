@@ -35,6 +35,19 @@ grafana:
 
   envFromSecret: grafana-env
 
+  sidecar:
+    datasources:
+      enabled: true
+      label: grafana_datasource
+      labelValue: "1"
+    dashboards:
+      enabled: true
+      label: grafana_dashboard
+      labelValue: "1"
+      searchNamespace: monitoring
+      provider:
+        allowUiUpdates: true
+
   # Choosing to add data sources here instead of separate configmaps.
   # Reason: Adding here will trigger a redeploy.
   # Future improvement: utilize Kustomizeconfig to allow separate configmap files.

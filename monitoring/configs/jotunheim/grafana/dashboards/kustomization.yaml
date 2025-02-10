@@ -1,0 +1,20 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: monitoring
+configMapGenerator:
+  # - name: extra-dashboards
+  #   files:
+  #     - extra-dashboards/edb-postgres.json # https://github.com/EnterpriseDB/docs/blob/main/product_docs/docs/postgres_for_kubernetes/1/samples/monitoring/grafana-dashboard.json
+  #     # - extra-dashboards/node-exporter-full.json
+  #     - extra-dashboards/node-exporter-nodename.json
+  #     - extra-dashboards/cloudflared.json
+  #   options:
+  #     labels:
+  #       grafana_dashboard: "1"
+
+  - name: personal-dashboards
+    files:
+      - quantified-self/zettelkasten.json
+    options:
+      labels:
+        grafana_dashboard: "1"
