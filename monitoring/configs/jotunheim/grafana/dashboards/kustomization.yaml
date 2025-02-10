@@ -19,3 +19,10 @@ configMapGenerator:
     options:
       labels:
         grafana_dashboard: "1"
+
+  - name: home-iot-dashboards
+    files:
+      - home-iot/home-iot.json
+    options:
+      labels:
+        grafana_dashboard: "1"
