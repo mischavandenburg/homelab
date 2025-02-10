@@ -46,6 +46,7 @@ grafana:
           type: postgres
           url: health-db.mischavandenburg.net:5432
           user: health
+          uid: health-db
           secureJsonData:
             password: $HEALTH_DB_PASSWORD
           jsonData:
@@ -64,6 +65,7 @@ grafana:
           type: postgres
           url: home-iot-db.mischavandenburg.net:5432
           user: shelly
+          uid: home-iot-db
           secureJsonData:
             password: $HOME_IOT_DB_PASSWORD
           jsonData:
@@ -82,6 +84,7 @@ grafana:
           type: postgres
           url: quantified-self-db.mischavandenburg.net:5432
           user: zktracker
+          uid: quantified-self-db
           secureJsonData:
             password: $QF_DB_PASSWORD
           jsonData:
