@@ -1,8 +1,0 @@
-apiVersion: kustomize.config.k8s.io/v1beta1
-kind: Kustomization
-namespace: home-assistant-v1
-resources:
-  - storage.yaml
-  - networking.yaml
-  - ingress.yaml
-  - deployment.yaml
