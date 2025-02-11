@@ -5,6 +5,8 @@ metadata:
   namespace: renovate
 spec:
   schedule: "@hourly"
+  successfulJobsHistoryLimit: 2
+  failedJobsHistoryLimit: 2
   concurrencyPolicy: Forbid
   jobTemplate:
     spec:
@@ -21,20 +23,5 @@ spec:
                     name: renovate-container-env
                 - configMapRef:
                     name: renovate-configmap
-
-              volumeMounts:
-                - name: secrets-store-inline
-                  mountPath: /mnt/secrets-store
-                  readOnly: true
-
-          volumes:
-            - name: secrets-store-inline
-              csi:
-                driver: secrets-store.csi.k8s.io
-                readOnly: true
-                volumeAttributes:
-                  secretProviderClass: azure-kv-secrets
-                nodePublishSecretRef: # Only required when using service principal mode
-                  name: secrets-store-creds # Only required when using service principal mode
 
           restartPolicy: Never
