@@ -23,7 +23,7 @@ spec:
 
       containers:
         - name: n8n
-          image: docker.n8n.io/n8nio/n8n:1.69.2
+          image: docker.n8n.io/n8nio/n8n:1.78.0
 
           securityContext:
             allowPrivilegeEscalation: false
