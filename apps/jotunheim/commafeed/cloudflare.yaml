@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: cloudflared
-          image: cloudflare/cloudflared:2024.12.2
+          image: cloudflare/cloudflared:2025.2.0
           args:
             - tunnel
             - --config
