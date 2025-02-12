@@ -6,6 +6,6 @@ resources:
   - home-iot
   - linkding
   - n8n
-  - pgadmin
+  # - pgadmin
   - quantified-self
   - wallabag
