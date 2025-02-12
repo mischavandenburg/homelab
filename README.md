@@ -1,6 +1,6 @@
 # 🏠 Homelab
 
-# 🚧  Currently under heavy construction 🚧
+## 🚧  Currently under heavy construction 🚧
 
 I'm overhauling my entire structure and cluster setup.
 
