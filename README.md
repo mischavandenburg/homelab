@@ -96,7 +96,7 @@ End User Applications
 
 I store data about myself in self-hosted Postgres databases.
 
-A combination of self-written APIs & n8n workflows are used.
+A combination of n8n workflows & APIs I coded myself are used.
 
 <table>
     <tr>
