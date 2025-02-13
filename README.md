@@ -157,7 +157,7 @@ Everything needed to run my cluster & deploy my applications
     </tr>
     <tr>
         <td><img width="32" src="https://www.svgrepo.com/download/477066/lock.svg"></td>
-        <td><a href="">External Secrets Operator</a></td>
+        <td><a href="https://external-secrets.io/latest/">External Secrets Operator</a></td>
         <td>Used to sync my secrets from Azure Key Vaults to my cluster</td>
     </tr>
     <tr>
@@ -191,7 +191,7 @@ Everything needed to run my cluster & deploy my applications
 
 Do you feel inspired by this project, but don't know where to start?
 
-I created the only [Kubernetes homelab course](https://skool.com/kubecrat) on the internet and helped hundreds of people start their homelab journey.
+I created the only [Kubernetes homelab course](https://skool.com/kubecraft) on the internet and helped hundreds of people start their homelab journey.
 
 ![https://skool.com/kubecraft](./images/homelab-feedback.png)
 
