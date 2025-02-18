@@ -1,9 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: commafeed-configmap
-  namespace: commafeed
-data:
-  CF_APP_PUBLICURL: "https://commafeed-staging.mischavandenburg.net"
-  CF_DATABASE_DRIVERCLASS: "org.postgresql.Driver"
-  CF_DATABASE_URL: "jdbc:postgresql://commafeed-db-staging-rw:5432/commafeed"
