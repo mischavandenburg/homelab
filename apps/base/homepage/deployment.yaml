@@ -58,9 +58,9 @@ spec:
             - mountPath: /app/config/docker.yaml
               name: homepage-config
               subPath: docker.yaml
-            # - mountPath: /app/config/kubernetes.yaml
-            #   name: homepage-config
-            #   subPath: kubernetes.yaml
+            - mountPath: /app/config/kubernetes.yaml
+              name: homepage-config
+              subPath: kubernetes.yaml
             - mountPath: /app/config/services.yaml
               name: homepage-config
               subPath: services.yaml
