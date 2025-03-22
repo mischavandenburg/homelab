@@ -30,6 +30,9 @@ spec:
         - name: homepage
           image: "ghcr.io/gethomepage/homepage:latest"
           imagePullPolicy: Always
+          envFrom:
+            - configMapRef:
+                name: homepage-env-configmap
           ports:
             - name: http
               containerPort: 3000
