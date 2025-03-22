@@ -28,7 +28,7 @@ spec:
         fsGroup: 1000
       containers:
         - name: homepage
-          image: "ghcr.io/gethomepage/homepage:latest"
+          image: "ghcr.io/gethomepage/homepage:v0.10.9"
           imagePullPolicy: Always
           envFrom:
             - configMapRef:
