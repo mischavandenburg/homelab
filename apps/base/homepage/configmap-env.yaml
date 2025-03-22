@@ -3,4 +3,4 @@ kind: ConfigMap
 metadata:
   name: homepage-env-configmap
 data:
-  HOMEPAGE_ALLOWED_HOSTS: "homepage.mischavandenbug.net"
+  HOMEPAGE_ALLOWED_HOSTS: "homepage.mischavandenburg.net"
