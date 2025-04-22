@@ -13,10 +13,10 @@ spec:
         app: linkding
         policy-type: "app"
     spec:
-      # securityContext:
-      #   runAsUser: 33
-      #   runAsGroup: 33
-      #   fsGroup: 33
+      securityContext:
+        runAsUser: 33
+        runAsGroup: 33
+        fsGroup: 33
 
       containers:
         - name: linkding
@@ -35,13 +35,13 @@ spec:
             - containerPort: 3003
               protocol: TCP
 
+          # volumeMounts:
+          #   - name: linkding-data
+          #     mountPath: /etc/linkding/data
+
       restartPolicy: Always
 
-      volumeMounts:
-        - name: linkding-data
-          mountPath: /etc/linkding/data
-
-      volumes:
-        - name: linkding-data
-          persistentVolumeClaim:
-            claimName: linkding-data
+      # volumes:
+      #   - name: linkding-data
+      #     persistentVolumeClaim:
+      #       claimName: linkding-data
