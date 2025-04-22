@@ -35,13 +35,13 @@ spec:
             - containerPort: 3003
               protocol: TCP
 
-          # volumeMounts:
-          #   - name: linkding-data
-          #     mountPath: /etc/linkding/data
+          volumeMounts:
+            - name: linkding-data
+              mountPath: /etc/linkding/data
 
       restartPolicy: Always
 
-      # volumes:
-      #   - name: linkding-data
-      #     persistentVolumeClaim:
-      #       claimName: linkding-data
+      volumes:
+        - name: linkding-data
+          persistentVolumeClaim:
+            claimName: linkding-data
